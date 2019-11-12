@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.header-navbar {
+  height: 70px;
+  width: 100%;
+  min-width: 500px;
+  background-color: rgb(247, 66, 99);
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  /* position: fixed; */
+  z-index: 4;
+  font-family: "Fredoka One";
+}
+
+.header-logo {
+  font-family: "Fredoka One";
+  color: rgb(255, 88, 116);
+  font-weight: 800;
+  font-size: 40px;
+  text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+  margin-top: 10px;
+  margin-left: 20px;
+  letter-spacing: 2px;
+}
+
+.header-logo-inner {
+  color: rgb(238, 141, 157)
+}
+
+.header-greeting {
+  color: white;
+}

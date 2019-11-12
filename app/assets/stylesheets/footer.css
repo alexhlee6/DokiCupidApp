@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  color: gray;
+  border-top: 1px solid lightgray;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  min-width: 500px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.footer-left {
+  margin-left: 10px;
+}
+
+.footer-right {
+  margin-right: 10px;
+}
+
+.footer > ul {
+  display: flex;
+}
+
+.footer > ul > li {
+  margin-left: 15px;
+}
+
+.footer > ul > li:hover {
+  color: black
+}

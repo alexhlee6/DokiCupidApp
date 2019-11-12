@@ -1,0 +1,101 @@
+.session-link {
+  font-family: sans-serif;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 10px;
+  top: 25px;
+  position: relative;
+}
+
+.session-link:hover {
+  color: rgba(255, 255, 255, 0.845);
+  border: 1px solid rgba(255, 255, 255, 0.845);
+}
+
+.session-form-main {
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  margin-top: 40px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  position: relative;
+}
+
+.session-form-title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.session-form {
+  /* text-align: center; */
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 200px;
+  width: 250px;
+  /* box-sizing: content-box; */
+  
+}
+
+.session-form label {
+  /* color: gray; */
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.session-form input {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 250px;
+  height: 30px;
+}
+
+.session-form button {
+  margin-top: 20px;
+  width: 255px;
+  height: 30px;
+  background-color: rgb(247, 66, 99);
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.session-form button:hover {
+  cursor: pointer;
+}
+
+.session-errors {
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  width: 230px;
+  padding: 10px 10px;
+  padding-left: 15px;
+  margin-top: 10px;
+  background-color: rgba(255, 72, 75, 0.865);
+  font-size: 13px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.arrow-up {
+  position: absolute;
+  top: -5px;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-bottom: 5px solid rgb(230, 72, 75);
+}

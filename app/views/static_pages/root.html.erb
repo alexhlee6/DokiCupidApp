@@ -1,0 +1,11 @@
+<% if current_user %>
+<script>
+  window.currentUser = {
+    "id": <%= current_user.id %>,
+    "username": "<%= current_user.username %>"
+  };
+</script>
+<% end %>
+
+<div id="root">
+</div>
