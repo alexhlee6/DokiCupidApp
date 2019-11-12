@@ -7,9 +7,9 @@ class Splash extends React.Component {
     this.state = {
       slides: {
         slide0: "/images/hirotwo.jpg",
-        slide1: "/images/kaguya.png",
-        slide2: "/images/your_name.jpg",
-        slide3: "/images/toradora.jpg",
+        slide1: "/images/your_name-2.png",
+        slide2: "/images/umbrella.jpg",
+        slide3: "/images/chitanda.jpg",
         slide4: "/images/sao.jpg"
       },
       currentSlideId: 0
@@ -23,12 +23,10 @@ class Splash extends React.Component {
   startCarousel() {
     this.carouselInterval = setInterval(() => {
       this.transitionSlide();
-    }, 4000);
+    }, 7000);
   }
 
   transitionSlide() {
-    console.log(this.state);
-    
     this.setState({currentSlideId: ((this.state.currentSlideId + 1) % 5)})
   }
 
@@ -38,8 +36,6 @@ class Splash extends React.Component {
 
   render() {
     let currentSlideNumber = "slide" + this.state.currentSlideId.toString();
-    let currentSlide = this.state.slides[currentSlideNumber];
-    console.log(currentSlideNumber);
 
     let stateSlides = Object.keys(this.state.slides);
     let slides = stateSlides.map((slideNum, i) => {
@@ -63,10 +59,12 @@ class Splash extends React.Component {
         <ul>
           {slides}
         </ul>
+        <p className="splash-description">
+          LOVE TRANSCENDS DIMENSIONS
+        </p>
       </div>
     )
   }
-
 }
 
 export default Splash;

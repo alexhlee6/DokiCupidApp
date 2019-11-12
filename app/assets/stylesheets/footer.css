@@ -2,14 +2,17 @@
   display: flex;
   font-size: 13px;
   font-weight: 500;
-  color: gray;
-  border-top: 1px solid lightgray;
+  color: rgb(116, 116, 116);
+  /* border-top: 1px solid rgba(23, 23, 23, 0.125); */
+  border-top: 1px solid rgba(254, 209, 209, 0.968);
   justify-content: space-between;
   bottom: 0;
   width: 100%;
   min-width: 500px;
-  margin-top: 20px;
+  margin-top: 0px;
   padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
 .footer-left {
@@ -29,5 +32,6 @@
 }
 
 .footer > ul > li:hover {
-  color: black
+  color: black;
+  font-weight: 500;
 }

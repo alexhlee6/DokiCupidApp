@@ -1,13 +1,13 @@
 .session-link {
   font-family: sans-serif;
-  padding: 5px 10px;
+  padding: 6px 12px;
   font-weight: bold;
   font-size: 14px;
   color: white;
   border: 1px solid white;
   border-radius: 5px;
-  margin: 10px;
-  top: 25px;
+  margin-right: 20px;
+  top: 22px;
   position: relative;
 }
 
@@ -21,22 +21,24 @@
   width: 500px;
   height: 400px;
   margin-top: 40px;
-  border: 1px solid lightgray;
+  border: 1px solid rgba(254, 209, 209, 0.968);
   border-radius: 10px;
   position: relative;
+  background-color: white;
 }
 
 .session-form-title {
   font-size: 18px;
   text-align: center;
-  margin-bottom: 30px;
+  padding-top: 10px;
+  margin-bottom: 20px;
   font-weight: 600;
 }
 
 .session-form {
   /* text-align: center; */
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 55px;
   height: 200px;
   width: 250px;
   /* box-sizing: content-box; */
@@ -47,14 +49,14 @@
   /* color: gray; */
   display: block;
   margin-top: 20px;
-  margin-bottom: 5px;
-  font-size: 14px;
+  /* margin-bottom: 3px; */
+  font-size: 15px;
 }
 
 .session-form input {
   display: block;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 15px;
   width: 250px;
   height: 30px;
 }
@@ -63,12 +65,17 @@
   margin-top: 20px;
   width: 255px;
   height: 30px;
-  background-color: rgb(247, 66, 99);
+  background-color: rgb(245, 123, 145);
   color: white;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
 }
+
+.session-form button:hover {
+  background-color: rgb(244, 108, 133)
+}
+
 
 .session-form button:hover {
   cursor: pointer;

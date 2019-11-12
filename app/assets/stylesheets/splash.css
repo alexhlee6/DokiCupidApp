@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:900&display=swap');
+
+
 .splash-main {
   width: 100%;
   min-width: 500px;
-  height: 85vh; 
+  height: 92vh; 
   padding: 0px;
   margin: 0px;
   overflow: hidden;
   position: relative;
+  /* margin-bottom: 40px; */
 }
 
 
@@ -14,7 +18,7 @@
   /* top: 70px; */
   left: 0px;
   max-width: 100%;
-  min-width: 500px;
+  min-width: 1000px;
   height: 100%;
   opacity: 0;
   z-index: 1;
@@ -29,7 +33,7 @@
 .slideshow-image {
   width: 100%;
   /* height: 85vh; */
-  min-height: 80vh;
+  min-height: 89vh;
   /* max-height: 90vh; */
   min-width: 800px;
 }
@@ -38,4 +42,20 @@
   opacity: 1;
   z-index: 2;
   background-color: white;
+}
+
+.splash-description {
+  font-family: "Titillium Web";
+  position: relative;
+  color: white;
+  z-index: 10;
+  width: 60%;
+  min-width: 600px;
+  left: 6%;
+  top: 12%;
+  line-height: 85px;
+  text-shadow: -7px 6px 1px #781e34;
+  -webkit-text-stroke: 4.5px rgb(227, 94, 118);
+  font-size: 4em;
+  letter-spacing: 0.2mm;
 }
