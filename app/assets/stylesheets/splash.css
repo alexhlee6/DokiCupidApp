@@ -9,13 +9,11 @@
   margin: 0px;
   overflow: hidden;
   position: relative;
-  /* margin-bottom: 40px; */
 }
 
 
 .slide {
   position: absolute;
-  /* top: 70px; */
   left: 0px;
   max-width: 100%;
   min-width: 1000px;
@@ -44,18 +42,42 @@
   background-color: white;
 }
 
-.splash-description {
+.splash-description-title {
   font-family: "Titillium Web";
   position: relative;
   color: white;
   z-index: 10;
-  width: 60%;
-  min-width: 600px;
-  left: 6%;
-  top: 12%;
+  width: 580px;
+  left: 80px;
+  top: 110px;
   line-height: 85px;
   text-shadow: -7px 6px 1px #781e34;
   -webkit-text-stroke: 4.5px rgb(227, 94, 118);
-  font-size: 4em;
+  font-size: 3.8em;
   letter-spacing: 0.2mm;
+}
+
+.splash-description-module {
+  width: 470px;
+  height: 185px;
+  top: 122px;
+  left: 60px;
+  background-color: rgba(255, 255, 255, 0.413);
+  -webkit-filter: blur(12px);
+  filter: blur(15px);
+  z-index: 9;
+  position: relative;
+  border-radius: 8px;
+}
+
+.splash-description-body {
+  position: relative;
+  line-height: 26px;
+  bottom: 45px;
+  left: 80px;
+  font-weight: 500;
+  z-index: 10;
+  color: black;
+  font-size: 22px;
+  width: 450px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
   const display = currentUser ? (
@@ -9,8 +9,14 @@ const Greeting = ({ currentUser, logout }) => {
     </div>
   ) : (
       <div>
-        <Link className="session-link" to="/signup">Sign Up</Link>
-        <Link className="session-link" to="/login">Log In</Link>
+        <Switch>
+          <Route exact path="/login" render={() => <Link className="session-link" to="/signup">Sign Up</Link>} />
+          <Route exact path="/signup" render={() => <Link className="session-link" to="/login">Log In</Link>} />
+        
+          <Route exact path="/" render={() => (
+            <div><Link className="session-link" to="/signup">Sign Up</Link> <Link className="session-link" to="/login">Log In</Link></div>
+          )} />
+        </Switch>
       </div>
     );
 
