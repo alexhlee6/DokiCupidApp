@@ -6,9 +6,11 @@ import MainContainer from './main_container';
 
 const App = () => {
   return (
-    <div>
+    <div className="page-container">
       <Navbar />
-      <MainContainer />
+      <div className="content-wrap">
+        <MainContainer />
+      </div>
       <Footer />
     </div>
   )

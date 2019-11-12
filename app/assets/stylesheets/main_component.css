@@ -1,4 +1,15 @@
+.page-container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  padding-bottom: 2rem;
+  height: 100%;
+}
+
 .main-component {
-  min-height: 84vh;
-  /* height: ; */
+  height: 100%;
 }

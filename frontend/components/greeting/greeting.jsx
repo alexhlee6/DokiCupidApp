@@ -10,11 +10,36 @@ const Greeting = ({ currentUser, logout }) => {
   ) : (
       <div>
         <Switch>
-          <Route exact path="/login" render={() => <Link className="session-link" to="/signup">Sign Up</Link>} />
-          <Route exact path="/signup" render={() => <Link className="session-link" to="/login">Log In</Link>} />
-        
+          <Route exact path="/login" 
+            render={() => (
+              <div>
+                <Link className="session-link" to="/demo-login">Demo Login</Link>
+                <Link className="session-link" to="/signup">Sign Up</Link>
+              </div>
+          )}/>
+
+          <Route exact path="/signup" 
+            render={() => (
+              <div>
+                <Link className="session-link" to="/demo-login">Demo Login</Link>
+                <Link className="session-link" to="/login">Log In</Link>
+              </div>
+          )}/>
+
+          <Route exact path="/demo-login"
+            render={() => (
+              <div>
+                <Link className="session-link" to="/signup">Sign Up</Link>
+                <Link className="session-link" to="/login">Log In</Link>
+              </div>
+            )} />
+
           <Route exact path="/" render={() => (
-            <div><Link className="session-link" to="/signup">Sign Up</Link> <Link className="session-link" to="/login">Log In</Link></div>
+            <div>
+              <Link className="session-link" to="/demo-login">Demo Login</Link>
+              <Link className="session-link" to="/signup">Sign Up</Link> 
+              <Link className="session-link" to="/login">Log In</Link>
+            </div>
           )} />
         </Switch>
       </div>

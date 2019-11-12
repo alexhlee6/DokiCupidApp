@@ -4,7 +4,8 @@
 .splash-main {
   width: 100%;
   min-width: 500px;
-  height: 92vh; 
+  /* height: 89vh; */
+  height: 100%;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -15,7 +16,7 @@
 .slide {
   position: absolute;
   left: 0px;
-  max-width: 100%;
+  width: 100%;
   min-width: 1000px;
   height: 100%;
   opacity: 0;
@@ -31,7 +32,8 @@
 .slideshow-image {
   width: 100%;
   /* height: 85vh; */
-  min-height: 89vh;
+  height: 100%;
+  /* min-height: 89vh; */
   /* max-height: 90vh; */
   min-width: 800px;
 }
