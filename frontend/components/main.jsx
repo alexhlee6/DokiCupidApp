@@ -23,6 +23,10 @@ class Main extends React.Component {
 
           <AuthRoute exact path="/" component={Splash} />
           <ProtectedRoute exact path="/home" component={Home} />
+
+
+          {/* ANY INVALID PATH: */}
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
         
         

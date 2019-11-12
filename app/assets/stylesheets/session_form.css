@@ -56,6 +56,9 @@
   margin-top: 15px;
   width: 250px;
   height: 30px;
+  /* border-style: solid; */
+  border: 1px solid rgba(250, 200, 200, 0.968);
+  background-color: rgb(255, 243, 244);
 }
 
 .session-form button {
@@ -120,7 +123,7 @@
 .demo-session-form-main {
   width: 500px;
   height: 400px;
-  margin: 15% auto;
+  margin: 14% auto;
   left: 50%;
   margin-left: -250px;
   border: 1px solid rgba(254, 209, 209, 0.968);
@@ -152,9 +155,10 @@
   border: 1px solid gray;
   font-size: 14px;
   padding-left: 15px;
+  background-color: rgb(255, 240, 241);
 }
 
-.demo-session-form > button {
+#demo-button {
   border: 1px solid gray;
   border-radius: 5px;
   background-color: lightgray;
@@ -163,4 +167,10 @@
   height: 30px;
   font-size: 14px;
   margin-left: 30px;
+  cursor: default;
 }
+
+#demo-button.clicked {
+  background-color: rgb(196, 196, 196);
+}
+

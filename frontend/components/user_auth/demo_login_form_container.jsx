@@ -33,7 +33,7 @@ class DemoSessionForm extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.startInterval();
-    }, 700);
+    }, 600);
   }
 
   startInterval() {
@@ -41,7 +41,7 @@ class DemoSessionForm extends React.Component {
       if (this.state.username !== "demo_user") {
         this.addLetter()
       } 
-    }, 200)
+    }, 100)
   }
 
   componentWillUnmount() {
@@ -64,10 +64,15 @@ class DemoSessionForm extends React.Component {
   }
 
   simulateSubmit() {
-    debugger;
     setTimeout(() => {
-      this.handleSubmit();
-    }, 1300);
+      document.getElementById("demo-button").classList.add("clicked");
+      setTimeout(() => {
+        document.getElementById("demo-button").classList.remove("clicked");
+        setTimeout(() => {
+          this.handleSubmit();
+        }, 300);
+      }, 500);
+    }, 900);
   }
 
   render() {
@@ -75,21 +80,21 @@ class DemoSessionForm extends React.Component {
 
     return (
       <div>
-      <div className="modal"></div>
+      <div className="modal">
+          <div class="lds-heart"><div></div></div>
+      </div>
       <div className="demo-session-form-main">
         <form onSubmit={this.handleSubmit} className="demo-session-form">
           <p className="session-form-title">{formType}</p>
-          <label htmlFor="username">Username</label>
 
+          <label htmlFor="username">Username</label>
           <input id="username" type="text" value={this.state.username} disabled />
 
-
           <label htmlFor="password">Password</label>
-
-          <input id="password" type="text" value={this.state.password} disabled />
+          <input id="password" type="password" value={this.state.password} disabled />
 
           <br />
-          <button disabled>{formType}</button>
+          <button id="demo-button" disabled>{formType}</button>
         </form>
       </div>
       </div>

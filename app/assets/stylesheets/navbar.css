@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .header-navbar {
-  height: 61px;
+  height: 64px;
   width: 100%;
   min-width: 500px;
   /* background-color: rgb(247, 66, 99); */
@@ -15,6 +15,11 @@
   font-family: "Fredoka One";
 }
 
+.header-navbar-left {
+  display: flex;
+
+}
+
 .header-logo {
   font-family: "Fredoka One";
   color: rgb(255, 88, 116);
@@ -23,6 +28,7 @@
   text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
   margin-top: 8px;
   margin-left: 20px;
+  margin-right: 5px;
   letter-spacing: 2px;
 }
 
@@ -32,4 +38,59 @@
 
 .header-greeting {
   color: white;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/* NAVLINKS */
+
+
+.navlinks {
+  display: flex;
+  color: white;
+  margin-top: 19px;
+  margin-right: 20px;
+}
+
+.navlinks > li {
+  flex: none;
+}
+
+.navlinks > li > a {
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.navlinks > li > a:hover {
+  color: rgb(199, 51, 75);
+}
+
+.navlink-description {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .navlink-description {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: sans-serif;
+    position: relative;
+    bottom: 2px;
+    margin-left: 8px;
+  }
+
+  .navlinks > li > a {
+    margin-left: 25px;
+  }
+
+  .navlinks > li {
+    margin-right: 5px;
+  }
+
+  .navlinks > li:hover {
+    color: rgb(199, 51, 75);
+  }
 }
