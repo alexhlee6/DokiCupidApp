@@ -8,6 +8,13 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  has_one :profile,
+    foreign_key: :user_id,
+    class_name: :Profile
+
+
+  
+
   def self.generate_session_token 
     SecureRandom::urlsafe_base64(16)
   end 

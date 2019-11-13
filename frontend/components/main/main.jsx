@@ -7,6 +7,7 @@ import { Redirect } from 'react-router';
 import Home  from './home';
 import Splash from '../splash';
 import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
+import ProfileShowContainer from '../profiles/profile_show_container';
 
 class Main extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Main extends React.Component {
           <AuthRoute exact path="/" component={Splash} />
           <ProtectedRoute exact path="/home" component={Home} />
 
+          <ProtectedRoute exact path="/profiles/:profileId" component={ProfileShowContainer} />
 
           {/* ANY INVALID PATH: */}
           <Route render={() => <Redirect to={{ pathname: "/" }} />} />

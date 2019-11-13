@@ -1,15 +1,18 @@
 import React from 'react';
-import UserProfileContainer from '../profiles/user_profile_container';
+// import { Route } from 'react-router-dom';
+import { ProtectedRoute } from '../../util/route_util';
+import ProfileShowContainer from '../profiles/profile_show_container';
+// import UserProfileContainer from '../profiles/user_profile_container';
+
 class Home extends React.Component {
 
 
   render () {
-    console.log("HERE");
-    console.log(this.props);
     return (
       <div>
         <h1>Testing /home</h1>
-        <UserProfileContainer currentUserId={this.props.currentUserId} />
+        
+        {/* <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} /> */}
       </div>
     )
   }
@@ -19,7 +22,7 @@ class Home extends React.Component {
 // export default Home;
 
 import { connect } from 'react-redux';
-const mSTP = state => ({
+const mSTP = (state) => ({
   currentUserId: state.session.id
 })
 
