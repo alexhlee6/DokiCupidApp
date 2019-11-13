@@ -17,6 +17,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="main-component">
+        
         <Switch>
           <AuthRoute path="/login" component={LoginFormContainer} />
           <AuthRoute path="/signup" component={SignupFormContainer} />

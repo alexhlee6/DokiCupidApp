@@ -26,10 +26,16 @@ export const getProfiles = () => dispatch => {
 }
 
 export const getProfile = (profileId) => dispatch => {
-  return ProfileApiUtil.getProfile(profileId).then(profile => {
-    dispatch(receiveProfile(profile))
-  })
+  return (
+    ProfileApiUtil.getProfile(profileId)
+      .then (
+        profile => dispatch(receiveProfile(profile))
+        // err => dispatch({type: 404})
+        // error => dispatch(receiveProfileErrors(error.responseJSON))
+      )
+  )
 }
+
 
 export const createProfile = (profile) => dispatch => {
   return ProfileApiUtil.postProfile(profile).then(profile => {

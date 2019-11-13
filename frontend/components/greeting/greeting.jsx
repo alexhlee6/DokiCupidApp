@@ -4,8 +4,7 @@ import { Link, Switch, Route } from 'react-router-dom';
 const Greeting = ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div className="navbar-greeting">
-      <Link to="/profile" className="navbar-greeting-username">{currentUser.username}</Link>
-      {/* <button className="navbar-logout-button" onClick={logout}>logout</button> */}
+      <Link to={`/profiles/${currentUser.id}`} className="navbar-greeting-username">{currentUser.username}</Link>
       <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
     </div>
   ) : (

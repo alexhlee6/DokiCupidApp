@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    # @user.photoUrl = url_for(@user.photo) if @user.photo.attached?
+    
     render :show
   end 
 

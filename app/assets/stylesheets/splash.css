@@ -2,10 +2,10 @@
 
 
 .splash-main {
-  width: 100%;
   min-width: 500px;
-  height: 100%;
+  min-height: 94vh;
   padding: 0px;
+  /* padding-bottom: 1rem; */
   margin: 0px;
   overflow: hidden;
   position: relative;

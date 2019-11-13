@@ -8,7 +8,11 @@ class Api::ProfilesController < ApplicationController
 
   def show 
     @profile = Profile.find(params[:id])
-    render :show
+    if @profile 
+      render :show
+    else 
+      render json: { message: "User does not exist" }
+    end 
   end 
 
 
