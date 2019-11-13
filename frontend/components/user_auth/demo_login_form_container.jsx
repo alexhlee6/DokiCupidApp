@@ -70,8 +70,8 @@ class DemoSessionForm extends React.Component {
         document.getElementById("demo-button").classList.remove("clicked");
         setTimeout(() => {
           this.handleSubmit();
-        }, 300);
-      }, 500);
+        }, 400);
+      }, 600);
     }, 900);
   }
 

@@ -6,6 +6,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   # SSPIRE
 
+  has_one_attached :photo
+
   def self.generate_session_token 
     SecureRandom::urlsafe_base64(16)
   end 

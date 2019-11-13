@@ -5,9 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# AWS AMAZON SERVICES
+gem "aws-sdk-s3", require: false
+
+# gem "active_storage"
+# gem "activestorage", git: "https://github.com/rails/activestorage.git"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

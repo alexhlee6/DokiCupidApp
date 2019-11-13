@@ -5,12 +5,10 @@
   height: 64px;
   width: 100%;
   min-width: 500px;
-  /* background-color: rgb(247, 66, 99); */
   background-color: rgb(250, 101, 129);
   border-bottom: 1px solid white;
   display: flex;
   justify-content: space-between;
-  /* position: fixed; */
   z-index: 4;
   font-family: "Fredoka One";
 }
@@ -38,6 +36,7 @@
 
 .header-greeting {
   color: white;
+  font-family: sans-serif;
 }
 
 
@@ -74,8 +73,7 @@
 @media only screen and (min-width: 1000px) {
   .navlink-description {
     display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
     font-family: sans-serif;
     position: relative;
     bottom: 2px;
@@ -94,3 +92,38 @@
     color: rgb(199, 51, 75);
   }
 }
+
+
+/* -------------------------------------------------------------------------- */
+
+/* NAVBAR RIGHT */
+
+.navbar-greeting {
+  margin-top: 20px;
+  display: flex;
+  margin-right: 18px;
+  color: white;
+}
+
+.navbar-greeting-username {
+  font-family: sans-serif;
+  padding-top: 3px;
+  cursor: pointer;
+  margin: 0px 25px;
+  height: 18px;
+}
+
+.navbar-greeting-username:hover {
+  color: rgb(199, 51, 75);
+}
+
+.navbar-logout-link > i {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.navbar-logout-link > i:hover {
+  color: rgb(199, 51, 75);
+}
+

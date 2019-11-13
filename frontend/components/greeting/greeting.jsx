@@ -3,9 +3,10 @@ import { Link, Switch, Route } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
   const display = currentUser ? (
-    <div>
-      <h2 className="header-greeting">Greetings, {currentUser.username}</h2>
-      <button onClick={logout}>logout</button>
+    <div className="navbar-greeting">
+      <Link to="/profile" className="navbar-greeting-username">{currentUser.username}</Link>
+      {/* <button className="navbar-logout-button" onClick={logout}>logout</button> */}
+      <a className="navbar-logout-link" onClick={logout}><i class="fas fa-power-off"></i></a>
     </div>
   ) : (
       <div>
