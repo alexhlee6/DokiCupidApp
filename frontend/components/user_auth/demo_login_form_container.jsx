@@ -70,8 +70,8 @@ class DemoSessionForm extends React.Component {
         document.getElementById("demo-button").classList.remove("clicked");
         setTimeout(() => {
           this.handleSubmit();
-        }, 400);
-      }, 600);
+        }, 300);
+      }, 400);
     }, 900);
   }
 
@@ -81,7 +81,7 @@ class DemoSessionForm extends React.Component {
     return (
       <div>
       <div className="modal">
-          <div class="lds-heart"><div></div></div>
+          <div className="lds-heart"><div></div></div>
       </div>
       <div className="demo-session-form-main">
         <form onSubmit={this.handleSubmit} className="demo-session-form">

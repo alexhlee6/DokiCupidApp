@@ -123,8 +123,9 @@
 .demo-session-form-main {
   width: 500px;
   height: 400px;
-  margin: 14% auto;
+  margin: 7% auto;
   left: 50%;
+  top: 13%;
   margin-left: -250px;
   border: 1px solid rgba(254, 209, 209, 0.968);
   border-radius: 10px;

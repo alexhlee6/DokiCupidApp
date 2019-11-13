@@ -1,12 +1,12 @@
-import LoginFormContainer from './user_auth/login_form_container';
-import SignupFormContainer from './user_auth/signup_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import LoginFormContainer from '../user_auth/login_form_container';
+import SignupFormContainer from '../user_auth/signup_form_container';
+import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import Home  from './home';
-import Splash from './splash';
-import DemoLoginFormContainer from './user_auth/demo_login_form_container.jsx';
+import Splash from '../splash';
+import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
 
 class Main extends React.Component {
   constructor(props) {

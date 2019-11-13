@@ -6,7 +6,7 @@ const Greeting = ({ currentUser, logout }) => {
     <div className="navbar-greeting">
       <Link to="/profile" className="navbar-greeting-username">{currentUser.username}</Link>
       {/* <button className="navbar-logout-button" onClick={logout}>logout</button> */}
-      <a className="navbar-logout-link" onClick={logout}><i class="fas fa-power-off"></i></a>
+      <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
     </div>
   ) : (
       <div>

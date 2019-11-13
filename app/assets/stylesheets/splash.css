@@ -60,7 +60,7 @@
   height: 185px;
   top: 122px;
   left: 60px;
-  background-color: rgba(255, 255, 255, 0.413);
+  background-color: rgba(250, 250, 250, 0.413);
   -webkit-filter: blur(12px);
   filter: blur(15px);
   z-index: 9;

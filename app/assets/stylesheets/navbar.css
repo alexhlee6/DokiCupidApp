@@ -63,7 +63,7 @@
 }
 
 .navlinks > li > a:hover {
-  color: rgb(199, 51, 75);
+  color:  rgb(255, 185, 197);
 }
 
 .navlink-description {
@@ -88,9 +88,6 @@
     margin-right: 5px;
   }
 
-  .navlinks > li:hover {
-    color: rgb(199, 51, 75);
-  }
 }
 
 
@@ -114,7 +111,7 @@
 }
 
 .navbar-greeting-username:hover {
-  color: rgb(199, 51, 75);
+  color: rgb(245, 157, 172);
 }
 
 .navbar-logout-link > i {
@@ -124,6 +121,6 @@
 }
 
 .navbar-logout-link > i:hover {
-  color: rgb(199, 51, 75);
+  color: rgb(245, 157, 172);
 }
 

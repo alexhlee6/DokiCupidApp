@@ -20,6 +20,10 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  componentWillUnmount() {
+    this.props.dismissSessionErrors();
+  }
+
   render() {
     const { formType, errors } = this.props;
     let err = <ul className="session-errors">
@@ -28,8 +32,11 @@ class SessionForm extends React.Component {
         return <li key={i}>* {error}</li>
       })}
     </ul>
+
     if (errors.length === 0) {
       err = "";
+    } else {
+      // this.props.dismissSessionErrors();
     }
 
     return (
