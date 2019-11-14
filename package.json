@@ -1,5 +1,5 @@
 {
-  "name": "DokiCupid",
+  "name": "dokicupid",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.7.2",
