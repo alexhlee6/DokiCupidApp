@@ -28,6 +28,10 @@ class ProfileForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <h1>{ this.props.formType[0].toUpperCase() + this.props.formType.slice(1)} Profile</h1> 
         
+        <PhotoForm formType={this.props.formType} />
+
+
+
         <label htmlFor="fname">First Name:</label>
         <input id="fname" type="text" value={this.state.fname} onChange={this.handleInput("fname")} />
 
@@ -46,10 +50,92 @@ class ProfileForm extends React.Component {
         <label htmlFor="compatibility_answers">Compatibility Answers:</label>
         <input id="compatibility_answers" type="text" value={this.state.compatibility_answers} onChange={this.handleInput("compatibility_answers")} />
 
-        <button>Create My Profile!</button>
+      <button>{this.props.formType} My Profile!</button>
       </form>
     )
   }
 }
 
 export default ProfileForm;
+
+
+
+
+
+
+
+//=============================PHOTO FORM===============================
+
+class PhotoForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      photoFile: null,
+      photoUrl: null
+    }
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({photoFile: file, photoUrl: fileReader.result})
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    if (this.state.photoFile) {
+      formData.append('profile[photos]', this.state.photoFile);
+    }
+    this.state.formType === "Create" ? (
+      $.ajax({
+        url: '/api/profiles',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      }).then(
+        (response) => console.log(response.message),
+        (response) => {
+          console.log(response.responseJSON)
+        }
+      )
+    ) : (
+      $.ajax({
+        url: `/api/profiles/${this.props.profile.id}`,
+        method: 'PATCH',
+        data: formData,
+        contentType: false,
+        processData: false
+      }).then(
+        (response) => console.log(response.message),
+        (response) => {
+          console.log(response.responseJSON)
+        }
+      )
+    )
+  }
+
+  render() {
+    console.log(this.state);
+    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+
+    return (
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <input type="file"
+          onChange={this.handleFile.bind(this)} />
+
+        <h3>Image preview </h3>
+        {preview}
+
+        <button>Make a new Post!</button>
+      </form>
+    );
+  }
+}
