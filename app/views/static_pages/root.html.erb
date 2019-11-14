@@ -3,7 +3,7 @@
   window.currentUser = {
     "id": <%= current_user.id %>,
     "username": "<%= current_user.username %>",
-    "photoUrl": "<%= current_user.photo.attached? ? url_for(current_user.photo) : image_url("default_boy.jpg") %>",
+    "photoUrl": "<%= current_user.photo.attached? ? url_for(current_user.photo) : "" %>",
     "profileId": "<%= current_user.profile.id %>"
   };
 </script>
