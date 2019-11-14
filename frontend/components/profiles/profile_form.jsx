@@ -28,7 +28,7 @@ class ProfileForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <h1>{ this.props.formType[0].toUpperCase() + this.props.formType.slice(1)} Profile</h1> 
         
-        <PhotoForm formType={this.props.formType} />
+        {/* <PhotoForm formType={this.props.formType} /> */}
 
 
 
