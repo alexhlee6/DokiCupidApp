@@ -27,6 +27,18 @@ class Api::ProfilesController < ApplicationController
     end
   end
 
+  def update
+    @profile = Profile.find(params[:id])
+    new_params = profile_params.dup
+    new_params[:user_id] = new_params[:user_id].to_i
+    new_params[:zipcode] = new_params[:zipcode].to_i
+    if @profile.update(new_params)
+      render :show
+    else  
+      render json: @profile.errors.full_messages, status: 422
+    end
+  end
+
 
   def profile_params
     params.require(:profile).permit(

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ProfileEditContainer } from './create_profile_form_container';
+import { NavLink, Route } from 'react-router-dom';
+import EditProfileFormContainer from './edit_profile_form_container';
+import CreateProfileFormContainer from './create_profile_form_container';
+
 
 class ProfileShow extends React.Component {
 
@@ -35,16 +37,21 @@ class ProfileShow extends React.Component {
     if (this.props.currentUserId === this.props.profile.user_id) {
       ownProfileLink = (
         <div className="own-profile-link">
-          <Link to={`/profiles/${this.props.currentUserId}/edit`}>Edit Profile</Link>
+          <NavLink to={`/profiles/${this.props.profileId}/edit`}>Edit Profile</NavLink>
+
+          <Route exact path={`/profiles/${this.props.profileId}/edit`} component={EditProfileFormContainer} />
         </div>
       )
     } else if (this.props.currentUserId.toString() === this.props.profileId && !this.state.loading) {
       ownProfileLink = (
         <div className="own-profile-link">
-          <Link to={`/profiles/${this.props.currentUserId}/create`}>Create Profile</Link>
+          <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
+
+          <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
         </div>
       )
     }
+
 
 
     let infoListItems;

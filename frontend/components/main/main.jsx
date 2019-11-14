@@ -9,10 +9,15 @@ import Splash from '../splash';
 import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
 import ProfileShowContainer from '../profiles/profile_show_container';
 import CreateProfileFormContainer from '../profiles/create_profile_form_container';
+import EditProfileFormContainer from '../profiles/edit_profile_form_container';
 
 class Main extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount(){
+
   }
 
   render() {
@@ -28,8 +33,9 @@ class Main extends React.Component {
           <AuthRoute exact path="/" component={Splash} />
           <ProtectedRoute exact path="/home" component={Home} />
 
-          <ProtectedRoute exact path="/profiles/:profileId" component={ProfileShowContainer} />
-          <ProtectedRoute exact path={`/profiles/${this.props.currentUserId}/create`} component={CreateProfileFormContainer}/>
+          <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} />
+          {/* <ProtectedRoute exact path={`/profiles/${this.props.currentUser.profileId}/create`} component={CreateProfileFormContainer}/> */}
+          {/* <ProtectedRoute exact path={`/profiles/${this.props.currentUser.profileId}/edit`} component={EditProfileFormContainer} /> */}
 
           {/* ANY INVALID PATH: */}
           <Route render={() => <Redirect to={{ pathname: "/" }} />} />

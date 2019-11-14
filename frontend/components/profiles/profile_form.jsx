@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { withRouter, Link, Switch, Route } from 'react-router-dom';
 
 
 class ProfileForm extends React.Component {
@@ -9,6 +9,18 @@ class ProfileForm extends React.Component {
     this.state = this.props.profile;
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.getProfile) {
+      this.props.getProfile(this.props.profileId)
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState(this.props.profile);
+    }
   }
 
   handleInput(property) {
@@ -25,38 +37,46 @@ class ProfileForm extends React.Component {
 
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>{ this.props.formType[0].toUpperCase() + this.props.formType.slice(1)} Profile</h1> 
+      <div className="profile-form-main">
         
-        {/* <PhotoForm formType={this.props.formType} /> */}
+        <div className="profile-form-content">
+          <div className="profile-form-link-container">
+            <a className="profile-form-back-link" onClick={this.props.history.goBack}>x</a>
+          </div>
+          <h1 className="profile-form-title">{this.props.formType} Profile</h1> 
 
+          <PhotoForm formType={this.props.formType} />
 
+          <form className="profile-info-form" onSubmit={this.handleSubmit}>
+            
 
-        <label htmlFor="fname">First Name:</label>
-        <input id="fname" type="text" value={this.state.fname} onChange={this.handleInput("fname")} />
+            <label htmlFor="fname">First Name:</label>
+            <input id="fname" type="text" value={this.state.fname || ""} onChange={this.handleInput("fname")} />
 
-        <label htmlFor="zipcode">Zipcode:</label>
-        <input id="zipcode" type="text" value={this.state.zipcode} onChange={this.handleInput("zipcode")} />
+            <label htmlFor="zipcode">Zipcode:</label>
+            <input id="zipcode" type="text" value={this.state.zipcode || ""} onChange={this.handleInput("zipcode")} />
 
-        <label htmlFor="bio">Bio:</label>
-        <input id="bio" type="text" value={this.state.bio} onChange={this.handleInput("bio")} />
+            <label htmlFor="bio">Bio:</label>
+            <input id="bio" type="text" value={this.state.bio || ""} onChange={this.handleInput("bio")} />
 
-        <label htmlFor="identify_as">Gender Identification:</label>
-        <input id="identify_as" type="text" value={this.state.identify_as} onChange={this.handleInput("identify_as")} />
+            <label htmlFor="identify_as">Gender Identification:</label>
+            <input id="identify_as" type="text" value={this.state.identify_as || ""} onChange={this.handleInput("identify_as")} />
 
-        <label htmlFor="looking_for">Looking for:</label>
-        <input id="looking_for" type="text" value={this.state.looking_for} onChange={this.handleInput("looking_for")} />
+            <label htmlFor="looking_for">Looking for:</label>
+            <input id="looking_for" type="text" value={this.state.looking_for || ""} onChange={this.handleInput("looking_for")} />
 
-        <label htmlFor="compatibility_answers">Compatibility Answers:</label>
-        <input id="compatibility_answers" type="text" value={this.state.compatibility_answers} onChange={this.handleInput("compatibility_answers")} />
+            <label htmlFor="compatibility_answers">Compatibility Answers:</label>
+            <input id="compatibility_answers" type="text" value={this.state.compatibility_answers || ""} onChange={this.handleInput("compatibility_answers")} />
 
-      <button>{this.props.formType} My Profile!</button>
-      </form>
+            <button>{this.props.formType} My Profile!</button>
+          </form>
+        </div>
+      </div>
     )
   }
 }
 
-export default ProfileForm;
+export default withRouter(ProfileForm);
 
 
 
@@ -124,17 +144,18 @@ class PhotoForm extends React.Component {
 
   render() {
     console.log(this.state);
-    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+    const preview = this.state.photoUrl ? <img className="profile-form-photo-preview" src={this.state.photoUrl} /> : null;
 
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form className="profile-photo-form" onSubmit={this.handleSubmit.bind(this)}>
         <input type="file"
           onChange={this.handleFile.bind(this)} />
 
-        <h3>Image preview </h3>
-        {preview}
-
-        <button>Make a new Post!</button>
+        <h3 className="profile-photo-preview-title">Image Preview: </h3>
+        <div className="profile-photo-preview-container">
+          {preview}
+        </div>
+        <button>Upload Photo</button>
       </form>
     );
   }
