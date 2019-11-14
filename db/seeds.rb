@@ -12,7 +12,7 @@ user1 = User.create(username: "demo_user", password: "demo_user")
 file1 = File.open('app/assets/images/default_boy.jpg')
 user1.photo.attach(io: file1, filename: "default_boy.jpg")
 profile1 = Profile.create(user_id: (user1.id), fname: "DemoUser", zipcode: 94102, bio: "This is the profile for a demo user!", identify_as: "Gender Neutral", looking_for: "True Love", compatibility_answers: "NNYNNYYY")
-
+profile1.photo.attach(io: file1, filename: "default_boy.jpg")
 
 user2 = User.create(username: "alexlee", password: "alexlee")
 file2 = File.open('app/assets/images/akko.jpg')
