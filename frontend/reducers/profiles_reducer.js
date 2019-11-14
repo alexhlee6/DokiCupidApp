@@ -13,6 +13,8 @@ const profilesReducer = (state = {}, action) => {
       let removedState = Object.assign({}, state);
       delete removedState[action.profileId];
       return removedState;
+    case 404: 
+      return {};
     default: 
       return state;
   }

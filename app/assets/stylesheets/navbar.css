@@ -106,8 +106,11 @@
   font-family: sans-serif;
   padding-top: 3px;
   cursor: pointer;
-  margin: 0px 25px;
+  margin: 0px 10px;
   height: 18px;
+  display: none;
+  font-size: 16px;
+  margin-left: 10px;
 }
 
 .navbar-greeting-username:hover {
@@ -118,9 +121,33 @@
   font-size: 22px;
   cursor: pointer;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .navbar-logout-link > i:hover {
   color: rgb(245, 157, 172);
 }
 
+.navbar-greeting-photo-container {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid white;
+  bottom: 9px;
+  left: 2px;
+  display: flex;
+  align-items: right;
+  margin-right: 5px;
+}
+
+.navbar-greeting-photo {
+  width: 100%
+}
+
+@media only screen and (min-width: 750px) {
+  .navbar-greeting-username {
+    display: block;
+  }
+}

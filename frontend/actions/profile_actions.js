@@ -29,8 +29,8 @@ export const getProfile = (profileId) => dispatch => {
   return (
     ProfileApiUtil.getProfile(profileId)
       .then (
-        profile => dispatch(receiveProfile(profile))
-        // err => dispatch({type: 404})
+        profile => dispatch(receiveProfile(profile)),
+        err => dispatch({type: 404})
         // error => dispatch(receiveProfileErrors(error.responseJSON))
       )
   )

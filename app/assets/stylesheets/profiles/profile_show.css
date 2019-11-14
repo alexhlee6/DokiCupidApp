@@ -5,6 +5,7 @@
   border-radius: 10px;
   border: 1px solid lightgray;
   margin-top: 30px;
+  overflow: hidden;
 }
 
 /* .profile-show-photos-list {
@@ -13,8 +14,7 @@
 
 .profile-show-photos-item {
   position: relative;
-  margin: 25px auto;
-  margin-top: 50px;
+  margin: 30px auto;
   width: 80%;
   border-radius: 15px;
   overflow: hidden;
@@ -65,4 +65,26 @@
   border-bottom: 1px solid pink;
   width: 95%;
   margin-bottom: 5px;
+}
+
+.own-profile-link {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  position: relative;
+  bottom: 1px;
+  left: 1px;
+}
+
+.own-profile-link > a {
+  padding: 14px 20px;
+  background-color: rgb(237, 144, 160);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  /* bottom: 1px; */
+}
+
+.own-profile-link > a:hover {
+  background-color: rgb(230, 115, 134);
 }

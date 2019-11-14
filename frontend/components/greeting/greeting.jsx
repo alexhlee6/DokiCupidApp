@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logout }) => {
+const Greeting = ({ currentUser, profileId, logout }) => {
+  // console.log(this.)
   const display = currentUser ? (
     <div className="navbar-greeting">
-      <Link to={`/profiles/${currentUser.id}`} className="navbar-greeting-username">{currentUser.username}</Link>
+      <div className="navbar-greeting-photo-container">
+        <img className="navbar-greeting-photo" src={ currentUser.photoUrl } />
+      </div>
+      <Link to={`/profiles/${currentUser.profileId}` || `/profiles`} className="navbar-greeting-username">{currentUser.username}</Link>
       <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
     </div>
   ) : (
