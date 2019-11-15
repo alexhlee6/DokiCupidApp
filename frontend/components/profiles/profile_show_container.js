@@ -3,7 +3,9 @@ import ProfileShow from './profile_show';
 import { getProfile } from '../../actions/profile_actions';
 
 const mSTP = (state, ownProps) => {
+  // debugger;
   return {
+    currentUser: state.entities.users[state.session.id],
     currentUserId: state.session.id,
     profileId: ownProps.match.params.profileId,
     profile: state.entities.profiles[ownProps.match.params.profileId] || {}

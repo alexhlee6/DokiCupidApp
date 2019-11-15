@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.profile-index-list {
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-index-title {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+
+
+  color: white;
+  -webkit-text-stroke: 0.2px rgb(235, 129, 147);
+  text-shadow:
+    3px 3px 0 rgb(235, 129, 147),
+    -1px -1px 0 rgb(235, 129, 147),  
+    1px -1px 0 rgb(235, 129, 147),
+    -1px 1px 0 rgb(235, 129, 147),
+    1px 1px 0 rgb(235, 129, 147);
+}
+
+.profile-index-item-link {
+  /* width: fit-content; */
+  margin: 15px;
+  width: 250px;
+  height: 315px;
+}
+
+.profile-index-item {
+  /* width: 230px;
+  height: 315px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgb(235, 129, 147);
+  border-radius: 15px;
+  
+}
+
+.profile-index-item:hover {
+  border: 3px solid rgb(235, 129, 147);
+}
+
+.profile-index-user-photo-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1.5px solid lightgray;
+  margin: 10px 5px;
+}
+
+.profile-index-user-photo {
+  width: 200px;
+}
+
+.profile-index-user-fname {
+  font-weight: bold;
+}
+

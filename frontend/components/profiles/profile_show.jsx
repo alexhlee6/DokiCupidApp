@@ -16,15 +16,22 @@ class ProfileShow extends React.Component {
     this.handleRight = this.handleRight.bind(this);
   }
 
+  componentWillReceiveProps() {
+    this.setState({ loading: true })
+  }
+ 
   componentDidMount() {
     if (this.props.profileId !== "new") {
-      this.props.getProfile(this.props.profileId);
+      this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
     }
+  }
+  conponentWillUnmount() {
+    this.setState({loading: true})
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps !== this.props ) {
-      this.setState({loading: false})
+    if (prevProps.profileId !== this.props.profileId) {
+      this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
     }
   }
 
@@ -47,7 +54,10 @@ class ProfileShow extends React.Component {
   render() {
     let photoLis;
     let ownProfileLink;
-
+    
+    if (this.state.loading) {
+      return null
+    }
 
     if (this.props.profile.photo_urls) {
       photoLis = this.props.profile.photo_urls.map((photo, i) => {
@@ -68,15 +78,16 @@ class ProfileShow extends React.Component {
           <Route exact path={`/profiles/${this.props.profileId}/edit`} component={EditProfileFormContainer} />
         </div>
       )
-    } else if (this.props.currentUserId.toString() === this.props.profileId && !this.state.loading) {
-      // ownProfileLink = (
-      //   <div className="own-profile-link">
-      //     <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
-
-      //     <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
-      //   </div>
-      // )
     }
+    // } else if (this.props.currentUserId.toString() === this.props.profileId && !this.state.loading) {
+    //   // ownProfileLink = (
+    //   //   <div className="own-profile-link">
+    //   //     <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
+
+    //   //     <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
+    //   //   </div>
+    //   // )
+    // }
 
 
 

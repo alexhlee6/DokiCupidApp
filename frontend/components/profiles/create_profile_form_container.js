@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProfileForm from './profile_form';
-import { createProfile } from '../../actions/profile_actions';
+import { createProfile, getProfile } from '../../actions/profile_actions';
 
 const mSTP = (state, ownProps) => {
   return {
@@ -17,7 +17,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return {
-    action: (profile) => dispatch(createProfile(profile))
+    action: (profile) => dispatch(createProfile(profile)),
+    getProfile: (profileId) => dispatch(getProfile(profileId))
   }
 }
 

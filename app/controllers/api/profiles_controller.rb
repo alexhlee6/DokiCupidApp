@@ -1,7 +1,7 @@
 class Api::ProfilesController < ApplicationController
 
   def index 
-    @profiles = Profile.all
+    @profiles = Profile.where("id != 1")
 
     render :index
   end 
@@ -38,6 +38,12 @@ class Api::ProfilesController < ApplicationController
     else  
       render json: @profile.errors.full_messages, status: 422
     end
+  end
+
+  def destroy 
+    @profile = Profile.find(params[:id])
+    @profile.destroy 
+    render :show
   end
 
 

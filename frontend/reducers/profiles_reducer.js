@@ -4,7 +4,7 @@ const profilesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_PROFILES: 
-      return action.profiles;
+      return action.profiles; // profiles: [ {...}, {...}, {...}]
     case RECEIVE_PROFILE: 
       let newState = Object.assign({}, state);
       newState[action.profile.id] = action.profile;

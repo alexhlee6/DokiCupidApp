@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import CreateProfileFormContainer from '../profiles/create_profile_form_container';
-
+import ProfileShowContainer from '../profiles/profile_show_container';
 
 class Greeting extends React.Component {
 
@@ -74,6 +74,7 @@ class Greeting extends React.Component {
       <div></div>
     )
 
+
     const display = currentUser ? (
       <div className="navbar-greeting">
 
@@ -82,10 +83,9 @@ class Greeting extends React.Component {
         </div>
         {photoForm}
 
-        
-
         <Link to={currentUser.profileId ? `/profiles/${currentUser.profileId}` : `/profiles/new`} className="navbar-greeting-username">{currentUser.username}</Link>
         <Route exact path={`/profiles/new`} component={CreateProfileFormContainer} />
+        
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
       </div>
     ) : (

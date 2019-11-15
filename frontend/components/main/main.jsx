@@ -8,16 +8,14 @@ import Home  from './home';
 import Splash from '../splash';
 import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
 import ProfileShowContainer from '../profiles/profile_show_container';
-import CreateProfileFormContainer from '../profiles/create_profile_form_container';
-import EditProfileFormContainer from '../profiles/edit_profile_form_container';
+import ProfileIndexContainer from '../profiles/profile_index_container';
+// import CreateProfileFormContainer from '../profiles/create_profile_form_container';
+// import EditProfileFormContainer from '../profiles/edit_profile_form_container';
 
 class Main extends React.Component {
+
   constructor(props) {
     super(props)
-  }
-
-  componentDidMount(){
-
   }
 
   render() {
@@ -34,6 +32,7 @@ class Main extends React.Component {
           <ProtectedRoute exact path="/home" component={Home} />
 
           <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} />
+          <ProtectedRoute exact path="/explore" component={ProfileIndexContainer} />
           {/* <ProtectedRoute exact path={`/profiles/${this.props.currentUser.profileId}/create`} component={CreateProfileFormContainer}/> */}
           {/* <ProtectedRoute exact path={`/profiles/${this.props.currentUser.profileId}/edit`} component={EditProfileFormContainer} /> */}
 
