@@ -8,7 +8,12 @@ class ProfileShow extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { loading: true, currentPhoto: 0 };
+    this.state = { 
+      loading: true, 
+      currentPhoto: 0 
+    };
+    this.handleLeft = this.handleLeft.bind(this);
+    this.handleRight = this.handleRight.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +25,22 @@ class ProfileShow extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props ) {
       this.setState({loading: false})
+    }
+  }
+
+  handleLeft() {
+    if (this.state.currentPhoto === 0) {
+      this.setState({currentPhoto: this.props.profile.photo_urls.length - 1});
+    } else {
+      this.setState({ currentPhoto: this.state.currentPhoto - 1 });
+    }
+  }
+
+  handleRight() {
+    if (this.state.currentPhoto === this.props.profile.photo_urls.length - 1) {
+      this.setState({currentPhoto: 0});
+    } else {
+      this.setState({currentPhoto: this.state.currentPhoto + 1})
     }
   }
 
@@ -77,18 +98,25 @@ class ProfileShow extends React.Component {
       infoListItems = ""
     }
 
+    let leftArr;
+    let rightArr;
+    if (this.props.profile.photo_urls && this.props.profile.photo_urls.length > 1) {
+      leftArr = <div className="profile-show-arrow left" onClick={this.handleLeft}><i className="fas fa-chevron-left"></i></div>
+      rightArr = <div className="profile-show-arrow right" onClick={this.handleRight}><i className="fas fa-chevron-right"></i></div>
+    }
+
     return (
       <div className="profile-show-main">
         {ownProfileLink}
         <ul className="profile-show-photos-list">
-          
-          {photoLis}
-          
+          {leftArr}
+            {photoLis}
+          {rightArr}
         </ul>
 
         
         <ul className="profile-show-info-list">
-          { infoListItems }
+          { infoListItems }           
         </ul>
       </div>
     )

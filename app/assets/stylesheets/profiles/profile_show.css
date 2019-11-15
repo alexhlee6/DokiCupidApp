@@ -3,25 +3,46 @@
   background-color: white;
   margin: 0 auto;
   border-radius: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(169, 169, 169);
   margin-top: 30px;
   overflow: hidden;
 }
 
-/* .profile-show-photos-list {
-  
-} */
+.profile-show-photos-list {
+  display: flex;
+}
+
+.profile-show-photos-item.hidden {
+  display: none;
+}
+
+.profile-show-arrow {
+  font-size: 50px;
+  margin: auto;
+  cursor: pointer;
+  color: rgb(222, 127, 143);
+}
+
+
 
 .profile-show-photos-item {
   position: relative;
   margin: 30px auto;
   width: 80%;
+  display: inline-flex;
+  max-width: 600px;
+  min-width: 500px;
+  max-height: 600px;
+  border: 1px solid rgb(169, 169, 169);
   border-radius: 15px;
   overflow: hidden;
 }
 
+
+
 .profile-show-photo {
-  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .profile-show-info-list {
