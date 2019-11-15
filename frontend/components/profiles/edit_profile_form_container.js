@@ -28,7 +28,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     getProfile: (profileId) => dispatch(getProfile(profileId)),
-    action: (profile) => dispatch(updateProfile(profile))
+    action: (profile, profileId) => dispatch(updateProfile(profile, profileId))
   }
 }
 

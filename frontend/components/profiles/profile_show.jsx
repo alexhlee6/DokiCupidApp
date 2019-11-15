@@ -8,11 +8,13 @@ class ProfileShow extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { loading: true };
+    this.state = { loading: true, currentPhoto: 0 };
   }
 
   componentDidMount() {
-    this.props.getProfile(this.props.profileId);
+    if (this.props.profileId !== "new") {
+      this.props.getProfile(this.props.profileId);
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -24,12 +26,15 @@ class ProfileShow extends React.Component {
   render() {
     let photoLis;
     let ownProfileLink;
-    console.log(this.props);
 
 
     if (this.props.profile.photo_urls) {
       photoLis = this.props.profile.photo_urls.map((photo, i) => {
-        return <li className="profile-show-photos-item" key={i}><img src={photo.url} className="profile-show-photo" /></li>
+        if (i !== this.state.currentPhoto) {
+          return <li className="profile-show-photos-item hidden" key={i}><img src={photo.url} className="profile-show-photo" /></li>
+        } else {
+          return <li className="profile-show-photos-item showing" key={i}><img src={photo.url} className="profile-show-photo" /></li>
+        }
       })
     }
     
@@ -43,13 +48,13 @@ class ProfileShow extends React.Component {
         </div>
       )
     } else if (this.props.currentUserId.toString() === this.props.profileId && !this.state.loading) {
-      ownProfileLink = (
-        <div className="own-profile-link">
-          <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
+      // ownProfileLink = (
+      //   <div className="own-profile-link">
+      //     <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
 
-          <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
-        </div>
-      )
+      //     <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
+      //   </div>
+      // )
     }
 
 
@@ -76,7 +81,9 @@ class ProfileShow extends React.Component {
       <div className="profile-show-main">
         {ownProfileLink}
         <ul className="profile-show-photos-list">
+          
           {photoLis}
+          
         </ul>
 
         

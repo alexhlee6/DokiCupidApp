@@ -129,9 +129,10 @@
 }
 
 .navbar-greeting-photo-container {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background-color: white;
   overflow: hidden;
   position: relative;
   border: 1px solid white;
@@ -143,11 +144,78 @@
 }
 
 .navbar-greeting-photo {
-  width: 100%
+  width: 100%;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 750px) {
   .navbar-greeting-username {
     display: block;
   }
+}
+
+
+.user-photo-form {
+  width: 250px;
+  height: 290px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 10;
+  top: 67px;
+  right: 150px;
+  display: block;
+  border-radius: 15px;
+  border: 1px solid rgb(238, 120, 148);
+}
+
+.user-photo-form-arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  position: relative; 
+  bottom: 28px;
+  z-index: 12;
+  left: 210px;
+  border-bottom: 14px solid rgb(255, 255, 255);
+}
+
+.user-icon-preview-container {
+  overflow: hidden;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  /* height: 100px; */
+  margin: 0 auto;
+  margin-top: 14px;
+  border: 1px solid lightgray;
+}
+
+.user-icon-preview-image {
+  /* max-width: 100%; */
+  max-height: 100%;
+  height: 100%;
+}
+
+.user-photo-form > form > button {
+  margin-left: 20px;
+}
+
+.user-photo-form > form > input {
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+
+.user-photo-form > form > button {
+  margin-top: 15px;
+}
+
+.user-photo-form-title {
+  color:rgb(238, 120, 148);
+  font-family: sans-serif;
+  position: relative;
+  top: 20px;
+  text-align: center;
+  font-weight: bold;
 }

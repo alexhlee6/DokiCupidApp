@@ -17,6 +17,8 @@ profile1.save
 file1B = File.open('app/assets/images/default_boy.jpg')
 profile1.photos.attach(io: file1B, filename: "default_boy.jpg")
 
+
+
 user2 = User.create(username: "alexlee", password: "alexlee")
 file2A = File.open('app/assets/images/akko.jpg')
 user2.photo.attach(io: file2A, filename: "akko.jpg")
@@ -25,3 +27,14 @@ profile2.user_id = user2.id
 profile2.save
 file2B = File.open('app/assets/images/akko.jpg')
 profile2.photos.attach(io: file2B, filename: "akko.jpg")
+
+
+
+user3 = User.create(username: "uenoyama", password: "uenoyama")
+file3A = File.open('app/assets/images/uenoyama.jpg')
+user3.photo.attach(io: file3A, filename: "uenoyama.jpg")
+profile3 = Profile.new(user_id: "", fname: "Uenoyama", zipcode: 90005, bio: "I like rock music and playing the guitar.", identify_as: "Male", looking_for: "Relationship", compatibility_answers: "NYNYNYYN")
+profile3.user_id = user3.id
+profile3.save
+file3B = File.open('app/assets/images/uenoyama.jpg')
+profile3.photos.attach(io: file3B, filename: "uenoyama.jpg")

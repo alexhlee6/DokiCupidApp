@@ -20,6 +20,7 @@ class Api::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = @profile.user_id.to_i
     @profile.zipcode = @profile.zipcode.to_i
+    
     if @profile.save 
       render :show
     else  
@@ -41,6 +42,7 @@ class Api::ProfilesController < ApplicationController
 
 
   def profile_params
+    print params
     params.require(:profile).permit(
       :user_id, :fname, :zipcode, :bio, :identify_as, :looking_for, :compatibility_answers, photos: []
     )

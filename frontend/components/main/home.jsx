@@ -1,8 +1,6 @@
 import React from 'react';
 // import { Route } from 'react-router-dom';
-import { ProtectedRoute } from '../../util/route_util';
-import ProfileShowContainer from '../profiles/profile_show_container';
-// import UserProfileContainer from '../profiles/user_profile_container';
+// import { ProtectedRoute } from '../../util/route_util';
 
 class Home extends React.Component {
 
@@ -11,8 +9,6 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Testing /home</h1>
-        
-        {/* <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} /> */}
       </div>
     )
   }

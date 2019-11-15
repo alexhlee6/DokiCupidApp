@@ -16,15 +16,19 @@ export const postProfile = (profile) => {
   return $.ajax({
     method: "POST",
     url: "/api/profiles",
-    data: { profile }
+    data: profile,
+    contentType: false,
+    processData: false
   })
 }
 
-export const patchProfile = (profile) => {
+export const patchProfile = (data, profileId) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/profiles/${profile.id}`,
-    data: { profile }
+    url: `/api/profiles/${profileId}`,
+    data: data,
+    contentType: false,
+    processData: false
   })
 }
 

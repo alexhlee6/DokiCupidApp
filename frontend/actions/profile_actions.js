@@ -43,8 +43,8 @@ export const createProfile = (profile) => dispatch => {
   })
 }
 
-export const updateProfile = (profile) => dispatch => {
-  return ProfileApiUtil.patchProfile(profile).then(profile => {
+export const updateProfile = (profile, profileId) => dispatch => {
+  return ProfileApiUtil.patchProfile(profile, profileId).then(profile => {
     dispatch(receiveProfile(profile))
   })
 }

@@ -7,10 +7,10 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const DISMISS_SESSION_ERRORS = "DISMISS_SESSION_ERRORS";
 
 
-const receiveCurrentUser = (currentUser) => ({
+export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
-})
+});
 
 
 const logoutCurrentUser = () => ({
