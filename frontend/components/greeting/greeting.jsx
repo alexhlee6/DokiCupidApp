@@ -83,7 +83,7 @@ class Greeting extends React.Component {
         </div>
         {photoForm}
 
-        <Link to={currentUser.profileId ? `/profiles/${currentUser.profileId}` : `/profiles/new`} className="navbar-greeting-username">{currentUser.username}</Link>
+        <Link to={`/profiles/${this.props.currentUserProfileId}`} className="navbar-greeting-username">{currentUser.username}</Link>
         <Route exact path={`/profiles/new`} component={CreateProfileFormContainer} />
         
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>

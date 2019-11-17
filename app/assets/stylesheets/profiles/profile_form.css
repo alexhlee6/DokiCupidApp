@@ -1,3 +1,7 @@
+*{font-family: 'Roboto', sans-serif;}
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+
 .profile-form-main {
   position: fixed;
   z-index: 8;
@@ -33,10 +37,22 @@
 }
  
 .profile-form-title {
-  font-size: 20px;
+  font-size: 45px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+
+
+  color: white;
+  -webkit-text-stroke: 0.2px rgb(235, 129, 147);
+  text-shadow:
+    3px 3px 0 rgb(235, 129, 147),
+    -1px -1px 0 rgb(235, 129, 147),  
+    1px -1px 0 rgb(235, 129, 147),
+    -1px 1px 0 rgb(235, 129, 147),
+    1px 1px 0 rgb(235, 129, 147);
 }
 
 .profile-form-content {
@@ -45,21 +61,22 @@
   margin: 10% auto;
   padding: 25px;
   border: 1px solid rgb(252, 127, 167);
-  width: 70%;
+  width: 80%;
   min-height: 500px;
   border-radius: 20px;
+  min-width: 450px;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgb(255, 236, 239);
 }
 
 .profile-info-form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   justify-content: space-evenly;
-  min-height: 400px;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -67,10 +84,12 @@
 .profile-photo-form {
   border: 1px solid rgb(218, 169, 177);
   border-radius: 15px;
-  margin: 0 auto;
-  max-width: 80%;
+  margin: 20px auto;
+  max-width: 90%;
   max-height: 500px;
   padding: 15px;
+  text-align: center;
+  background-color: white;
 }
 
 .profile-photo-preview-container {
@@ -89,7 +108,148 @@
   display: block; 
 }
 
-.profile-photo-preview-title {
-  margin-top: 15px;
+.profile-photo-input-title {
+  margin-bottom: 20px;
+}
+
+.profile-form-info-section {
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(218, 169, 177);
+  border-radius: 15px;
+  background-color: white;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.profile-form-info-section > div {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.profile-form-info-section > div > label {
+  margin-right: 30px; 
+  margin: 20px 20px;
+} 
+
+.profile-form-gender-inputs {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profile-form-gender-inputs > div {
+  margin: 10px;
+}
+
+/* .profile-form-gender-inputs >  */
+
+.profile-form-info-section > div > input {
+  width: 150px;
+  height: 28px;
   font-size: 14px;
+  margin: 10px;
+  text-align: center;
+  padding: 2px 10px;
+
+}
+
+.profile-form-info-section > div > textarea {
+  width: 300px;
+  height: 100px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+/* PREVIEWING DELETABLE PHOTOS LIST: */
+
+.profile-form-preview-photos-list {
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 200px;
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-evenly;
+  padding: 20px;
+  border: 1px solid rgb(228, 165, 176);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.profile-form-preview-photos-item {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+  
+}
+
+.edit-profile-delete-photo-link {
+  background-color: rgb(230, 143, 158);
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.edit-profile-delete-photo-link:hover {
+  background-color: rgb(216, 126, 141);
+}
+
+.edit-profile-existing-photo-container {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgb(230, 143, 158);
+  margin: 10px;
+}
+
+.edit-profile-existing-photo {
+  min-width: 130px;
+  height: 100%;
+}
+
+
+
+.profile-form-submit-button {
+  margin: 20px auto;
+  width: 200px;
+  height: 40px;
+  border: 1px solid lightgray;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: rgb(245, 170, 182);
+}
+
+.profile-form-submit-button:hover {
+  background-color: rgb(242, 149, 164);
+}
+
+
+
+.profile-form-delete-button {
+  color: rgb(160, 55, 55);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.profile-form-delete-button:hover {
+  text-decoration-line: underline;
 }

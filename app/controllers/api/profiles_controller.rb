@@ -1,8 +1,7 @@
 class Api::ProfilesController < ApplicationController
 
   def index 
-    @profiles = Profile.where("id != 1")
-
+    @profiles = Profile.all
     render :index
   end 
 
@@ -42,8 +41,12 @@ class Api::ProfilesController < ApplicationController
 
   def destroy 
     @profile = Profile.find(params[:id])
-    @profile.destroy 
-    render :show
+    @profile_id = @profile.id.dup
+    @user = @profile.user
+    if @profile.user.id == current_user.id 
+      @profile.destroy 
+      render :destroy
+    end
   end
 
 

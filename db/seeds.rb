@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
 
 
 user1 = User.create(username: "demo_user", password: "demo_user")
-  file1A = File.open('app/assets/images/default_boy.jpg')
+  # file1A = File.open('app/assets/images/default_boy.jpg')
+  file1A = open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/default_boy.jpg")
   user1.photo.attach(io: file1A, filename: "default_boy.jpg")
 profile1 = Profile.new(user_id: "", fname: "DemoUser", zipcode: 94102, bio: "This is the profile for a demo user!", identify_as: "Gender Neutral", looking_for: "True Love", compatibility_answers: "NNYNNYYY")
   profile1.user_id = user1.id

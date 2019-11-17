@@ -6,7 +6,8 @@ class ProfileIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profiles: []
+      profiles: [],
+      locations: {}
     }
   }
 
@@ -28,24 +29,49 @@ class ProfileIndex extends React.Component {
     return users;
   }
 
+  findCompatibility(otherAnswers) {
+    let currentUserAnswers;
+    for (let i = 0; i < this.props.profiles.length; i++) {
+      if ( this.props.profiles[i].user_id === this.props.currentUserId ) {
+        currentUserAnswers = this.props.profiles[i].compatibility_answers
+      }
+    }
+    let count = 0;
+    for (let j = 0; j < 8; j++) {
+      if (currentUserAnswers[j] === otherAnswers[j]) {
+        count += 1;
+      }
+    }
+    return Math.floor( (count / 8) * 100 )
+  }
+
   render() {
     let profileItems = this.randomizeOrder(this.state.profiles);
 
     if (profileItems.length > 0) {
       profileItems = this.state.profiles.map((profile, i) => {
-        if (profile.user_id === this.props.currentUserId) {
+        if (profile.user_id === this.props.currentUserId || profile.fname === "DemoUser") {
           return "";
         } else {
+          let newCompatibilityNum;
+          let newCompatibility;
+          if (this.props.currentUserProfileId) {
+            newCompatibilityNum = this.findCompatibility(profile.compatibility_answers);
+            newCompatibility = <div key={`compat-${i}`} className="profile-index-user-compatibility">{newCompatibilityNum}% Match</div>
+          } else {
+            newCompatibility = <div key={`compat-${i}`} className="profile-index-user-compatibility-missing">Create a profile to see your match percentage!</div>
+          }
+    
           return (
-            <Link to={`/profiles/${profile.id}`} className="profile-index-item-link">
+            <Link key={`item-${profile.user_id}`} to={`/profiles/${profile.id}`} className="profile-index-item-link">
               <li key={profile.user_id} className="profile-index-item">
 
-                <div className="profile-index-user-fname">{profile.fname}</div>
-                <div className="profile-index-user-photo-container">
+                <div key={`fname-${profile.user_id}`} className="profile-index-user-fname">{profile.fname}</div>
+                <div key={`photocontainer-${profile.user_id}`} className="profile-index-user-photo-container">
                   <img className="profile-index-user-photo" src={profile.photo_url} />
                 </div>
-                <div className="profile-index-user-zipcode">{profile.zipcode}</div>
-                <div className="profile-index-user-compatibility">{profile.compatibility_answers}</div>
+                <div key={`zipcode-${profile.user_id}`} className="profile-index-user-zipcode">{profile.zipcode}</div>
+                { newCompatibility }
               </li>
             </Link>
           )

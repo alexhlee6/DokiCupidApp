@@ -8,7 +8,8 @@ const mSTP = (state) => {
 
   return {
     profiles: state.entities.profiles,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    currentUserProfileId: parseInt(state.entities.users[state.session.id].profileId) || null
   }
 }
 

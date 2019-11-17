@@ -3,6 +3,9 @@ import * as ProfileApiUtil from '../util/profile_util';
 export const RECEIVE_PROFILES = "RECEIVE_PROFILES";
 export const RECEIVE_PROFILE = "RECEIVE_PROFILE";
 export const REMOVE_PROFILE = "REMOVE_PROFILE";
+import { receiveCurrentUser } from './session_actions';
+
+
 
 const receiveProfiles = (profiles) => ({
   type: RECEIVE_PROFILES,
@@ -14,9 +17,10 @@ const receiveProfile = (profile) => ({
   profile
 })
 
-const removeProfile = (profileId) => ({
+const removeProfile = (data) => ({
   type: REMOVE_PROFILE,
-  profileId
+  profileId: data.profile.id,
+  user: data.user
 })
 
 export const getProfiles = () => dispatch => {
@@ -49,7 +53,7 @@ export const updateProfile = (profile, profileId) => dispatch => {
 }
 
 export const deleteProfile = (profileId) => dispatch => {
-  return ProfileApiUtil.deleteProfile(profileId).then(profileId => {
-    dispatch(removeProfile(profileId))
+  return ProfileApiUtil.deleteProfile(profileId).then(data => { //data has user and profile objects
+    dispatch(removeProfile(data))
   })
 }

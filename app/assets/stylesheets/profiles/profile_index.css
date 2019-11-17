@@ -63,10 +63,18 @@
 }
 
 .profile-index-user-photo {
-  width: 200px;
+  /* width: 200px; */
+  height: 200px;
+  min-width: 100%;
 }
 
 .profile-index-user-fname {
   font-weight: bold;
 }
 
+.profile-index-user-compatibility-missing {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(169, 73, 91);
+  font-size: 14px;
+}

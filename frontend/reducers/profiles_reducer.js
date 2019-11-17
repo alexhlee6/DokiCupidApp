@@ -1,5 +1,6 @@
 import { RECEIVE_PROFILES, RECEIVE_PROFILE, REMOVE_PROFILE } from '../actions/profile_actions';
 
+
 const profilesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
@@ -13,8 +14,6 @@ const profilesReducer = (state = {}, action) => {
       let removedState = Object.assign({}, state);
       delete removedState[action.profileId];
       return removedState;
-    case 404: 
-      return {};
     default: 
       return state;
   }

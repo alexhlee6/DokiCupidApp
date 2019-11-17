@@ -4,7 +4,8 @@ class Profile < ApplicationRecord
   validates :zipcode, :bio, :identify_as, :looking_for, presence: true
   validates :compatibility_answers, length: {minimum: 8}, presence: true
 
-  has_many_attached :photos
+  has_many_attached :photos,
+    dependent: :purge_later
 
   belongs_to :user,
     foreign_key: :user_id,

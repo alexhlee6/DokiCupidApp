@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ProfileForm from './profile_form';
-import { updateProfile, getProfile } from '../../actions/profile_actions';
+import { updateProfile, getProfile, deleteProfile } from '../../actions/profile_actions';
+import { receiveCurrentUser } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
@@ -28,7 +29,9 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     getProfile: (profileId) => dispatch(getProfile(profileId)),
-    action: (profile, profileId) => dispatch(updateProfile(profile, profileId))
+    action: (profile, profileId) => dispatch(updateProfile(profile, profileId)),
+    deleteProfile: (profileId) => dispatch(deleteProfile(profileId)),
+    receiveCurrentUser: (currentUserId) => dispatch(receiveCurrentUser(currentUserId))
   }
 }
 

@@ -14,7 +14,7 @@ Rails.application.configure do
 
 
   config.active_storage.service = :amazon_dev
-  config.active_storage.service = :local
+  # config.active_storage.service = :local
 
 
   # Enable/disable caching. By default caching is disabled.

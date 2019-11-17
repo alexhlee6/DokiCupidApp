@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # AWS AMAZON SERVICES
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3"#, require: false
 
 # gem "active_storage"
 # gem "activestorage", git: "https://github.com/rails/activestorage.git"

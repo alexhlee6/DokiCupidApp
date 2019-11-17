@@ -16,21 +16,22 @@ class ProfileShow extends React.Component {
     this.handleRight = this.handleRight.bind(this);
   }
 
-  componentWillReceiveProps() {
-    this.setState({ loading: true })
-  }
+  // UNSAFE_componentWillMount() {
+  //   this.setState({ loading: true })
+  // }
  
   componentDidMount() {
-    if (this.props.profileId !== "new") {
+    if (this.props.profileId !== "new" && this.props.profileId) {
       this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
     }
   }
+
   conponentWillUnmount() {
     this.setState({loading: true})
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.profileId !== this.props.profileId) {
+    if (this.props.profileId && prevProps.profileId !== this.props.profileId && this.props.profileId != "new") {
       this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
     }
   }
@@ -56,7 +57,7 @@ class ProfileShow extends React.Component {
     let ownProfileLink;
     
     if (this.state.loading) {
-      return null
+      return null;
     }
 
     if (this.props.profile.photo_urls) {
@@ -94,16 +95,16 @@ class ProfileShow extends React.Component {
     let infoListItems;
     if (!this.state.loading) {
       infoListItems = [
-        <li className="profile-show-info-item"><div id="profile-show-name">{this.props.profile.fname || "404 Not Found"}</div></li>,
-        <li className="profile-show-info-item"><div className="profile-show-info-description">Identifies as:</div> <div className="profile-show-info-response">{this.props.profile.identify_as || ""}</div></li>,
-        <div className="profile-show-info-divider"></div>,
-        <li className="profile-show-info-item"><div className="profile-show-info-description">Looking for:</div> <div className="profile-show-info-response">{this.props.profile.looking_for || ""}</div></li>,
-        <div className="profile-show-info-divider"></div>,
-        <li className="profile-show-info-item"><div className="profile-show-info-description">Location:</div> <div className="profile-show-info-response">{this.props.profile.zipcode || ""}</div></li>,
-        <div className="profile-show-info-divider"></div>,
-        <li className="profile-show-info-item"><div className="profile-show-info-description">Bio:</div> <div className="profile-show-info-response">{this.props.profile.bio || ""}</div></li>,
-        <div className="profile-show-info-divider"></div>,
-        <li className="profile-show-info-item"><div className="profile-show-info-description">Compatibility Answers:</div> <div className="profile-show-info-response">{this.props.profile.compatibility_answers || ""}</div></li>
+        <li key={0} className="profile-show-info-item"><div key="label0" id="profile-show-name">{this.props.profile.fname || ""}</div></li>,
+        <li key={1} className="profile-show-info-item"><div key="label1" className="profile-show-info-description">Identifies as:</div> <div key="div1" className="profile-show-info-response">{this.props.profile.identify_as || ""}</div></li>,
+          <div key="divider-1" className="profile-show-info-divider"></div>,
+        <li key={2} className="profile-show-info-item"><div key="label2" className="profile-show-info-description">Looking for:</div> <div key="div2" className="profile-show-info-response">{this.props.profile.looking_for || ""}</div></li>,
+          <div key="divider-2" className="profile-show-info-divider"></div>,
+        <li key={3} className="profile-show-info-item"><div key="label3" className="profile-show-info-description">Location:</div> <div key="div3" className="profile-show-info-response">{this.props.profile.zipcode || ""}</div></li>,
+          <div key="divider-3" className="profile-show-info-divider"></div>,
+        <li key={4} className="profile-show-info-item"><div key="label4" className="profile-show-info-description">Bio:</div> <div key="div4" className="profile-show-info-response">{this.props.profile.bio || ""}</div></li>,
+          <div key="divider-4" className="profile-show-info-divider"></div>,
+        <li key={5} className="profile-show-info-item"><div key="label5" className="profile-show-info-description">Compatibility Answers:</div> <div key="div5" className="profile-show-info-response">{this.props.profile.compatibility_answers || ""}</div></li>
       ]
     } else {
       infoListItems = ""

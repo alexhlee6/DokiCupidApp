@@ -1,8 +1,9 @@
 .profile-show-main {
   width: 70%;
   min-width: 60%;
+  max-width: 920px;
   background-color: white;
-  margin: 30px auto;
+  margin: 40px auto;
   border-radius: 10px;
   border: 1px solid rgb(169, 169, 169);
   min-width: 700px;
