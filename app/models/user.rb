@@ -40,7 +40,7 @@ class User < ApplicationRecord
   end
 
 
-  def requesting_users 
+  def requesting_users #who liked you
     matches = Match.where("(requested_user_id = ?) AND is_matched = ?", self.id, false)
     requesting_users = []
     matches.each do |match| 
@@ -48,6 +48,15 @@ class User < ApplicationRecord
     end
     requesting_users
   end
+
+  def requested_users #who you liked
+    matches = Match.where("user_id = ? AND is_matched = ?", self.id, false)
+    requested_users = []
+    matches.each do |match| 
+      requested_users << User.find(match.requested_user_id)
+    end
+    requested_users
+  end 
 
 
 

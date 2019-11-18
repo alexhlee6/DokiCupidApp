@@ -10,8 +10,8 @@ import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
 import ProfileShowContainer from '../profiles/profile_show_container';
 import ProfileIndexContainer from '../profiles/profile_index_container';
 import SearchContainer from '../search/search_container';
-// import CreateProfileFormContainer from '../profiles/create_profile_form_container';
-// import EditProfileFormContainer from '../profiles/edit_profile_form_container';
+import MatchIndexContainer from '../matches/match_index_container';
+
 
 class Main extends React.Component {
 
@@ -34,6 +34,8 @@ class Main extends React.Component {
 
           <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} />
           <ProtectedRoute exact path="/explore" component={ProfileIndexContainer} />
+
+          <ProtectedRoute path="/matches" component={MatchIndexContainer} />
 
           <ProtectedRoute exact path="/search" component={SearchContainer} />
 

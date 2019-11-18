@@ -1,10 +1,7 @@
-export const getMatches = (requestType) => {
+export const getMatches = () => {
   return $.ajax({
     method: "GET",
-    url: "/api/matches",
-    data: {
-      match: { request_type }
-    }
+    url: "/api/matches"
   })
 }
 
@@ -25,6 +22,8 @@ export const getMatch = (matchId) => {
     url: `/api/matches/${matchId}`
   })
 }
+
+
 
 export const postMatch = (match) => {
   return $.ajax({

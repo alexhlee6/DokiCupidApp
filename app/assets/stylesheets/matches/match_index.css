@@ -1,0 +1,30 @@
+.match-index-title {
+  font-size: 50px;
+  text-align: center;
+  /* margin-top: 30px; */
+  margin-bottom: 10px;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+  padding-top: 30px;
+
+  color: white;
+  -webkit-text-stroke: 0.2px rgb(235, 129, 147);
+  text-shadow:
+    3px 3px 0 rgb(235, 129, 147),
+    -1px -1px 0 rgb(235, 129, 147),  
+    1px -1px 0 rgb(235, 129, 147),
+    -1px 1px 0 rgb(235, 129, 147),
+    1px 1px 0 rgb(235, 129, 147);
+}
+
+.match-index-header {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(250, 101, 129);
+}
+
+.match-index-main {
+  height: 96vh;
+  width: 100%;
+  background-color: white;
+}

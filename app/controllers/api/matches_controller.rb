@@ -1,21 +1,32 @@
 class Api::MatchesController < ApplicationController
 
   def index  # :request_type => "getReceivedMatchRequests" or "getSentMatchRequests" or "getMatchedUsers" 
-    if match_params[:request_type] == "getReceivedMatchRequests" 
-      @matches = current_user.received_match_requests
-    elsif match_params[:request_type] == "getMatchedUsers"
-      @matches = current_user.matches
-      @matched_users = current_user.matched_users
-    elsif match_params[:request_type] == "getSentMatchRequests"
-      @matches = current_user.requested_matches
-    end
+    # if match_params[:request_type] == "getReceivedMatchRequests" 
+    #   @matches = current_user.received_match_requests
+    # elsif match_params[:request_type] == "getMatchedUsers"
+    #   @matches = current_user.matches
+    #   @matched_users = current_user.matched_users
+    # elsif match_params[:request_type] == "getSentMatchRequests"
+    #   @matches = current_user.requested_matches
+    # else
+    @matched_users = current_user.matched_users
+    @who_liked_you = current_user.requesting_users
+    @who_you_liked = current_user.requested_users
     
+    @matches = (
+      Match.where(user_id: current_user.id) + Match.where(requested_user_id: current_user.id)
+    )
     render :index
   end
 
   
-  def show # get one match
+  def show # get one match + associated user
     @match = Match.find(params[:id])
+    if @match.user_id == current_user.id
+      @user = User.find(@match.requested_user_id)
+    else  
+      @user = User.find(@match.user_id)
+    end
     render :show
   end
 
