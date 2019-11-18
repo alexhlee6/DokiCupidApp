@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.search-page-main {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 20px;
+  min-height: 500px;
+  border: 2px solid rgb(235, 129, 147);
+  padding-bottom: 30px;
+  min-width: 480px;
+}
+
+.search-page-title-container {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-page-title {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+
+  color: white;
+  -webkit-text-stroke: 0.2px rgb(235, 129, 147);
+  text-shadow:
+    3px 3px 0 rgb(235, 129, 147),
+    -1px -1px 0 rgb(235, 129, 147),  
+    1px -1px 0 rgb(235, 129, 147),
+    -1px 1px 0 rgb(235, 129, 147),
+    1px 1px 0 rgb(235, 129, 147);
+}
+
+.search-page-select-boxes {
+  min-height: 250px;
+  min-width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 90%;
+  /* padding-bottom: 40px; */
+}
+
+.search-page-option-div {
+  margin: 20px;
+  width: 370px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-page-select {
+  font-size: 14px;
+  cursor: pointer;
+  height: 30px;
+  width: 200px;
+  text-indent: 0px;
+  color: rgb(223, 152, 164);
+}
+
+
+.search-page-results-container {
+  min-height: 50px;
+  min-width: 300px;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.search-page-select {
+  
+}

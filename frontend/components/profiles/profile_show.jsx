@@ -80,16 +80,15 @@ class ProfileShow extends React.Component {
         </div>
       )
     }
-    // } else if (this.props.currentUserId.toString() === this.props.profileId && !this.state.loading) {
-    //   // ownProfileLink = (
-    //   //   <div className="own-profile-link">
-    //   //     <NavLink to={`/profiles/${this.props.profileId}/create`}>Create Profile</NavLink>
 
-    //   //     <Route exact path={`/profiles/${this.props.profileId}/create`} component={CreateProfileFormContainer} />
-    //   //   </div>
-    //   // )
-    // }
-
+    let compatibilityAnswers;
+    if (this.props.profile.compatibility_answers) {
+      let compatibilityAnswersArr = this.props.profile.compatibility_answers.split("/");
+      compatibilityAnswers = compatibilityAnswersArr.map((answer, i) => {
+        return <li className="profile-show-info-compatibility-tag" key={`compat-${i}`}>{answer}</li>
+      })
+    }
+    
 
 
     let infoListItems;
@@ -104,7 +103,12 @@ class ProfileShow extends React.Component {
           <div key="divider-3" className="profile-show-info-divider"></div>,
         <li key={4} className="profile-show-info-item"><div key="label4" className="profile-show-info-description">Bio:</div> <div key="div4" className="profile-show-info-response">{this.props.profile.bio || ""}</div></li>,
           <div key="divider-4" className="profile-show-info-divider"></div>,
-        <li key={5} className="profile-show-info-item"><div key="label5" className="profile-show-info-description">Compatibility Answers:</div> <div key="div5" className="profile-show-info-response">{this.props.profile.compatibility_answers || ""}</div></li>
+        <li key={5} className="profile-show-info-item">
+          <div key="label5" className="profile-show-info-description">Words that describe me:</div> 
+          <div key="div5" className="profile-show-info-response">
+            <ul className="profile-show-info-compatibility-list">{compatibilityAnswers}</ul>
+          </div>
+        </li>
       ]
     } else {
       infoListItems = ""

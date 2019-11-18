@@ -71,6 +71,7 @@
   font-size: 16px;
   width: 40%;
   color: rgb(218, 151, 162);
+  font-weight: bold;
 }
 
 .profile-show-info-response {
@@ -112,4 +113,32 @@
 
 .own-profile-link > a:hover {
   background-color: rgb(230, 115, 134);
+}
+
+
+
+
+.profile-show-info-compatibility-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 120px;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.profile-show-info-compatibility-tag {
+  width: 100px;
+  height: fit-content;
+  background-color: rgb(240, 168, 179);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin: 5px;
+  margin-left: 15px;
+  margin-right: 0px;
+  text-align: center;
+  font-size: 14px;
+  cursor: default;
+  letter-spacing: 0.3mm;
 }

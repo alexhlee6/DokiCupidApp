@@ -31,9 +31,10 @@ class ProfileIndex extends React.Component {
 
   findCompatibility(otherAnswers) {
     let currentUserAnswers;
+    otherAnswers = otherAnswers.split("/");
     for (let i = 0; i < this.props.profiles.length; i++) {
       if ( this.props.profiles[i].user_id === this.props.currentUserId ) {
-        currentUserAnswers = this.props.profiles[i].compatibility_answers
+        currentUserAnswers = this.props.profiles[i].compatibility_answers.split("/")
       }
     }
     let count = 0;

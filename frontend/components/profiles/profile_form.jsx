@@ -8,6 +8,9 @@ class ProfileForm extends React.Component {
     super(props);
     this.state = this.props.profile;
     this.state.selectedGender = this.props.profile.identify_as || "";
+    this.state.compatibility_answers = (
+      this.props.profile.compatibility_answers.split("/") || ["", "", "", "", "", "", "", ""]
+    )
     
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,6 +18,7 @@ class ProfileForm extends React.Component {
     this.handleGenderChange = this.handleGenderChange.bind(this);
     this.handlePhotoDelete = this.handlePhotoDelete.bind(this);
     this.handleProfileDelete = this.handleProfileDelete.bind(this);
+    this.handleCompatibilityChange = this.handleCompatibilityChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +33,17 @@ class ProfileForm extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
       this.setState(this.props.profile);
+      if (this.props.profile.compatibility_answers) {
+        this.setState({compatibility_answers: this.props.profile.compatibility_answers.split("/")})
+      } 
+      // else {
+
+      // }
     }
     if (this.props.formType === "Create" && this.state.isCreated) {
       this.props.history.push(`/profiles/${this.props.profile.id}`)
     }
+
   }
 
   handleInput(property) {
@@ -70,6 +81,16 @@ class ProfileForm extends React.Component {
     })
   }
 
+  handleCompatibilityChange(id) {
+    return (e) => {
+      let oldCompat = [...this.state.compatibility_answers];
+      oldCompat[id] = e.currentTarget.value;
+      this.setState({ compatibility_answers: oldCompat });
+
+      setTimeout(() => console.log(this.state.compatibility_answers), 100);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
@@ -79,7 +100,7 @@ class ProfileForm extends React.Component {
     formData.append('profile[bio]', this.state.bio);
     formData.append('profile[identify_as]', this.state.selectedGender);
     formData.append('profile[looking_for]', this.state.looking_for);
-    formData.append('profile[compatibility_answers]', this.state.compatibility_answers);
+    formData.append('profile[compatibility_answers]', this.state.compatibility_answers.join("/"));
 
     if (this.state.photoFile) {
       formData.append('profile[photos][]', this.state.photoFile);
@@ -172,14 +193,14 @@ class ProfileForm extends React.Component {
 
             <div>
             <label htmlFor="identify_as">Gender Identification:</label>
-            <div className="profile-form-gender-inputs" >
+            <div className="profile-form-gender-inputs">
               <div>
                 <input 
                   id="identify_as" type="radio" 
                   onChange={this.handleGenderChange}
                   name="gender" value="Male" 
                   checked={this.state.selectedGender === "Male" ? true : false} 
-                /> Male
+                /> <p>Male</p>
               </div>
               <div>
                 <input 
@@ -187,7 +208,7 @@ class ProfileForm extends React.Component {
                   onChange={this.handleGenderChange}
                   name="gender" value="Female" 
                   checked={this.state.selectedGender === "Female" ? true : false}
-                /> Female
+                /> <p>Female</p>
               </div>
               <div>
                 <input 
@@ -195,7 +216,7 @@ class ProfileForm extends React.Component {
                   onChange={this.handleGenderChange}
                   name="gender" value="Other" 
                   checked={this.state.selectedGender === "Other" ? true : false}
-                /> Other
+                /> <p>Other</p>
               </div>
             </div>
             </div>
@@ -209,15 +230,174 @@ class ProfileForm extends React.Component {
                 <option value="Friends">Friends</option>
                 <option value="Nothing Serious">Casual Fling / Nothing Serious</option>
                 <option value="Relationship">Relationship</option>
-                <option value="True Love">True Love / Long Term Relationship</option>
+                <option value="True Love">True Love / Long Term</option>
               </select>
             </div>
 
-            <div>
-              <label htmlFor="compatibility_answers">Compatibility Answers:</label>
-              <input id="compatibility_answers" type="text" value={this.state.compatibility_answers || ""} onChange={this.handleInput("compatibility_answers")} />
+
+            <div className="profile-form-compatibility-questions-main">
+              <label>Which of these words describes you best?:</label>
+              {/* <input id="compatibility_answers" type="text" value={this.state.compatibility_answers || ""} onChange={this.handleInput("compatibility_answers")} /> */}
+
+              <div className="profile-form-compatibility-question option-0">
+                <div>
+                  <input
+                    id="compat_0" type="radio"
+                    onChange={this.handleCompatibilityChange(0)}
+                    name="compat_0" value="Introverted"
+                    checked={this.state.compatibility_answers[0] === "Introverted" ? true : false}
+                  />
+                  <p>Introverted</p>
+                </div>
+                <div>
+                  <input
+                    id="compat_0" type="radio"
+                    onChange={this.handleCompatibilityChange(0)}
+                    name="compat_0" value="Extroverted"
+                    checked={this.state.compatibility_answers[0] === "Extroverted" ? true : false}
+                  /> Extroverted
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-1">
+                <div>
+                  <input
+                    id="compat_1" type="radio"
+                    onChange={this.handleCompatibilityChange(1)}
+                    name="compat_1" value="Dog Person"
+                    checked={this.state.compatibility_answers[1] === "Dog Person" ? true : false}
+                  /> Dog Person
+                </div>
+                <div>
+                  <input
+                      id="compat_1" type="radio"
+                      onChange={this.handleCompatibilityChange(1)}
+                      name="compat_1" value="Cat Person"
+                      checked={this.state.compatibility_answers[1] === "Cat Person" ? true : false}
+                    /> Cat Person
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-2">
+                <div>
+                  <input
+                    id="compat_2" type="radio"
+                    onChange={this.handleCompatibilityChange(2)}
+                    name="compat_2" value="Creative"
+                    checked={this.state.compatibility_answers[2] === "Creative" ? true : false}
+                  /> Creative
+                </div>
+                <div>
+                  <input
+                      id="compat_2" type="radio"
+                      onChange={this.handleCompatibilityChange(2)}
+                      name="compat_2" value="Methodical"
+                      checked={this.state.compatibility_answers[2] === "Methodical" ? true : false}
+                    /> Methodical
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-3">
+                <div>
+                  <input
+                    id="compat_3" type="radio"
+                    onChange={this.handleCompatibilityChange(3)}
+                    name="compat_3" value="Organized"
+                    checked={this.state.compatibility_answers[3] === "Organized" ? true : false}
+                  /> Organized
+                </div>
+                <div>
+                  <input
+                      id="compat_3" type="radio"
+                      onChange={this.handleCompatibilityChange(3)}
+                      name="compat_3" value="Carefree"
+                      checked={this.state.compatibility_answers[3] === "Carefree" ? true : false}
+                    /> Carefree
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-4">
+                <div>
+                  <input
+                    id="compat_4" type="radio"
+                    onChange={this.handleCompatibilityChange(4)}
+                    name="compat_4" value="Adventurous"
+                    checked={this.state.compatibility_answers[4] === "Adventurous" ? true : false}
+                  /> Adventurous
+                </div>
+                <div>
+                  <input
+                      id="compat_4" type="radio"
+                      onChange={this.handleCompatibilityChange(4)}
+                      name="compat_4" value="Reserved"
+                      checked={this.state.compatibility_answers[4] === "Reserved" ? true : false}
+                  /> Reserved
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-5">
+                <div>
+                  <input
+                    id="compat_5" type="radio"
+                    onChange={this.handleCompatibilityChange(5)}
+                    name="compat_5" value="Independent"
+                    checked={this.state.compatibility_answers[5] === "Independent" ? true : false}
+                  /> Independent
+                </div>
+                <div>
+                  <input
+                      id="compat_5" type="radio"
+                      onChange={this.handleCompatibilityChange(5)}
+                      name="compat_5" value="Cooperative"
+                      checked={this.state.compatibility_answers[5] === "Cooperative" ? true : false}
+                  /> Cooperative
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-6">
+                <div>
+                  <input
+                    id="compat_6" type="radio"
+                    onChange={this.handleCompatibilityChange(6)}
+                    name="compat_6" value="Sensitive"
+                    checked={this.state.compatibility_answers[6] === "Sensitive" ? true : false}
+                  /> Sensitive
+                </div>
+                <div>
+                  <input
+                      id="compat_6" type="radio"
+                      onChange={this.handleCompatibilityChange(6)}
+                      name="compat_6" value="Head-strong"
+                      checked={this.state.compatibility_answers[6] === "Head-strong" ? true : false}
+                  /> Head-strong
+                </div>
+              </div>
+
+              <div className="profile-form-compatibility-question option-7">
+                <div>
+                  <input
+                    id="compat_7" type="radio"
+                    onChange={this.handleCompatibilityChange(7)}
+                    name="compat_7" value="Task-oriented"
+                    checked={this.state.compatibility_answers[7] === "Task-oriented" ? true : false}
+                  /> Task-oriented
+                </div>
+                <div>
+                  <input
+                      id="compat_7" type="radio"
+                      onChange={this.handleCompatibilityChange(7)}
+                      name="compat_7" value="Laid-back"
+                      checked={this.state.compatibility_answers[7] === "Laid-back" ? true : false}
+                  /> Laid-back
+                </div>
+              </div>
+
+
             </div>
-            <button className="profile-form-submit-button">{this.props.formType} My Profile!</button>
+
+
+
+            <button className="profile-form-submit-button">Submit My Profile!</button>
 
             <div className="profile-form-delete-button-container">
               { deleteButton }

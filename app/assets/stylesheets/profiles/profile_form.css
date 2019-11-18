@@ -70,6 +70,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(255, 236, 239);
+  min-width: 500px;
 }
 
 .profile-info-form {
@@ -113,14 +114,16 @@
 }
 
 .profile-form-info-section {
-  max-width: 95%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(218, 169, 177);
   border-radius: 15px;
   background-color: white;
   padding: 20px;
-  margin: 20px 0;
+  width: 90%;
+  /* min-width: 500px; */
+  margin: 20px auto;
 }
 
 .profile-form-info-section > div {
@@ -143,6 +146,8 @@
 
 .profile-form-gender-inputs > div {
   margin: 10px;
+  display: flex;
+  align-items: center;
 }
 
 /* .profile-form-gender-inputs >  */
@@ -204,6 +209,7 @@
   padding: 5px;
   text-align: center;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .edit-profile-delete-photo-link:hover {
@@ -253,3 +259,59 @@
 .profile-form-delete-button:hover {
   text-decoration-line: underline;
 }
+
+
+/* COMPATIBILITY SECTION */
+.profile-form-compatibility-questions-main {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-evenly;
+  /* min-width: 500px; */
+  margin: 0 auto;
+}
+
+.profile-form-compatibility-question {
+  width: 300px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(237, 158, 171);
+  padding: 5px 10px;
+  color: rgb(150, 106, 112);
+}
+
+.profile-form-compatibility-question > div {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  height: 22px;
+} 
+
+input[type=radio] {
+  -webkit-appearance: none;
+  z-index: 100;
+  background-image: url('https://dokicupid-seeds.s3-us-west-1.amazonaws.com/pink_empty.png');
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  height:18px;
+  width:18px;
+  margin: auto 5px;
+}
+
+input[type=radio]:focus {
+  outline: none;
+}
+
+input[type=radio]:checked {
+  background-image: url('https://dokicupid-seeds.s3-us-west-1.amazonaws.com/pink_filled.png');
+}
+
+select {
+  height: 30px;
+  text-indent: 10px;
+  font-size: 12px;
+}
+
+

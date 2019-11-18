@@ -1,7 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import ProfileIndex from './profile_index';
+import Search from './search';
 import { getProfiles } from '../../actions/profile_actions';
+
 
 const mSTP = (state) => {
   return {
@@ -18,4 +18,6 @@ const mDTP = (dispatch) => {
 }
 
 
-export default connect(mSTP, mDTP)(ProfileIndex);
+
+
+export default connect(mSTP, mDTP)(Search);
