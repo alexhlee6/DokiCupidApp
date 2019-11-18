@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :profiles, only: [:index, :show, :create, :update, :destroy]
     resources :photos, only: [:destroy]
+    resources :matches, only: [:index, :show, :create, :destroy]
   end
 end
