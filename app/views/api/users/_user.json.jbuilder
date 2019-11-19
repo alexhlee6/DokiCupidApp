@@ -7,3 +7,8 @@ if @user.profile
 else 
   json.profileId ""
 end 
+
+json.matches do 
+  json.matched_user_ids @user.matched_user_ids if @user.matches
+  json.pending_match_user_ids @user.pending_match_user_ids if @user.matches
+end 

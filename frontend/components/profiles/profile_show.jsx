@@ -14,15 +14,19 @@ class ProfileShow extends React.Component {
     };
     this.handleLeft = this.handleLeft.bind(this);
     this.handleRight = this.handleRight.bind(this);
+    this.handleMatchRequest = this.handleMatchRequest.bind(this);
   }
 
-  // UNSAFE_componentWillMount() {
-  //   this.setState({ loading: true })
-  // }
  
   componentDidMount() {
     if (this.props.profileId !== "new" && this.props.profileId) {
-      this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
+      this.props.getProfile(this.props.profileId).then(
+        () => this.setState({ loading: false }),
+        () => this.props.history.push('/home)')
+      )
+    }
+    if (!this.props.currentUser.matches) {
+      this.props.getCurrentUser(this.props.currentUserId)
     }
   }
 
@@ -32,8 +36,14 @@ class ProfileShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.profileId && prevProps.profileId !== this.props.profileId && this.props.profileId != "new") {
-      this.props.getProfile(this.props.profileId).then(() => this.setState({ loading: false }))
-    }
+      this.props.getProfile(this.props.profileId).then(
+        () => this.setState({ loading: false }), 
+        () => this.props.history.push("/home")
+      );
+    } 
+    // else if (prevProps.currentUserMatches !== this.props.currentUserMatches) {
+    //   this.props.getCurrentUser(this.props.currentUserId);
+    // }
   }
 
   handleLeft() {
@@ -52,6 +62,14 @@ class ProfileShow extends React.Component {
     }
   }
 
+  handleMatchRequest () {
+    let match = {
+      user_id: this.props.currentUserId,
+      requested_user_id: this.props.profile.user_id
+    }
+    this.props.createMatch(match).then(() => this.props.getCurrentUser(this.props.currentUserId));
+  }
+
   render() {
     let photoLis;
     let ownProfileLink;
@@ -68,6 +86,36 @@ class ProfileShow extends React.Component {
           return <li className="profile-show-photos-item showing" key={i}><img src={photo.url} className="profile-show-photo" /></li>
         }
       })
+    }
+
+    let matchButton;
+    if (Object.values(this.props.currentUserMatches).length > 0) {
+      if (this.props.currentUserMatches.matched_user_ids.includes(this.props.profile.user_id)) {
+        matchButton = (
+          <div className="profile-show-match-status">
+            <p>You matched with this user! <i className="fas fa-heart"></i></p>
+          </div>
+        )
+      } else if (this.props.currentUserMatches.pending_match_user_ids.requested.includes(this.props.profile.user_id)) {
+        matchButton = (
+          <div className="profile-show-match-status">
+            <p>You liked this user! <i className="fas fa-heart"></i></p> 
+          </div>
+        )
+      } else if (this.props.currentUserMatches.pending_match_user_ids.received.includes(this.props.profile.user_id) ) {
+        matchButton = (
+          <div className="profile-show-match-status">
+            <p>This user liked you!</p>
+          <div className="profile-show-request-match-button" onClick={this.handleMatchRequest}>Match with {this.props.profile.fname} <i className="fas fa-heart"></i></div>
+          </div>
+        )
+      } else if (this.props.currentUserId !== this.props.profile.user_id && this.props.profile) {
+        matchButton = (
+          <div className="profile-show-match-status">
+            <div className="profile-show-request-match-button" onClick={this.handleMatchRequest}>Request Match <i className="fas fa-heart"></i></div>
+          </div>  
+        )
+      }
     }
     
 
@@ -101,7 +149,7 @@ class ProfileShow extends React.Component {
           <div key="divider-2" className="profile-show-info-divider"></div>,
         <li key={3} className="profile-show-info-item"><div key="label3" className="profile-show-info-description">Location:</div> <div key="div3" className="profile-show-info-response">{this.props.profile.zipcode || ""}</div></li>,
           <div key="divider-3" className="profile-show-info-divider"></div>,
-        <li key={4} className="profile-show-info-item"><div key="label4" className="profile-show-info-description">Bio:</div> <div key="div4" className="profile-show-info-response">{this.props.profile.bio || ""}</div></li>,
+        <li key={4} className="profile-show-info-item bio"><div key="label4" className="profile-show-info-description">Bio:</div> <div key="div4" className="profile-show-info-response bio">{this.props.profile.bio || ""}</div></li>,
           <div key="divider-4" className="profile-show-info-divider"></div>,
         <li key={5} className="profile-show-info-item">
           <div key="label5" className="profile-show-info-description">Words that describe me:</div> 
@@ -123,7 +171,12 @@ class ProfileShow extends React.Component {
 
     return (
       <div className="profile-show-main">
-        {ownProfileLink}
+        <div className="profile-show-top"> 
+          {ownProfileLink}
+          {matchButton}
+        </div>
+
+        
         <ul className="profile-show-photos-list">
           {leftArr}
             {photoLis}

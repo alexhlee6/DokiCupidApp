@@ -42,12 +42,18 @@ class Search extends React.Component {
     return (
       <div className="search-page-main">
 
-        <div className="search-page-title-container">
-          <h3 className="search-page-title">Search</h3>
+        {/* <div className="search-page-title-container"> */}
+        <div className="page-header">
+          {/* <h3 className="search-page-title">Search</h3> */}
+          <h3 className="page-title">Search</h3>
         </div>
-
+        <div className="page-header sub-header">
+          <div className="page-title sub-titles">
+            <h1 className="search-page-description">Add some filters to find that special someone <i className="fas fa-heart"></i></h1>
+          </div>
+        </div>
+      
         <div className="search-page-select-boxes">
-
           <div className="search-page-option-div">
             <label className="search-page-select-label">Gender Identification: </label>
             <select className="search-page-select" 

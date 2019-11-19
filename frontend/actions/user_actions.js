@@ -11,3 +11,12 @@ export const updatePhoto = (data, userId) => dispatch => {
     user => dispatch(receiveCurrentUser(user))
   )
 }
+
+export const getCurrentUser = (currentUserId) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${currentUserId}`
+  }).then(
+    user => dispatch(receiveCurrentUser(user))
+  )
+}

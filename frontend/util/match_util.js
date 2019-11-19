@@ -5,16 +5,20 @@ export const getMatches = () => {
   })
 }
 
-// THIS WORKED FOR GETMATCHES:
-// $.ajax({
-//   method: "GET",
-//   url: "/api/matches",
-//   data: {
-//     match: {
-//       request_type: "getMatchRequests"
-//     }
-//   }
-// })
+
+export const findCompatibility = (userAnswers, otherAnswers) => {
+  let currentUserAnswers = userAnswers.split("/");
+  otherAnswers = otherAnswers.split("/");
+  
+  let count = 0;
+  for (let j = 0; j < 8; j++) {
+    if (currentUserAnswers[j] === otherAnswers[j]) {
+      count += 1;
+    }
+  }
+  return Math.floor((count / 8) * 100)
+}
+
 
 export const getMatch = (matchId) => {
   return $.ajax({
@@ -29,7 +33,7 @@ export const postMatch = (match) => {
   return $.ajax({
     method: "POST",
     url: "/api/matches",
-    data: match
+    data: {match}
   })
 }
 

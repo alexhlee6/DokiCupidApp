@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import { getMatches, getMatch, createMatch, deleteMatch } from '../../actions/match_actions';
 import MatchIndex from './match_index';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
   return {
-    matches: state.entities.matches
+    matches: state.entities.matches || {},
+    selectedPage: ownProps.match.params.selectedPage
   }
 }
 

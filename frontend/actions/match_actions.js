@@ -10,10 +10,12 @@ const receiveMatches = (matches) => ({
   matches
 })
 
-const receiveMatch = (match) => ({
-  type: RECEIVE_MATCH,
-  match
-})
+const receiveMatch = (match) => {
+  return {
+    type: RECEIVE_MATCH,
+    match
+  }
+}
 
 const removeMatch = (matchId) => ({
   type: REMOVE_MATCH,

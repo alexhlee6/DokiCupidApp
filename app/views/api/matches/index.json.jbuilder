@@ -1,42 +1,11 @@
-# @matches.each do |match|
-
-#   json.set! match.id do 
-#     json.id match.id
-    
-#     if current_user.id == match.user_id
-#       json.user_id match.user_id
-#       json.matched_user_id match.requested_user_id
-
-#       if @matched_users
-#         json.matched_user do 
-#           json.id match.requested_user_id
-#           json.fname User.find(match.requested_user_id).profile.fname if User.find(match.requested_user_id).profile
-#           json.photo_url url_for(User.find(match.requested_user_id).photo) if User.find(match.requested_user_id).photo.attached? 
-#         end
-#       end 
-#     else 
-#       json.user_id match.requested_user_id
-#       json.matched_user_id match.user_id
-
-#       if @matched_users
-#         json.matched_user do 
-#           json.id match.user_id
-#           json.fname User.find(match.user_id).profile.fname if User.find(match.user_id).profile
-#           json.photo_url url_for(User.find(match.user_id).photo) if User.find(match.user_id).photo.attached? 
-#         end
-#       end 
-
-
-#     end
-#     json.is_matched match.is_matched
-#   end
-# end
-
 json.matched_users do 
   @matched_users.each do |matched_user| 
     json.set! matched_user.id do 
       json.id matched_user.id 
       json.fname matched_user.profile.fname if matched_user.profile
+      json.profile_id matched_user.profile.id if matched_user.profile 
+      json.current_user_compatibility_answers current_user.profile.compatibility_answers if current_user.profile
+      json.other_user_compatibility_answers matched_user.profile.compatibility_answers if matched_user.profile
       json.photo_url url_for(matched_user.photo) if matched_user.photo.attached?
     end 
   end
@@ -47,6 +16,9 @@ json.who_liked_you do
     json.set! liker.id do 
       json.id liker.id 
       json.fname liker.profile.fname if liker.profile
+      json.profile_id liker.profile.id if liker.profile 
+      json.current_user_compatibility_answers current_user.profile.compatibility_answers if current_user.profile
+      json.other_user_compatibility_answers liker.profile.compatibility_answers if liker.profile
       json.photo_url url_for(liker.photo) if liker.photo.attached?
     end 
   end
@@ -57,6 +29,9 @@ json.who_you_liked do
     json.set! liked_user.id do 
       json.id liked_user.id 
       json.fname liked_user.profile.fname if liked_user.profile
+      json.profile_id liked_user.profile.id if liked_user.profile 
+      json.current_user_compatibility_answers current_user.profile.compatibility_answers if current_user.profile
+      json.other_user_compatibility_answers liked_user.profile.compatibility_answers if liked_user.profile
       json.photo_url url_for(liked_user.photo) if liked_user.photo.attached?
     end 
   end
@@ -70,10 +45,13 @@ json.matches do
 
       if current_user.id == match.user_id 
         json.other_user_id match.requested_user_id
+        json.creator_name "You"
       else  
         json.other_user_id match.user_id
+        json.creator_name User.find(match.user_id).profile.fname if User.find(match.user_id).profile
       end
-
+      
+      json.created_at match.created_at
       json.is_matched match.is_matched
     end 
   end 

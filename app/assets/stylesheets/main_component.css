@@ -3,19 +3,72 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* max-height: 100vh; */
+  min-width: 700px;
 }
 
 .content-wrap {
   padding-bottom: 2rem;
-  /* min-height: 95vh; */
-  height: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+  flex-grow: 1;
 }
 
 .main-component {
   height: 100%;
+  /* display: flex; */
+  flex-grow: 1;
+  /* background-color: white; */
+  background-color: rgb(255, 218, 220);
+  overflow-y: auto;
 }
 
 .root {
-  min-height: 100%;
+  min-height: 100vh;
+}
+
+
+
+
+
+/* FOOTER: */
+
+.footer {
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(94, 94, 94);
+  background-color: white; 
+  border-top: 1px solid rgba(254, 209, 209, 0.968);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* height: 1.9rem;   */
+  height: 30px;
+}
+
+.footer-left {
+  margin-left: 10px;
+  margin-top: 7px;
+}
+
+.footer-right {
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.footer > ul {
+  display: flex;
+}
+
+.footer > ul > li {
+  margin-left: 15px;
+}
+
+.footer > ul > li:hover {
+  color: black;
+  font-weight: 500;
 }

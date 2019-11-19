@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { findCompatibility } from '../../util/match_util';
 
 const SearchResults = ({ conditions, currentUserId }) => {
 
@@ -73,8 +74,12 @@ const SearchResults = ({ conditions, currentUserId }) => {
   
   
   return (
-    <ul className="search-results-list">
+    <ul className="profile-index-list search-results">
       {displayedProfiles}
+      <li key="hidden-1" className="profile-index-item-hidden"></li>
+      <li key="hidden-2" className="profile-index-item-hidden"></li>
+      <li key="hidden-3" className="profile-index-item-hidden"></li>
+      <li key="hidden-4" className="profile-index-item-hidden"></li>
     </ul>
   )
 

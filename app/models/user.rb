@@ -39,6 +39,37 @@ class User < ApplicationRecord
     matched_users
   end
 
+  def matched_user_ids #returns array of USER IDS for users MATCHED WITH CURRENT USER
+    matches = self.matches
+    matched_users = []
+    matches.each do |match|
+      if match.user_id == self.id 
+        matched_users << match.requested_user_id
+      else 
+        matched_users << match.user_id
+      end
+    end
+    matched_users
+  end
+
+  def pending_matches #returns array of MATCHES where matched = false
+    Match.where("(user_id = ? OR requested_user_id = ?) AND is_matched = ?", self.id, self.id, false)
+  end 
+
+  def pending_match_user_ids #returns array of USER IDS for users MATCHED WITH CURRENT USER
+    matches = self.pending_matches
+    pending_match_user_ids = { requested: [], received: [] }
+    matches.each do |match|
+      if match.user_id == self.id 
+        pending_match_user_ids[:requested] << match.requested_user_id
+      else 
+        pending_match_user_ids[:received] << match.user_id
+      end
+    end
+    pending_match_user_ids
+  end
+
+
 
   def requesting_users #who liked you
     matches = Match.where("(requested_user_id = ?) AND is_matched = ?", self.id, false)

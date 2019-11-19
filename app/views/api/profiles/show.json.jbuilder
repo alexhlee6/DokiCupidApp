@@ -6,3 +6,11 @@ json.photo_urls @profile.photos do |photo|
   json.filename photo.filename
   json.url url_for(photo)
 end 
+
+# json.matches do 
+#   json.matched_user_ids @user.matched_user_ids if @user.matches
+#   json.pending_match_user_ids @user.pending_match_user_ids if @user.matches
+# end 
+
+
+# json.matched_user_ids

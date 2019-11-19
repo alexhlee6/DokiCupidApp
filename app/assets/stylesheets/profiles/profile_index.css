@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 .profile-index-list {
-  width: 100%;
+  min-width: 230px;
+  width: 95%;
   margin: 10px auto;
+  /* margin: 0 auto 0 0; */
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  /* justify-content: safe; */
+  max-width: 1450px;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -30,7 +35,10 @@
 
 .profile-index-item-link {
   /* width: fit-content; */
-  margin: 15px;
+  /* margin: 5px; */
+  margin: 10px 0;
+  /* margin-right: auto; */
+  /* margin: 0 auto 0 0; */
   width: 250px;
   height: 315px;
 }
@@ -45,7 +53,7 @@
   padding: 20px;
   background-color: white;
   border: 1px solid rgb(235, 129, 147);
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 10px;
   
 }
@@ -58,7 +66,7 @@
   width: 200px;
   height: 200px;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 1.5px solid lightgray;
   margin: 10px 5px;
 }
@@ -78,4 +86,12 @@
   margin-top: 10px;
   color: rgb(169, 73, 91);
   font-size: 14px;
+}
+
+.profile-index-item-hidden {
+  width: 250px;
+  height: 315px;
+  opacity: 0;
+  height: 0;
+  flex-grow: 250px;
 }

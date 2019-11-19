@@ -11,6 +11,7 @@ import ProfileShowContainer from '../profiles/profile_show_container';
 import ProfileIndexContainer from '../profiles/profile_index_container';
 import SearchContainer from '../search/search_container';
 import MatchIndexContainer from '../matches/match_index_container';
+import DoubletakeContainer from '../homepage/doubletake_container';
 
 
 class Main extends React.Component {
@@ -30,12 +31,13 @@ class Main extends React.Component {
           <AuthRoute path="/demo-login" component={DemoLoginFormContainer} />
 
           <AuthRoute exact path="/" component={Splash} />
-          <ProtectedRoute exact path="/home" component={Home} />
+          <ProtectedRoute exact path="/home" component={DoubletakeContainer} />
 
           <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} />
           <ProtectedRoute exact path="/explore" component={ProfileIndexContainer} />
 
-          <ProtectedRoute path="/matches" component={MatchIndexContainer} />
+          {/* <ProtectedRoute exact path="/matches" render={() => <Redirect to={"/matches/my-matches" } />} /> */}
+          <ProtectedRoute path="/matches/:selectedPage" component={MatchIndexContainer} />
 
           <ProtectedRoute exact path="/search" component={SearchContainer} />
 

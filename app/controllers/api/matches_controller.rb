@@ -34,6 +34,7 @@ class Api::MatchesController < ApplicationController
   def create
     user_id = match_params[:user_id].to_i
     requested_user_id = match_params[:requested_user_id].to_i
+    @user = User.find(requested_user_id)
     @match = Match.find_by_user_id_and_requested_user_id(requested_user_id, user_id)
 
     if @match.present?

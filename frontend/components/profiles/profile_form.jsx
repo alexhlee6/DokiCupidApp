@@ -86,8 +86,6 @@ class ProfileForm extends React.Component {
       let oldCompat = [...this.state.compatibility_answers];
       oldCompat[id] = e.currentTarget.value;
       this.setState({ compatibility_answers: oldCompat });
-
-      setTimeout(() => console.log(this.state.compatibility_answers), 100);
     }
   }
 

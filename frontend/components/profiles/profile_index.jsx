@@ -83,10 +83,15 @@ class ProfileIndex extends React.Component {
 
     return (
       <div className="profile-index-main">
-        <h1 className="profile-index-title">Explore</h1>
-
+        <div className="page-header">
+          <h1 className="page-title">Explore</h1>
+        </div>
         <ul className="profile-index-list">
           {profileItems}
+          <li className="profile-index-item-hidden" key="item-hidden-1"></li>
+          <li className="profile-index-item-hidden" key="item-hidden-2"></li>
+          <li className="profile-index-item-hidden" key="item-hidden-3"></li>
+          <li className="profile-index-item-hidden" key="item-hidden-4"></li>
         </ul>
 
       </div>

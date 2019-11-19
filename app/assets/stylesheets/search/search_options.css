@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
-
+/* 
 .search-page-main {
   width: 80%;
   margin: 0 auto;
@@ -14,7 +14,7 @@
   border: 2px solid rgb(235, 129, 147);
   padding-bottom: 30px;
   min-width: 480px;
-}
+} */
 
 .search-page-title-container {
   height: 250px;
@@ -42,16 +42,20 @@
 
 .search-page-select-boxes {
   min-height: 250px;
-  min-width: 80%;
   display: flex;
   justify-content: space-evenly;
+  /* align-content: center; */
   flex-wrap: wrap;
-  width: 90%;
+  width: 85%;
+  margin: 30px auto;
+  border: 1px solid rgb(235, 129, 147);
+  background-color: white;
+  border-radius: 10px;
   /* padding-bottom: 40px; */
 }
 
 .search-page-option-div {
-  margin: 20px;
+  margin: 30px 20px;
   width: 370px;
   display: flex;
   justify-content: space-between;
@@ -70,6 +74,7 @@
 
 .search-page-results-container {
   min-height: 50px;
+  margin: 0 auto;
   min-width: 300px;
   max-width: 90%;
   display: flex;
@@ -78,6 +83,16 @@
 
 
 
-.search-page-select {
-  
+.search-page-description {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-page-description > i {
+  font-size: 18px;
+  margin-left: 5px;
+  padding-bottom: 5px;
 }

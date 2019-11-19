@@ -1,0 +1,259 @@
+.doubletake-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.doubletake-users-preview-list {
+  width: 80%;
+  overflow-x: scroll;
+  max-width: 70%;
+  min-width: 600px;
+  max-height: 500px;
+  z-index: 10;
+	margin: 0px auto;
+    ul {
+      max-width: 200%;
+    }
+    li {
+      display: table-cell;
+      // display: block;
+      z-index: 0;
+      position: relative;
+      bottom: 6px;
+      padding: 1em;
+      border: 1px solid #bebebe00;
+    }
+  background-image: linear-gradient(to right, rgb(250, 101, 129), rgb(250, 101, 129)), linear-gradient(to right, rgb(250, 101, 129), rgb(250, 101, 129)), linear-gradient(to right, rgba(18, 18, 18, 0.495), rgba(255, 255, 255, 0)), linear-gradient(to left,rgba(18, 18, 18, 0.495), rgba(255, 255, 255, 0));
+  /* Shadows */
+  /* Shadow covers */
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  // background-color: rgb(250, 101, 129);
+  background-color: rgb(250, 101, 129);
+  background-size: 40px 100%, 40px 100%, 20px 100%, 20px 100%;
+  background-attachment: local, local, scroll, scroll;
+  z-index:3;
+  position:absolute;
+
+  li * {
+  z-index:0;
+  position:relative;
+}
+}
+
+
+
+.doubletake-users-preview-item {
+  z-index: 0;
+  position: relative;
+}
+.doubletake-scroll-shadow {
+  display: block;
+  width: 100px;
+  margin-right: 50px;
+  margin-left: 100px;
+  height: 50px;
+}
+
+.doubletake-users-preview-item.doubletake-scroll-shadow {
+  width: 300px;
+}
+
+.doubletake-users-preview-photo-container {
+  z-index:0;
+  position:relative;
+  border-radius: 50%;
+  height: 67px;
+  width: 67px;
+  margin: 0 5px;
+  overflow: hidden;
+  text-align: center;
+  display: inline-block;
+}
+
+.doubletake-users-preview-photo {
+  z-index: 0;
+  height: 67px;
+  width: 67px;
+  cursor: pointer;
+  display: block;
+  transition: transform .4s
+}
+
+.doubletake-users-preview-photo:hover {
+  transform: scale(1.15);
+  transform-origin: 50% 50%;
+}
+
+.page-header.doubletake-profiles-preview {
+  background-color:rgb(250, 101, 129);
+  height: 250px;
+  align-items: flex-start;
+  min-width: 865px;
+}
+
+.doubletake-main-profile-view {
+  min-width: 640px;
+  position: absolute;
+  min-height: 650px;
+  width: 70%;
+  left: 14.9%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-top: none;
+  z-index: 3;
+  top: 183px;
+  margin-bottom: 15px;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+
+.doubletake-current-profile-photo-list {
+  display: flex;
+  width: max-content;
+  max-width: 95%;
+  justify-content: center;
+  margin: 0px auto;
+  padding: 0 10px;
+  border-radius: 15px;
+}
+
+.doubletake-current-profile-photo-item {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  margin: 15px;
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 10px;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.doubletake-current-profile-photo {
+  min-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.doubletake-current-profile-top-main {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  align-items: center;
+}
+
+.doubletake-current-profile-top-info {
+  display: flex;
+  font-size: 16px;
+  position: relative;
+  // color: rgb(159, 56, 83);
+  top: 20px;
+  margin-left: 40px;
+  width: 55%;
+  height: 40px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  flex-wrap: nowrap;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.doubletake-current-profile-top-info-link {
+  height: 18px;
+  margin-top: 10px;
+  color: rgb(179, 43, 84);
+  cursor: pointer;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+}
+
+.doubletake-current-profile-top-info-link:hover {
+  text-decoration: underline;
+}
+
+.fas.fa-star {
+  font-size: 12px;
+  margin: 10px;
+}
+
+.doubletake-current-profile-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 600px;
+}
+
+.doubletake-current-profile-top-info-name {
+  font-size: 35px;
+  color: black;
+  font-family: "Bebas Neue";
+}
+
+.doubletake-current-profile-bottom-info-title {
+  margin-right: 25px;
+  i {
+    height: 16px;
+  }
+}
+
+.doubletake-current-profile-bottom-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  height: 100%;
+  flex-grow: 1;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.doubletake-current-profile-common-traits-list {
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+
+}
+
+.doubletake-current-profile-common-traits-list > ul {
+  display: flex;
+  flex-direction: column;
+  color: rgb(179, 43, 84);
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.doubletake-current-profile-common-traits-list > ul > li {
+  margin: 3px;
+}
+
+.doubletake-current-profile-common-traits-description {
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.doubletake-current-profile-bottom-info-item {
+  font-size: 16px;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  div {
+    height: 36px;
+    display: flex;
+    align-items: center;
+  }
+}
+

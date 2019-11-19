@@ -6,7 +6,8 @@ const matchesReducer = (state = {}, action) => {
     case RECEIVE_MATCHES:
       return action.matches;
     case RECEIVE_MATCH: 
-      let withMatch = Object.assign({}, state, { [action.match.id]: action.match });
+      let withMatch = Object.assign({}, state);
+      withMatch[action.match.id] = action.match;
       return withMatch;
     case REMOVE_MATCH: 
       let removedMatchState = Object.assign({}, state);

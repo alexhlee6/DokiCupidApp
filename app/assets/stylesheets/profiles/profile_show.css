@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+
 .profile-show-main {
   width: 70%;
   min-width: 60%;
@@ -5,8 +7,10 @@
   background-color: white;
   margin: 40px auto;
   border-radius: 10px;
-  border: 1px solid rgb(169, 169, 169);
+  /* border: 1px solid rgb(169, 169, 169); */
+  border: 1px solid rgb(233, 111, 132);
   min-width: 700px;
+  overflow: hidden;
 }
 
 .profile-show-photos-list {
@@ -66,6 +70,9 @@
   margin: 10px 5px;
 }
 
+.profile-show-info-response.bio {
+  max-width: 275px;
+}
 
 .profile-show-info-description {
   font-size: 16px;
@@ -117,7 +124,6 @@
 
 
 
-
 .profile-show-info-compatibility-list {
   display: flex;
   flex-wrap: wrap;
@@ -141,4 +147,50 @@
   font-size: 14px;
   cursor: default;
   letter-spacing: 0.3mm;
+}
+
+
+
+
+/* MATCHING */
+
+.profile-show-request-match-button {
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: rgb(233, 111, 132);
+  color: white;
+  cursor: pointer;
+  /* height: 33px; */
+  letter-spacing: 0.2mm;
+  /* font-family: 'Fredoka One'; */
+  padding: 6px 10px;
+  padding-top: 7px;
+  width: max-content;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.profile-show-request-match-button:hover {
+  background-color: rgb(210, 102, 120);
+}
+
+.profile-show-match-status {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+
+  /* width:  */
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile-show-match-status > p {
+  color: rgb(210, 102, 120);
+  margin-right: 15px;
+}
+
+.profile-show-top {
+  overflow: hidden;
+  border-radius: 5px;
 }

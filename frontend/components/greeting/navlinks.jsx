@@ -10,7 +10,7 @@ const NavLinks = ({ currentUser }) => {
         <li>
           <Link to="/home">
             <i className="fas fa-home"></i>
-            <span className="navlink-description">Home</span>
+            <span className="navlink-description">Doubletake</span>
           </Link>
         </li>
         <li>
@@ -26,7 +26,7 @@ const NavLinks = ({ currentUser }) => {
           </Link>
         </li>
         <li>
-          <Link to="/matches">
+          <Link to="/matches/my-matches">
             <i className="fas fa-heart"></i>
             <span className="navlink-description">Matches</span>
           </Link>

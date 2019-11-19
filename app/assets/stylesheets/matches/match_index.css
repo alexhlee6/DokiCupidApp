@@ -1,30 +1,96 @@
-.match-index-title {
-  font-size: 50px;
-  text-align: center;
-  /* margin-top: 30px; */
-  margin-bottom: 10px;
-  font-family: "Bebas Neue";
-  font-weight: bold;
-  padding-top: 30px;
-
-  color: white;
-  -webkit-text-stroke: 0.2px rgb(235, 129, 147);
-  text-shadow:
-    3px 3px 0 rgb(235, 129, 147),
-    -1px -1px 0 rgb(235, 129, 147),  
-    1px -1px 0 rgb(235, 129, 147),
-    -1px 1px 0 rgb(235, 129, 147),
-    1px 1px 0 rgb(235, 129, 147);
+.page-header {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 101, 129);
+  border-bottom: 1px solid rgb(252, 155, 172);
 }
 
-.match-index-header {
-  height: 100px;
-  width: 100%;
-  background-color: rgb(250, 101, 129);
+.page-title {
+  font-size: 48px;
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+
+  color: white;
+  -webkit-text-stroke: 0.2px  rgb(233, 58, 87);
+  /* -webkit-text-stroke: 0.2px  rgb(235, 129, 147); */
+  text-shadow:
+    3px 3px 0 rgb(233, 58, 87),
+    -1px -1px 0 rgb(233, 58, 87),  
+    1px -1px 0 rgb(233, 58, 87),
+    -1px 1px 0 rgb(233, 58, 87),
+    1px 1px 0 rgb(233, 58, 87);
 }
 
 .match-index-main {
-  height: 96vh;
+  /* height: 96vh; */
   width: 100%;
+  /* background-color: white; */
+}
+
+.page-header.sub-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.page-title.sub-titles {
+  font-size: 22px;
+  width: 85%;
+  height: 27px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: initial;
+  letter-spacing: 0.2mm;
+}
+
+.page-title.sub-titles > a {
+  width: 120px;
+  margin: 3px 10px;
+  padding-bottom: 2px;
+  height: 24px;
+}
+
+.page-title.sub-titles > a:hover {
+  font-size: 23px;
+  color: rgba(255, 255, 255, 0.776);
+}
+
+.page-title.sub-titles > .selected-page-title {
+  text-decoration: underline;
+  cursor: default;
+}
+
+.page-title.sub-titles > .selected-page-title:hover {
+  font-size: 22px;
+  color: white;
+}
+
+.profile-item-match-percentage {
+  color: rgb(150, 40, 66);
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.match-index-not-found-page {
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 350px;
+  height: 100px;
+  border: 1px solid rgb(228, 117, 138);
+  font-size: 35px;
+  font-family: "Bebas Neue";
   background-color: white;
+  color: rgb(228, 117, 138);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.match-index-not-found-page > p > i {
+  margin-left: 20px;
 }
