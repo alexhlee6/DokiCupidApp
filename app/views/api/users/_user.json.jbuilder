@@ -8,6 +8,12 @@ else
   json.profileId ""
 end 
 
+if @user.profile 
+  json.zipcode @user.profile.zipcode
+else 
+  json.zipcode ""
+end 
+
 json.matches do 
   json.matched_user_ids @user.matched_user_ids if @user.matches
   json.pending_match_user_ids @user.pending_match_user_ids if @user.matches

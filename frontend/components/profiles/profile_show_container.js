@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => {
     currentUserMatches: state.entities.matches,
     profileId: ownProps.match.params.profileId,
     currentUserMatches: currentUser.matches || {},
-    profile: state.entities.profiles[ownProps.match.params.profileId] || {}
+    profile: state.entities.profiles[ownProps.match.params.profileId] || {},
+    currentUserZipcode: currentUser.zipcode || ""
   }
 }
 

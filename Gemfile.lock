@@ -132,6 +132,8 @@ GEM
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
+    rack-cors (1.0.6)
+      rack (>= 1.6.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -164,6 +166,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (3.3.5)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass (3.7.4)
@@ -226,8 +229,10 @@ DEPENDENCIES
   pg (~> 0.18)
   pry-rails
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.2.3)
   rails-ujs (~> 0.1.0)
+  redis (~> 3.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

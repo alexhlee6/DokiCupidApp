@@ -3,6 +3,11 @@
   flex-direction: column;
   height: 100%;
   position: relative;
+
+  .page-header {
+    min-width: 865px;
+    width: 100%;
+  }
 }
 
 .doubletake-users-preview-list {

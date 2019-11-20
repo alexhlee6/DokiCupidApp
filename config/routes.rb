@@ -9,5 +9,11 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index, :show, :create, :update, :destroy]
     resources :photos, only: [:destroy]
     resources :matches, only: [:index, :show, :create, :destroy]
+
+    resources :conversations, only: [:index, :show, :create, :update, :destroy] do 
+      resources :messages, only: [:create, :index, :destroy]
+    end
   end
+
+  mount ActionCable.server => '/cable'
 end

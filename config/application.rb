@@ -4,6 +4,13 @@ require 'rails/all'
 # require "active_storage"
 require "active_storage"
 
+# config.middleware.insert_before 0, Rack::Cors do
+#   allow do
+#     origins '*' #have to change these later
+#     resource '*', headers: :any, methods: %I[get post options] #have to change these later
+#   end
+# end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

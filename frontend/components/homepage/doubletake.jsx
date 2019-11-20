@@ -39,7 +39,6 @@ class Doubletake extends React.Component {
   render() {
 
     let usersPreview;
-    console.log(this.state);
 
     if (this.state.profiles instanceof Array && this.state.currentUser && this.state.currentUser.matches) {
       usersPreview = this.state.profiles.map((profile, i) => {
@@ -64,7 +63,6 @@ class Doubletake extends React.Component {
     if (this.state.profiles instanceof Array && this.state.currentUser) {
       currentProfile = this.state.profiles[this.state.currentProfileIndex]
     }
-    console.log(this.state);
 
     let currentProfilePhotos;
     let profileShow;

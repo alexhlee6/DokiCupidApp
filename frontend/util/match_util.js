@@ -75,3 +75,9 @@ export const deleteMatch = (matchId) => {
     url: `/api/matches/${matchId}`
   })
 }
+
+const zipcodes = require("zipcodes");
+
+export const findDistance = (zipcode1, zipcode2) => {
+  return zipcodes.distance(zipcode1, zipcode2);
+}

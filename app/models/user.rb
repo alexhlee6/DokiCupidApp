@@ -7,6 +7,17 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  has_many :messages
+
+  has_many :conversations,
+    foreign_key: :sender_id,
+    class_name: :Conversation
+
+  has_many :conversations,
+    foreign_key: :recipient_id,
+    class_name: :Conversation
+
+
   has_one :profile,
     foreign_key: :user_id,
     class_name: :Profile

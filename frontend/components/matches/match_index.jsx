@@ -19,7 +19,6 @@ class MatchIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.state);
     if (prevProps !== this.props) {
       this.setState(Object.assign({}, this.props.matches, {selectedPage: this.props.match.params.selectedPage}));
       setTimeout(() => this.setState({ loading: false }), 100);

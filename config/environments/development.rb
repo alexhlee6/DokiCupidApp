@@ -16,6 +16,9 @@ Rails.application.configure do
   config.active_storage.service = :amazon_dev
   # config.active_storage.service = :local
 
+  config.action_cable.url = "ws://localhost:3000/cable"
+  #maybe dont need
+
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

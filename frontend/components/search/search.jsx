@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResults from './search_results';
+import { findCompatibility } from '../../util/match_util';
 
 class Search extends React.Component {
 
@@ -10,19 +11,49 @@ class Search extends React.Component {
       identify_as: "",
       looking_for: "",
       match_percentage: "",
-      specific_tag: ""
+      specific_tag: "",
+      matchPercentages: {}
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    this.props.getProfiles();
+    this.props.getProfiles().then(() => {
+      // let compatibilityRatings = {};
+      // this.props.profiles.forEach(profile => {
+      //   if (this.props.currentUserProfileId !== profile.id) {
+      //     compatibilityRatings[profile.id] = (
+      //       findCompatibility(
+      //         profile.compatibility_answers,
+      //         this.props.profiles[this.props.currentUserProfileId].compatibility_answers
+      //       )
+      //     )
+      //   }
+      // })
+      // this.setState({ matchPercentages: compatibilityRatings })
+      // debugger;
+      this.setState({ profiles: this.props.profiles })
+    })
   }
 
   componentDidUpdate (prevProps) {
     if (this.props !== prevProps) {
-      this.setState({profiles: this.props.profiles})
+      if (this.props.profiles instanceof Array && this.props.currentUserProfile) {
+        let compatibilityRatings = {};
+        this.props.profiles.forEach(profile => {
+          if (this.props.currentUserProfileId !== profile.id && profile.fname !== "DemoUser") {
+            compatibilityRatings[profile.id] = (
+              findCompatibility(
+                this.props.currentUserProfile.compatibility_answers,
+                profile.compatibility_answers
+              )
+            )
+          }
+        })
+        this.setState({ profiles: this.props.profiles, matchPercentages: compatibilityRatings })
+      }
     }
+
   }
 
   handleChange(property) {
