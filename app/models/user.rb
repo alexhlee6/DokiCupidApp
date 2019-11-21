@@ -9,13 +9,17 @@ class User < ApplicationRecord
 
   has_many :messages
 
-  has_many :conversations,
+  has_many :created_conversations,
     foreign_key: :sender_id,
     class_name: :Conversation
 
-  has_many :conversations,
+  has_many :received_conversations,
     foreign_key: :recipient_id,
     class_name: :Conversation
+
+  def conversations 
+    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
 
 
   has_one :profile,

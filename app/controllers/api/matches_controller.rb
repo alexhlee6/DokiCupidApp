@@ -1,14 +1,6 @@
 class Api::MatchesController < ApplicationController
 
-  def index  # :request_type => "getReceivedMatchRequests" or "getSentMatchRequests" or "getMatchedUsers" 
-    # if match_params[:request_type] == "getReceivedMatchRequests" 
-    #   @matches = current_user.received_match_requests
-    # elsif match_params[:request_type] == "getMatchedUsers"
-    #   @matches = current_user.matches
-    #   @matched_users = current_user.matched_users
-    # elsif match_params[:request_type] == "getSentMatchRequests"
-    #   @matches = current_user.requested_matches
-    # else
+  def index  
     @matched_users = current_user.matched_users
     @who_liked_you = current_user.requesting_users
     @who_you_liked = current_user.requested_users

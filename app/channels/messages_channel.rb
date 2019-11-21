@@ -1,10 +1,11 @@
 class MessagesChannel < ApplicationCable::Channel  
   def subscribed
-    stream_from 'messages_channel' #stream_for ?
+    stream_for 'messages_channel' #stream_for ?
   end
 
   def create(data) 
     message = Message.create(body: data["body"], user_id: data["user_id"], conversation_id: data["conversation_id"])
+    print message
     socket = { 
       id: message.id, 
       conversation_id: message.conversation_id, 

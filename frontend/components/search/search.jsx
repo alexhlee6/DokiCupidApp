@@ -19,19 +19,6 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.props.getProfiles().then(() => {
-      // let compatibilityRatings = {};
-      // this.props.profiles.forEach(profile => {
-      //   if (this.props.currentUserProfileId !== profile.id) {
-      //     compatibilityRatings[profile.id] = (
-      //       findCompatibility(
-      //         profile.compatibility_answers,
-      //         this.props.profiles[this.props.currentUserProfileId].compatibility_answers
-      //       )
-      //     )
-      //   }
-      // })
-      // this.setState({ matchPercentages: compatibilityRatings })
-      // debugger;
       this.setState({ profiles: this.props.profiles })
     })
   }
@@ -72,10 +59,7 @@ class Search extends React.Component {
 
     return (
       <div className="search-page-main">
-
-        {/* <div className="search-page-title-container"> */}
         <div className="page-header">
-          {/* <h3 className="search-page-title">Search</h3> */}
           <h3 className="page-title">Search</h3>
         </div>
         <div className="page-header sub-header">

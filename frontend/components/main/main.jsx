@@ -12,6 +12,7 @@ import ProfileIndexContainer from '../profiles/profile_index_container';
 import SearchContainer from '../search/search_container';
 import MatchIndexContainer from '../matches/match_index_container';
 import DoubletakeContainer from '../homepage/doubletake_container';
+import MessagesIndexContainer from '../messages/messages_index_container';
 
 
 class Main extends React.Component {
@@ -40,6 +41,8 @@ class Main extends React.Component {
           <ProtectedRoute path="/matches/:selectedPage" component={MatchIndexContainer} />
 
           <ProtectedRoute exact path="/search" component={SearchContainer} />
+
+          <ProtectedRoute path="/messages" component={MessagesIndexContainer} />
 
           {/* ANY INVALID PATH: */}
           <Route render={() => <Redirect to={{ pathname: "/" }} />} />

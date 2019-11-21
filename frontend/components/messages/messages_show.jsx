@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Message extends React.Component {
+class MessagesShow extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,6 +15,32 @@ class Message extends React.Component {
 
   componentDidMount() {
     this.createSocket();
+    this.props.getConversation(this.props.conversationId).then(
+      () => this.setState({
+        all_conversations: this.props.all_conversations,
+        current_conversation: this.props.current_conversation,
+        conversationId: this.props.conversationId,
+        messageLogs: this.props.messageLogs,
+        userId: this.props.userId,
+        currentUser: this.props.currentUser
+      })
+    )
+  }
+
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.setState({
+        all_conversations: this.props.all_conversations,
+        current_conversation: this.props.current_conversation,
+        conversationId: this.props.conversationId,
+        messageLogs: this.props.messageLogs,
+        userId: this.props.userId,
+        currentUser: this.props.currentUser
+      })
+    }
+    let el = this.refs.scroll;
+    el.scrollTop = el.scrollHeight;
   }
 
   updateCurrentMessage(e) {
@@ -22,6 +48,8 @@ class Message extends React.Component {
       body: e.currentTarget.value
     });
   }
+
+
 
   handleMessageInputKeyPress(e) {
     if (event.key === 'Enter') {
@@ -32,54 +60,70 @@ class Message extends React.Component {
   handleSendEvent(e) {
     e.preventDefault();
     this.messages.create({
-      body: this.state.body, conversation_id: this.state.conversation_id, user_id: this.state.user_id
+      body: this.state.body, conversation_id: this.state.conversationId, user_id: this.state.userId
     });
-    this.setState({body: "" });
+    this.setState({ body: "" });
   }
 
 
   createSocket() {
-    let cable = Cable.createConsumer('ws://localhost:3000/cable');
-    this.messages = cable.subscriptions.create({
+    // let cable = App.cable.createConsumer('ws://localhost:3000/cable');
+    
+    this.messages = App.cable.subscriptions.create({
       channel: 'MessagesChannel'
     }, {
       connected: () => { },
       received: (data) => {
-        console.log(data);
         let messageLogs = this.state.messageLogs;
         messageLogs.push(data);
         this.setState({ messageLogs: messageLogs })
       },
       create: function (messageContent) {
-        this.perform('create', {
-          data: messageContent
-        });
+        this.perform('create', 
+          messageContent
+        );
       }
     });
   }
 
   renderMessageLog() {
-    return this.state.messageLogs.map((el) => {
-      return (
-        <li key={`chat_${el.id}`}>
-          <span className='chat-message'>{el.body}</span>
-          <span className='chat-created-at'>{el.created_at}</span>
-        </li>
-      );
-    });
+    if (this.state.messageLogs) {
+      return this.state.messageLogs.map((el) => {
+        let username;
+        if (el.user_id === this.state.currentUser.id) {
+          username = <span className="message-username own">{this.state.currentUser.username}</span>
+        } else if (el.user_id === this.state.current_conversation.other_user.id) {
+          username = <span className="message-username">{this.state.current_conversation.other_user.username}</span>
+        } else {
+          username = <span className="message-username">{el.username}</span>
+        }
+
+        return (
+          <li className="messages-show-message-item" key={`chat_${el.id}`}>
+            { username }
+            <span className='message-created-at'>
+              <p>{el.created_at.slice(0, 10)}</p>
+              <p>{el.created_at.slice(11, 16)}</p>
+            </span>
+            <span className="message-body">{el.body}</span>
+          </li>
+        );
+      });
+    }
   }
 
+
   render() {
+
     return (
-      <div className='message-main'>
-        <ul className='message-logs'>
+      <div className='messages-show-main'>
+        <ul id="messages-show-message-list" ref="scroll" className='messages-show-message-list'>
           {this.renderMessageLog()}
         </ul>
 
-        <div className='message-form'>
-          <div className='message-stage'>
-            <h1>Message</h1>
-            <div className='chat-logs'>
+        <div className='messages-show-form'>
+          <div className='messages-show-stage'>
+            <div className='messages-logs'>
             </div>
             <input
               onKeyPress={this.handleMessageInputKeyPress}
@@ -100,4 +144,4 @@ class Message extends React.Component {
   }
 }
 
-export default Message;
+export default MessagesShow;

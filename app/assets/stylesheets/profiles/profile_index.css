@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
+.profile-index-main {
+  width: 100%;
+}
+
 .profile-index-list {
   min-width: 230px;
   width: 95%;
@@ -7,8 +11,6 @@
   /* margin: 0 auto 0 0; */
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-evenly; */
-  /* justify-content: safe; */
   max-width: 1450px;
   justify-content: center;
   margin-bottom: 20px;

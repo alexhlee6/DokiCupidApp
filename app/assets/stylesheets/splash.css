@@ -3,6 +3,7 @@
 
 .splash-main {
   min-width: 500px;
+  width: 100%;
   min-height: 94vh;
   padding: 0px;
   /* padding-bottom: 1rem; */
