@@ -33,7 +33,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run webpack",
+    "postinstall": "webpack",
     "webpack": "webpack --mode=development --watch"
   },
   "repository": {
