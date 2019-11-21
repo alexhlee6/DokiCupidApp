@@ -66,12 +66,25 @@
 
 .profile-show-info-item {
   display: flex;
+  flex-wrap: nowrap;
   width: 92%;
   margin: 10px 5px;
 }
 
+.profile-show-info-item  > div {
+  display: flex;
+  /* width: 50%; */
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.profile-show-info-item  > div > div {
+  width: 50%;
+}
+
 .profile-show-info-response.bio {
-  max-width: 275px;
+  /* max-width: 275px; */
+  width: 100%;
 }
 
 .profile-show-info-description {
@@ -87,13 +100,6 @@
   margin-left: 15px;
 }
 
-#profile-show-name {
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 10px;
-}
 
 .profile-show-info-divider {
   border-bottom: 1px solid pink;
@@ -207,4 +213,14 @@
 .location-missing-div {
   display: flex;
   width: 100%;
+}
+
+#profile-show-name {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
