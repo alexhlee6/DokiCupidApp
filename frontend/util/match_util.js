@@ -7,6 +7,10 @@ export const getMatches = () => {
 
 
 export const findCompatibility = (userAnswers, otherAnswers) => {
+  if (!userAnswers || userAnswers === "") {
+    return null;
+  }
+
   let currentUserAnswers = userAnswers.split("/");
   otherAnswers = otherAnswers.split("/");
   

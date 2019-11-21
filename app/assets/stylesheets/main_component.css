@@ -5,6 +5,8 @@
   min-height: 100vh;
   /* max-height: 100vh; */
   min-width: 700px;
+  /* width: 98vw; */
+  /* overflow: hidden; */
 }
 
 .content-wrap {
@@ -16,12 +18,14 @@
   flex-direction: column;
   box-sizing: border-box;
   flex-grow: 1;
+  
 }
 
 .main-component {
   max-height: 100%;
   display: flex;
   flex-grow: 1;
+  overflow-x: hidden;
   /* background-color: white; */
   background-color: rgb(255, 218, 220);
   overflow-y: auto;

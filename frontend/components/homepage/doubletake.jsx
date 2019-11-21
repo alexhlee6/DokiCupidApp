@@ -76,17 +76,49 @@ class Doubletake extends React.Component {
           </li>
         )
       })
-
-      compatibilityTags = currentProfile.compatibility_answers.split("/").map((word, i) => {
-        if (this.state.currentUserCompatibility.split("/").includes(word)) {
-          return (
-            <li key={i} 
-              className="doubletake-current-profile-common-traits-item">
+      console.log(this.props)
+      // if (currentUser)
+      if (this.props.currentUserProfileId) {
+        compatibilityTags = currentProfile.compatibility_answers.split("/").map((word, i) => {
+          if (this.state.currentUserCompatibility.split("/").includes(word)) {
+            return (
+              <li key={i}
+                className="doubletake-current-profile-common-traits-item">
                 {word}
-            </li>
-          )
-        }
-      }) 
+              </li>
+            )
+          }
+        }) 
+      } else {
+        compatibilityTags = (
+          <li
+            className="doubletake-current-profile-common-traits missing">
+            Create a profile to see your shared tags!
+          </li>
+        )
+         
+      }
+
+      let compatibilityPercentage = (
+        findCompatibility(
+          this.state.currentUserCompatibility,
+          currentProfile.compatibility_answers
+        )
+      )
+      if (compatibilityPercentage) {
+        compatibilityPercentage = (
+          <div className="doubletake-current-profile-top-info-compatibility">
+            {compatibilityPercentage}% Match
+          </div>
+        )
+      } else {
+        compatibilityPercentage = (
+          <div className="doubletake-current-profile-top-info-compatibility missing">
+            Create a profile to see your compatibility!
+          </div>
+        )
+      }
+      
 
 
       profileShow = (
@@ -102,12 +134,7 @@ class Doubletake extends React.Component {
               { currentProfile.identify_as }
             </div>
             <i className="fas fa-star"></i>
-            <div className="doubletake-current-profile-top-info-compatibility">
-              { findCompatibility(
-                this.state.currentUserCompatibility, 
-                currentProfile.compatibility_answers
-              ) }% Match
-            </div>
+            { compatibilityPercentage }
           </div>
           <div className="doubletake-current-profile-top-info-link" 
             onClick={() => this.handleProfileLink(currentProfile.id)}>

@@ -170,6 +170,8 @@
   margin-left: 10px;
 }
 
+
+
 .profile-show-request-match-button:hover {
   background-color: rgb(210, 102, 120);
 }
@@ -194,4 +196,15 @@
 .profile-show-top {
   overflow: hidden;
   border-radius: 5px;
+}
+
+.profile-show-info-response.distance-missing {
+  color: rgb(210, 102, 120);
+  font-size: 14px;
+  /* width: 200px; */
+}
+
+.location-missing-div {
+  display: flex;
+  width: 100%;
 }

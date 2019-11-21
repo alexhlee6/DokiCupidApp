@@ -43,15 +43,25 @@ class ProfileShow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.currentUser.profileId === "") {
+      return;
+    }
+
     if (this.props.currentUserZipcode === "") {
       this.props.getCurrentUser(this.props.currentUserId).then(() => {
-        this.setState({ 
+        this.setState({
           currentUserZipcode: this.props.currentUserZipcode,
           otherUserZipcode: this.props.profile.zipcode,
-         })
+        })
       })
     }
+    
     if (this.props.profileId && prevProps.profileId !== this.props.profileId && this.props.profileId != "new") {
+      if (this.props.currentUser.profileId === "" && this.props.profile) {
+        this.props.getProfile(this.props.profileId).then(
+          () => this.setState({profile: this.props.profile})
+        )
+      }
       this.props.getProfile(this.props.profileId).then(
         () => this.setState({ 
           profile: this.props.profile, 
@@ -61,6 +71,8 @@ class ProfileShow extends React.Component {
         () => this.props.history.push("/home")
       );
     } 
+
+    
     // else if (prevProps.currentUserMatches !== this.props.currentUserMatches) {
     //   this.props.getCurrentUser(this.props.currentUserId);
     // }
@@ -93,6 +105,7 @@ class ProfileShow extends React.Component {
   render() {
     let photoLis;
     let ownProfileLink;
+
     if (this.state.loading) {
       return null;
     }
@@ -160,6 +173,22 @@ class ProfileShow extends React.Component {
     if (this.state.otherUserZipcode && this.state.currentUserZipcode && !this.state.loading) {
       distance = findDistance(this.state.otherUserZipcode, this.state.currentUserZipcode).toString() + " miles away";
     }
+    if (distance) {
+      distance = (
+        <div>
+          <div key="label3" className="profile-show-info-description">Location:</div> <div key="div3" className="profile-show-info-response">{distance} </div>
+        </div>
+      )
+    } else {
+      distance = (
+        <div className="location-missing-div">
+          <div key="label3" className="profile-show-info-description">Location:</div> 
+            <p key="div3" className="profile-show-info-response distance-missing">
+              Create a profile to see your distance from {this.props.profile.fname}!
+            </p>
+        </div>
+      )
+    }
     
 
 
@@ -171,7 +200,7 @@ class ProfileShow extends React.Component {
           <div key="divider-1" className="profile-show-info-divider"></div>,
         <li key={2} className="profile-show-info-item"><div key="label2" className="profile-show-info-description">Looking for:</div> <div key="div2" className="profile-show-info-response">{this.props.profile.looking_for || ""}</div></li>,
           <div key="divider-2" className="profile-show-info-divider"></div>,
-        <li key={3} className="profile-show-info-item"><div key="label3" className="profile-show-info-description">Location:</div> <div key="div3" className="profile-show-info-response">{ distance || this.props.profile.zipcode } </div></li>,
+        <li key={3} className="profile-show-info-item">{ distance }</li>,
           <div key="divider-3" className="profile-show-info-divider"></div>,
         <li key={4} className="profile-show-info-item bio"><div key="label4" className="profile-show-info-description">Bio:</div> <div key="div4" className="profile-show-info-response bio">{this.props.profile.bio || ""}</div></li>,
           <div key="divider-4" className="profile-show-info-divider"></div>,

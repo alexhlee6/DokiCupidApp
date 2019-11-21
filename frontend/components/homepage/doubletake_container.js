@@ -6,13 +6,13 @@ import { getCurrentUser } from '../../actions/user_actions';
 const mSTP = (state) => {
   let currentUser = state.entities.users[state.session.id]
   let currentUserCompatibility;
-  if (state.entities.profiles instanceof Array) {
+  if (state.entities.profiles instanceof Array && currentUser.profileId !== "") {
     state.entities.profiles.forEach(profile => {
       if (profile.user_id === currentUser.id) {
         currentUserCompatibility = profile.compatibility_answers;
       }
     })
-  }
+  } 
 
   return {
     currentUser,
