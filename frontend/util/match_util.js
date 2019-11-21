@@ -37,36 +37,6 @@ export const postMatch = (match) => {
   })
 }
 
-// THIS WORKED FOR POST MATCH:
-// $.ajax({
-//   method: "POST",
-//   url: "/api/matches",
-//   data: {
-//     match: {
-//       user_id: 2,
-//       requested_user_id: 8
-//     }
-//   }
-// })
-// RETURNED: 
-// 1: {
-//   id: 1
-//   is_matched: false
-//   matched_user_id: 8
-//   user_id: 2
-// }
-// SECOND POSTMATCH => is_matched = true:
-// $.ajax({
-//   method: "POST",
-//   url: "/api/matches",
-//   data: {
-//     match: {
-//       user_id: 8,
-//       requested_user_id: 2
-//     }
-//   }
-// })
-
 
 
 export const deleteMatch = (matchId) => {

@@ -101,11 +101,11 @@ class MessagesShow extends React.Component {
         return (
           <li className="messages-show-message-item" key={`chat_${el.id}`}>
             { username }
-            <span className='message-created-at'>
+            <div className='message-created-at'>
               <p>{el.created_at.slice(0, 10)}</p>
               <p>{el.created_at.slice(11, 16)}</p>
-            </span>
-            <span className="message-body">{el.body}</span>
+            </div>
+            <div className="message-body">{el.body}</div>
           </li>
         );
       });

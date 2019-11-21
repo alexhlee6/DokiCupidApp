@@ -188,6 +188,7 @@
 .profile-show-match-status > p {
   color: rgb(210, 102, 120);
   margin-right: 15px;
+  cursor: default;
 }
 
 .profile-show-top {

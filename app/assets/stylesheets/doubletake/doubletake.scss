@@ -208,7 +208,7 @@
 }
 
 .doubletake-current-profile-bottom-info-title {
-  margin-right: 25px;
+  margin-right: 35px;
   i {
     height: 16px;
   }
@@ -217,7 +217,7 @@
 .doubletake-current-profile-bottom-info {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  width: 70%;
   height: 100%;
   flex-grow: 1;
   margin: 0 auto;
@@ -253,7 +253,9 @@
 
 .doubletake-current-profile-bottom-info-item {
   font-size: 16px;
+  width: 550px;
   display: flex;
+  // justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
   div {

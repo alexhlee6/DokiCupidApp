@@ -62,7 +62,7 @@ class MessagesIndex extends React.Component {
         // let currentConversation;
         if (this.state.current_conversation) {
           if (Object.values(this.state.current_conversation).length > 0) {
-            if (this.state.current_conversation.other_user.id === otherUserId) {
+            if (this.props.location.pathname !== "/messages" && this.state.current_conversation.other_user.id === otherUserId) {
               return (
                 <li className="conversation-item  selected-conversation" key={i}>
                   <div className="conversation-item-recipient-main">

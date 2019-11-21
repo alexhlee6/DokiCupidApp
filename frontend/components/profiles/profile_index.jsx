@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { findDistance } from '../../util/match_util';
 
 class ProfileIndex extends React.Component {
   
@@ -48,7 +49,7 @@ class ProfileIndex extends React.Component {
 
   render() {
     let profileItems = this.randomizeOrder(this.state.profiles);
-
+    
     if (profileItems.length > 0) {
       profileItems = this.state.profiles.map((profile, i) => {
         if (profile.user_id === this.props.currentUserId || profile.fname === "DemoUser") {
@@ -62,6 +63,11 @@ class ProfileIndex extends React.Component {
           } else {
             newCompatibility = <div key={`compat-${i}`} className="profile-index-user-compatibility-missing">Create a profile to see your match percentage!</div>
           }
+
+          let distance;
+          if (this.props.currentUserProfile) {
+            distance = <div className="profile-index-user-zipcode">{findDistance(profile.zipcode, this.props.currentUserProfile.zipcode).toString() + " miles away"}</div>;
+          }
     
           return (
             <Link key={`item-${profile.user_id}`} to={`/profiles/${profile.id}`} className="profile-index-item-link">
@@ -71,8 +77,10 @@ class ProfileIndex extends React.Component {
                 <div key={`photocontainer-${profile.user_id}`} className="profile-index-user-photo-container">
                   <img className="profile-index-user-photo" src={profile.photo_url} />
                 </div>
-                <div key={`zipcode-${profile.user_id}`} className="profile-index-user-zipcode">{profile.zipcode}</div>
+
                 { newCompatibility }
+                { distance }
+                
               </li>
             </Link>
           )

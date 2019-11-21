@@ -83,6 +83,11 @@
   font-weight: bold;
 }
 
+.profile-index-user-compatibility {
+  margin-top: 5px;
+  color: rgb(169, 73, 91);
+}
+
 .profile-index-user-compatibility-missing {
   text-align: center;
   margin-top: 10px;
@@ -96,4 +101,9 @@
   opacity: 0;
   height: 0;
   flex-grow: 250px;
+}
+
+.profile-index-user-zipcode {
+  margin-top: 8px;
+  font-size: 15px;
 }
