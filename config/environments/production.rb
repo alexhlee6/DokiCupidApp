@@ -3,7 +3,8 @@ Rails.application.configure do
 
   config.active_storage.service = :amazon_prod
 
-
+  config.web_socket_server_url = "wss://dokicupid.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://dokicupid.herokuapp.com', 'http://dokicupid.herokuapp.com']
 
   # Code is not reloaded between requests.
   config.cache_classes = true

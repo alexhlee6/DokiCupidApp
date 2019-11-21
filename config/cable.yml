@@ -6,5 +6,6 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:1aab0994017fd16ee3527f39e312e875@hammerjaw.redistogo.com:11759/
   channel_prefix: DokiCupid_production
+  

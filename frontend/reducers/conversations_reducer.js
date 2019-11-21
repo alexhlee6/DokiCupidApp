@@ -1,4 +1,4 @@
-import { RECEIVE_CONVERSATIONS, RECEIVE_CONVERSATION, REMOVE_CONVERSATION } from '../actions/conversation_actions';
+import { RECEIVE_CONVERSATIONS, RECEIVE_CONVERSATION } from '../actions/conversation_actions';
 
 const conversationsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -19,10 +19,10 @@ const conversationsReducer = (state = {}, action) => {
         };
       }
       return withConvo;
-    case REMOVE_CONVERSATION:
-      let removedConvoState = Object.assign({}, state);
-      delete removedConvoState[action.conversationId];
-      return removedConvoState;
+    // case REMOVE_CONVERSATION:
+    //   let removedConvoState = Object.assign({}, state);
+    //   delete removedConvoState[action.conversationId];
+    //   return removedConvoState;
     default:
       return state;
   }
