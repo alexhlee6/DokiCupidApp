@@ -8,17 +8,22 @@ class ProfileIndex extends React.Component {
     super(props);
     this.state = {
       profiles: [],
-      locations: {}
+      locations: {},
+      loading: true
     }
   }
 
   componentDidMount() {
     this.props.getProfiles();
+    this.setState({ loading: true });
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      this.setState({profiles: this.props.profiles})
+      this.setState({ 
+        profiles: this.props.profiles,
+        loading: false
+      })
     }
   }
 
@@ -48,6 +53,11 @@ class ProfileIndex extends React.Component {
   }
 
   render() {
+
+    if (this.state.loading) {
+      return <div className="lds-heart page"><div></div></div>
+    }
+
     let profileItems = this.randomizeOrder(this.state.profiles);
     
     if (profileItems.length > 0) {

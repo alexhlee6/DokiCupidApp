@@ -64,7 +64,7 @@ class Splash extends React.Component {
         </p>
         <div className="splash-description-module"></div>
         <p className="splash-description-body">
-          On DokiCupid, you’re more than just a photo. You have stories to tell, and passions to share, and things to talk about that are more interesting than the weather. Get noticed for who you are, not what you look like. Because you deserve what dating deserves: better.
+          On Dokicupid, love is love. Whether you hold three dimensions or fewer, there's someone out there waiting to connect with you. Finding your perfect match has never been easier! Join us today to meet person of your dreams <i className="fas fa-heart"></i>
         </p>
       </div>
     )

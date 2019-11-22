@@ -8,14 +8,17 @@ class Doubletake extends React.Component {
     this.state = {
       profiles: this.props.profiles,
       loading: true,
-      currentProfileIndex: 0
+      currentProfileIndex: null
     }
     this.handleImageClick = this.handleImageClick.bind(this);
     this.handleProfileLink = this.handleProfileLink.bind(this);
   }
 
   componentDidMount() {
-    this.props.getProfiles().then(() => this.props.getCurrentUser(this.props.currentUser.id))
+    this.props.getProfiles().then(() => {
+      this.props.getCurrentUser(this.props.currentUser.id);
+      this.setState({loading: true});
+    })
   }
 
   componentDidUpdate(prevProps) {
@@ -38,15 +41,24 @@ class Doubletake extends React.Component {
 
   render() {
 
+    if (this.state.loading) {
+      return <div className="lds-heart page"><div></div></div>
+    }
+
     let usersPreview;
+
+    let hiddenProfiles = [];
 
     if (this.state.profiles instanceof Array && this.state.currentUser && this.state.currentUser.matches) {
       usersPreview = this.state.profiles.map((profile, i) => {
         if (this.props.currentUser.matches.matched_user_ids.includes(profile.user_id)) {
+          hiddenProfiles.push(profile.id);
           return;
         } else if (this.props.currentUser.profileId === profile.id) {
+          hiddenProfiles.push(profile.id);
           return;
         } else if (profile.fname === "DemoUser") {
+          hiddenProfiles.push(profile.id);
           return;
         }
         return (
@@ -61,7 +73,16 @@ class Doubletake extends React.Component {
 
     let currentProfile;
     if (this.state.profiles instanceof Array && this.state.currentUser) {
-      currentProfile = this.state.profiles[this.state.currentProfileIndex]
+      if (!this.state.currentProfileIndex) {
+        for (let i = 0; i < this.state.profiles.length; i++) {
+          if (!hiddenProfiles.includes(this.state.profiles[i].id)) {
+            currentProfile = this.state.profiles[i];
+            break;
+          }
+        }
+      } else {
+        currentProfile = this.state.profiles[this.state.currentProfileIndex];
+      }
     }
 
     let currentProfilePhotos;

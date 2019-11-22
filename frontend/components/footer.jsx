@@ -9,7 +9,7 @@ const Footer = () => {
       </span>
       <ul className="footer-right">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
+        {/* <li><Link to="/about">About</Link></li> */}
         <li></li>
       </ul>
     </footer>

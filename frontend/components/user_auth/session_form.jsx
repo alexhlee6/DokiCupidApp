@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
           
           <label htmlFor="password">Password</label>
           
-          <input id="password" type="text" onChange={this.update('password')} value={this.state.password} />
+          <input id="password" type="password" onChange={this.update('password')} value={this.state.password} />
           
           <br />
           <button onClick={this.handleSubmit}>{formType}</button>
