@@ -39,6 +39,13 @@ When users visit other users' profiles, they can "like", or request to be matche
 
 
 
+## Matches and Messaging
+At the matches page, users can see who they are currently matched with, who they "liked", and who "liked" them. When two users mutually "like" each other, the match is created, and one of the users can start a conversation with the other on the messages page. Real-time chat between matched users is implemented using Action Cable in Rails. 
+
+![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
+
+
+
 ## Technologies Used
 1. Javascript
 2. Ruby on Rails
@@ -49,7 +56,7 @@ When users visit other users' profiles, they can "like", or request to be matche
 ## Libraries:
 1. React.js
 2. Redux 
-3. Rails ActionCable for instant-messaging
+3. Rails ActionCable for real-time messaging
 3. jQuery for AJAX API requests
 4. AWS S3 buckets for user avatar and profile photos 
 5. BCrypt for User Authentication
