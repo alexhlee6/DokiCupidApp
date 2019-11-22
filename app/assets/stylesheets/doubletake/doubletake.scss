@@ -227,7 +227,8 @@
 
 .doubletake-current-profile-common-traits-list {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   font-size: 18px;
   flex-wrap: nowrap;
@@ -238,6 +239,7 @@
   flex-direction: column;
   color: rgb(179, 43, 84);
   font-size: 15px;
+  margin-left: 20px;
   min-width: max-content;
 }
 
