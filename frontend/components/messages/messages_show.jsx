@@ -67,7 +67,6 @@ class MessagesShow extends React.Component {
 
 
   createSocket() {
-    // let cable = App.cable.createConsumer('ws://localhost:3000/cable');
     
     this.messages = App.cable.subscriptions.create({
       channel: 'MessagesChannel'
@@ -88,18 +87,26 @@ class MessagesShow extends React.Component {
 
   renderMessageLog() {
     if (this.state.messageLogs) {
+     
       return this.state.messageLogs.map((el) => {
         let username;
+        let photo;
         if (el.user_id === this.state.currentUser.id) {
           username = <span className="message-username own">{this.state.currentUser.username}</span>
+          if (this.state.currentUser) {
+            photo = <div className="message-photo"><img src={this.state.currentUser.photoUrl} /></div>
+          }
+          
         } else if (el.user_id === this.state.current_conversation.other_user.id) {
           username = <span className="message-username">{this.state.current_conversation.other_user.username}</span>
+          photo = <div className="message-photo"><img src={this.state.current_conversation.other_user.photo_url} /></div>
         } else {
           username = <span className="message-username">{el.username}</span>
         }
 
         return (
           <li className="messages-show-message-item" key={`chat_${el.id}`}>
+            { photo }
             { username }
             <div className='message-created-at'>
               <p>{el.created_at.slice(0, 10)}</p>
@@ -123,8 +130,8 @@ class MessagesShow extends React.Component {
 
         <div className='messages-show-form'>
           <div className='messages-show-stage'>
-            <div className='messages-logs'>
-            </div>
+            {/* <div className='messages-logs'>
+            </div> */}
             <input
               onKeyPress={this.handleMessageInputKeyPress}
               value={this.state.body}

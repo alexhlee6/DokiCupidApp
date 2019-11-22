@@ -228,9 +228,11 @@
 .doubletake-current-profile-common-traits-list {
   display: flex;
   // flex-direction: column;
-  justify-content: flex-start;
+  // justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
   font-size: 18px;
-
+  flex-wrap: nowrap;
 }
 
 .doubletake-current-profile-common-traits-list > ul {
@@ -238,8 +240,9 @@
   flex-direction: column;
   color: rgb(179, 43, 84);
   font-size: 16px;
-  justify-content: center;
-  align-items: center;
+  min-width: max-content;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .doubletake-current-profile-common-traits-list > ul > li {
@@ -250,15 +253,18 @@
 .doubletake-current-profile-common-traits-description {
   margin-right: 20px;
   font-size: 16px;
-  display: block;
-  text-align: center;
-  // display: flex;
-  // flex-wrap: nowrap;
+  // display: block;
+  // text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .doubletake-current-profile-bottom-info-item {
   font-size: 16px;
   width: 600px;
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   // justify-content: space-between;

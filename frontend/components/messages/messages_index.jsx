@@ -22,7 +22,7 @@ class MessagesIndex extends React.Component {
         matched_users: this.props.matched_users,
         current_user: this.props.current_user,
         current_conversation: this.props.current_conversation
-      })
+      });
     }
   }
 

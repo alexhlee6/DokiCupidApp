@@ -9,7 +9,6 @@ const SearchResults = ({ conditions, currentUserId }) => {
   
   if (conditions && conditions.profiles) {
     let profiles = Object.values(conditions.profiles);
-
     let tagNames = Object.keys(conditions);
 
     for (let i = 0; i < tagNames.length; i++) {
@@ -18,15 +17,40 @@ const SearchResults = ({ conditions, currentUserId }) => {
       }
     }
 
-    
     let matchPercentageList;
     if (conditions && conditions.match_percentage.length > 0) {
      
       let scores = Object.values(conditions.matchPercentages);
       if (conditions.match_percentage === "Decreasing") {
         scores = scores.sort().reverse();
+
+        if (scores.includes(100)) {
+          let fixedScores = [];
+          let hundreds = [];
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 100) {
+              hundreds.push(scores[i]);
+            } else {
+              fixedScores.push(scores[i]);
+            }
+          }
+          scores = hundreds.concat(fixedScores);
+        }
+
       } else if (conditions.match_percentage === "Increasing") {
         scores = scores.sort();
+        if (scores.includes(100)) {
+          let fixedScores = [];
+          let hundreds = [];
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 100) {
+              hundreds.push(scores[i]);
+            } else {
+              fixedScores.push(scores[i]);
+            }
+          }
+          scores = fixedScores.concat(hundreds);
+        }
       }
 
       let oldProfiles = [...conditions.profiles];
@@ -48,9 +72,6 @@ const SearchResults = ({ conditions, currentUserId }) => {
     }
 
 
-
-
-    
     let selectedTagNames;
 
     if (Object.keys(selectedTags).length > 0) {

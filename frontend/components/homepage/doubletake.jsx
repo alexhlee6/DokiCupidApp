@@ -76,8 +76,7 @@ class Doubletake extends React.Component {
           </li>
         )
       })
-      console.log(this.props)
-      // if (currentUser)
+      
       if (this.props.currentUserProfileId) {
         compatibilityTags = currentProfile.compatibility_answers.split("/").map((word, i) => {
           if (this.state.currentUserCompatibility.split("/").includes(word)) {

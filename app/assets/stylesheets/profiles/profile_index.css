@@ -6,9 +6,8 @@
 
 .profile-index-list {
   min-width: 230px;
-  width: 95%;
+  width: 96%;
   margin: 10px auto;
-  /* margin: 0 auto 0 0; */
   display: flex;
   flex-wrap: wrap;
   max-width: 1450px;
@@ -36,11 +35,7 @@
 }
 
 .profile-index-item-link {
-  /* width: fit-content; */
-  /* margin: 5px; */
   margin: 10px 0;
-  /* margin-right: auto; */
-  /* margin: 0 auto 0 0; */
   width: 250px;
   height: 315px;
 }
@@ -52,7 +47,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   background-color: white;
   border: 1px solid rgb(235, 129, 147);
   border-radius: 10px;

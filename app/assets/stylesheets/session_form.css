@@ -43,10 +43,8 @@
 }
 
 .session-form label {
-  /* color: gray; */
   display: block;
   margin-top: 20px;
-  /* margin-bottom: 3px; */
   font-size: 15px;
 }
 
@@ -56,7 +54,9 @@
   margin-top: 15px;
   width: 250px;
   height: 30px;
-  /* border-style: solid; */
+  font-size: 15px;
+  padding: 5px 10px;
+
   border: 1px solid rgba(250, 200, 200, 0.968);
   background-color: rgb(255, 243, 244);
 }
