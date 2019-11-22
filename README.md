@@ -46,6 +46,106 @@ At the matches page, users can see who they are currently matched with, who they
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
 
 
+Because only one conversation should exist in conversations table of the database for a pair of matched users, I wrote a scope method `:between` in the Conversation model to be used when attempting to create a conversation at the Conversations controller. If the conversation already exists in the database, the existing one is returned; if an existing conversation is not found, the method creates a new conversation between the users and returns that conversation.
+
+```ruby
+# app/controllers/api/conversations_controller.rb
+def create
+  if Conversation.between(
+      conversation_params[:sender_id], conversation_params[:recipient_id]
+    ).present?
+    @conversation = Conversation.between(
+      conversation_params[:sender_id],
+      conversation_params[:recipient_id]
+    ).first
+  else
+    @conversation = Conversation.create!(conversation_params)
+  end
+  render :show
+end
+
+```
+```ruby
+# app/models/conversation.rb
+scope :between, -> (sender_id, recipient_id) do 
+    where(
+      "(conversations.sender_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? AND conversations.recipient_id = ?)", 
+      sender_id, recipient_id, recipient_id, sender_id
+    )
+end
+```
+
+One of the more challenging areas of this project was configuring Action Cable for real-time messaging.
+
+In MessagesChannel, I defined a method `create` that takes in data and creates a message in the database with that data. Then, it broadcasts the `socket` object to the "messages_channel" referenced in the `subscribed` method.
+
+```ruby
+# app/channels/messages_channel.rb
+class MessagesChannel < ApplicationCable::Channel  
+  def subscribed
+    stream_for 'messages_channel' 
+  end
+
+  def create(data) 
+    message = Message.create(
+      body: data["body"], 
+      user_id: data["user_id"], 
+      conversation_id: data["conversation_id"]
+    )
+    socket = { 
+      id: message.id, 
+      conversation_id: message.conversation_id, 
+      body: message.body, 
+      user_id: message.user_id, 
+      read: message.read, 
+      created_at: message.created_at 
+    }
+    MessagesChannel.broadcast_to("messages_channel", socket)
+  end
+end  
+```
+
+In the MessageShow component below, I call `this.createSocket` once the component mounts. `createSocket` then sets `this.messages`. 
+
+```javascript
+// frontend/components/messages/messages_show.jsx
+class MessagesShow extends React.Component {
+  componentDidMount() {
+     this.createSocket();
+  }
+   
+  createSocket() {
+    this.messages = App.cable.subscriptions.create({
+      channel: 'MessagesChannel'
+    }, {
+      connected: () => { },
+      received: (data) => {
+        let messageLogs = this.state.messageLogs;
+        messageLogs.push(data);
+        this.setState({ messageLogs: messageLogs })
+      },
+      create: function (messageContent) {
+        this.perform('create', 
+          messageContent
+        );
+      }
+    });
+  }
+  
+  handleSendEvent(e) {
+    e.preventDefault();
+    this.messages.create({
+      body: this.state.body, 
+      conversation_id: this.state.conversationId, 
+      user_id: this.state.userId
+    });
+    this.setState({ body: "" });
+  }
+}
+
+```
+
+
 
 ## Technologies Used
 1. Javascript
