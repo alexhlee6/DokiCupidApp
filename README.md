@@ -26,7 +26,7 @@ The explore page gives previews of all user profiles for users who are not yet m
 
 The search page allows a user to filter prospective matches by tags including specific personality traits, gender identification, and what the other user is "looking for" on this app. Multiple tags may be specified at one time, and the results will display users that meet all of these requirements. Users can also choose to sort these results by compatibility percentage in increasing or decreasing order.
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/explore_search.png)
+![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/explore_search_2.png)
 
 
 
