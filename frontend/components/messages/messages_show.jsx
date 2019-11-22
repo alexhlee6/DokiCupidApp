@@ -130,8 +130,6 @@ class MessagesShow extends React.Component {
 
         <div className='messages-show-form'>
           <div className='messages-show-stage'>
-            {/* <div className='messages-logs'>
-            </div> */}
             <input
               onKeyPress={this.handleMessageInputKeyPress}
               value={this.state.body}
