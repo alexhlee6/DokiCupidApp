@@ -35,7 +35,7 @@ When visiting one's own profile page, a user can choose to view, edit, or delete
 
 When users visit other users' profiles, they can "like", or request to be matched with, the user they are viewing. If the requested user chooses to "like" them back, a match is created which allows the two users to send messages to one another. 
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/profile_page.png)
+![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/profile_page_2.png)
 
 
 
