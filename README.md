@@ -46,7 +46,7 @@ At the matches page, users can see who they are currently matched with, who they
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
 
 
-Because only one conversation should exist in conversations table of the database for a pair of matched users, I wrote a scope method `:between` in the Conversation model to be used when attempting to create a conversation at the Conversations controller. If the conversation already exists in the database, the existing one is returned; if an existing conversation is not found, the method creates a new conversation between the users and returns that conversation.
+Because only one conversation should exist in conversations table of the database for a pair of matched users, I wrote a scope method `:between` in the `Conversation` model to be used when attempting to create a conversation at the controller. If one already exists in the database, the existing one is returned; if an existing conversation is not found, the method creates a new conversation between the two users and returns that conversation.
 
 ```ruby
 # app/controllers/api/conversations_controller.rb
@@ -105,7 +105,7 @@ class MessagesChannel < ApplicationCable::Channel
 end  
 ```
 
-In the MessageShow component below, I call `this.createSocket` once the component mounts. `createSocket` then sets `this.messages`. 
+In the MessageShow component below, `this.createSocket` is called once the component mounts. `createSocket` then sets `this.messages` to be the subscription that is created. We set the channel to be the `MessagesChannel` shown above, and state that when we receive data (a new message), we want to add that message to `this.state.messageLogs` and `setState` to update what is displayed to the user. 
 
 ```javascript
 // frontend/components/messages/messages_show.jsx
@@ -144,7 +144,7 @@ class MessagesShow extends React.Component {
 }
 
 ```
-
+I also defined a method `create` on `this.messages` which calls `handleSendEvent` with our new to-be-sent message. When the user hit the enter key or clicks the send button to submit their message, we call the `create` function passing in the `messageContent` we want to send to the `MessagesChannel`'s `create` method. 
 
 
 ## Technologies Used
