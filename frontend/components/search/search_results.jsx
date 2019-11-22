@@ -1,25 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { findCompatibility } from '../../util/match_util';
 
 const SearchResults = ({ conditions, currentUserId }) => {
 
   let displayedProfiles;
   let selectedTags = {};
-  
+
   if (conditions && conditions.profiles) {
     let profiles = Object.values(conditions.profiles);
     let tagNames = Object.keys(conditions);
 
     for (let i = 0; i < tagNames.length; i++) {
-      if ((tagNames[i] !== "profiles" && tagNames[i] !== "matchPercentages") && conditions[tagNames[i]].length > 0 ) {
+      if ((tagNames[i] !== "profiles" && tagNames[i] !== "matchPercentages") && conditions[tagNames[i]].length > 0) {
         selectedTags[tagNames[i]] = conditions[tagNames[i]];
       }
     }
 
     let matchPercentageList;
     if (conditions && conditions.match_percentage.length > 0) {
-     
+
       let scores = Object.values(conditions.matchPercentages);
       if (conditions.match_percentage === "Decreasing") {
         scores = scores.sort().reverse();
@@ -61,13 +60,13 @@ const SearchResults = ({ conditions, currentUserId }) => {
           let profileId = oldProfiles[i].id;
           if (conditions.matchPercentages[profileId] === scores[0]) {
             newProfiles.push(oldProfiles[i]);
-            oldProfiles[i] = {id:null};
+            oldProfiles[i] = { id: null };
             scores = scores.slice(1);
             break;
           }
         }
       }
-      
+
       profiles = newProfiles;
     }
 
@@ -78,7 +77,7 @@ const SearchResults = ({ conditions, currentUserId }) => {
       selectedTagNames = Object.keys(selectedTags);
       displayedProfiles = profiles.map((profile, i) => {
         let profilePersonalityTags = profile.compatibility_answers.split("/");
-        
+
         for (let j = 0; j < selectedTagNames.length; j++) {
           if (profile.fname === "DemoUser" || profile.user_id === currentUserId) {
             return;
@@ -111,14 +110,14 @@ const SearchResults = ({ conditions, currentUserId }) => {
             }
           } else if (selectedTagNames[j] !== "match_percentage" && profile[selectedTagNames[j]] !== selectedTags[selectedTagNames[j]]) {
             return;
-          } 
+          }
           if (j === selectedTagNames.length - 1) {
             let compat;
             if (Object.keys(conditions.matchPercentages > 0)) {
               compat = conditions.matchPercentages[profile.id].toString() + "% Match";
             }
             return (
-              
+
               <Link key={`item-${profile.user_id}`} to={`/profiles/${profile.id}`} className="profile-index-item-link">
                 <li key={profile.user_id} className="profile-index-item">
 
@@ -135,8 +134,8 @@ const SearchResults = ({ conditions, currentUserId }) => {
       })
     }
   }
-  
-  
+
+
   return (
     <ul className="profile-index-list search-results">
       {displayedProfiles}

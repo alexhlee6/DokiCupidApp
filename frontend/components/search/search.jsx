@@ -19,7 +19,9 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.props.getProfiles().then(() => {
-      this.setState({ profiles: this.props.profiles })
+      this.setState({ 
+        profiles: this.props.profiles
+      })
     })
   }
 
@@ -38,9 +40,8 @@ class Search extends React.Component {
           }
         })
         this.setState({ profiles: this.props.profiles, matchPercentages: compatibilityRatings })
-      }
+      } 
     }
-
   }
 
   handleChange(property) {
@@ -49,13 +50,16 @@ class Search extends React.Component {
 
   render() {
     let conditions;
+
     if (this.state.profiles.length > 0) {
       conditions = Object.assign({}, this.state);
     }
     
-    let results = (
+   
+    let results =  (
       <SearchResults conditions={conditions} currentUserId={this.props.currentUserId} />
     )
+    
 
     return (
       <div className="search-page-main">
@@ -147,7 +151,6 @@ class Search extends React.Component {
         <div className="search-page-results-container">
           {results}
         </div>
-
       </div>
     )
   }
