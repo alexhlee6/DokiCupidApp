@@ -1,4 +1,4 @@
-# DokiCupid 
+# DokiCupid  (°◡° ♡)
 
 [See it Live](https://dokicupid.herokuapp.com/)
 
@@ -17,7 +17,8 @@ This application utilizes Rails and Postgres on the back-end, and React/Redux to
 ## Homepage (Doubletake)
 After logging in, users are greeted with the doubletake page which displays profile previews for users that the current user has not yet matched with. Users can see their match percentage with each displayed user and have the option to visit that user's profile. 
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/homepage.png)
+![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/homepage_2.png)
+
 
 
 
