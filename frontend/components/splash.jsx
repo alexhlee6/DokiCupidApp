@@ -64,7 +64,7 @@ class Splash extends React.Component {
         </p>
         <div className="splash-description-module"></div>
         <p className="splash-description-body">
-          On Dokicupid, love is love. Whether you hold three dimensions or fewer, there's someone out there waiting to connect with you. Finding your perfect match has never been easier! Join us today to meet person of your dreams <i className="fas fa-heart"></i>
+          On Dokicupid, love is love. Whether you hold three dimensions or fewer, there's someone out there waiting to connect with you. Meeting your perfect match has never been easier! Join us today to find the person of your dreams <i className="fas fa-heart"></i>
         </p>
       </div>
     )
