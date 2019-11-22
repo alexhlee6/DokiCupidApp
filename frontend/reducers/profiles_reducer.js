@@ -7,9 +7,19 @@ const profilesReducer = (state = {}, action) => {
     case RECEIVE_PROFILES: 
       return action.profiles; // profiles: [ {...}, {...}, {...}]
     case RECEIVE_PROFILE: 
-      let newState = Object.assign({}, state);
-      newState[action.profile.id] = action.profile;
-      return newState;
+      let newState = {};
+      if (state instanceof Array) {
+        // newState = {};
+        for (let i = 0; i < state.length; i++) {
+          newState[state[i].id] = state[i];
+        }
+        newState[action.profile.id] = action.profile;
+        return newState;
+      } else {
+        newState = Object.assign({}, state);
+        newState[action.profile.id] = action.profile;
+        return newState;
+      }
     case REMOVE_PROFILE: 
       let removedState = Object.assign({}, state);
       delete removedState[action.profileId];
