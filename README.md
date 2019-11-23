@@ -6,11 +6,11 @@ Welcome to **DokiCupid**, a dating app designed for anime characters!
 
 DokiCupid is a clone of the popular dating site OkCupid. The Japanese term *"doki-doki"* describes the sound of one's beating heart and is often used to express excited feelings of love. 
 
-DokiCupid features user profiles, matchmaking, filtered search, and instant-messaging between users. 
+DokiCupid features **user profiles, matchmaking, filtered search, and instant-messaging** between users. 
 
 This application utilizes Rails and Postgres on the back-end, and React/Redux to manage the front-end. 
 
-*Note: DokiCupid was a two-week project submitted as part of AppAcademy's full-stack software engineering curriculum.*
+*Note: DokiCupid was a two-week project submitted as part of AppAcademy's full-stack curriculum.*
 
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/splash.png)
 
