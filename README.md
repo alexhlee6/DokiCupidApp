@@ -1,16 +1,33 @@
 # DokiCupid  (°◡° ♡)
 
-[See it Live](https://dokicupid.herokuapp.com/)
+### [Live Link](https://dokicupid.herokuapp.com/)
 
-Welcome to DokiCupid, a dating app designed for anime characters!
+Welcome to **DokiCupid**, a dating app designed for anime characters!
 
 DokiCupid is a clone of the popular dating site OkCupid. 
 This project features user profiles, matchmaking, filtered search, and instant-messaging between users. 
 
 This application utilizes Rails and Postgres on the back-end, and React/Redux to manage the front-end. 
 
-
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/splash.png)
+
+---
+
+## Technologies Used
+1. Javascript
+2. Ruby on Rails
+3. PostgreSQL 
+4. HTML 
+5. CSS/SCSS 
+
+## Libraries:
+1. React.js
+2. Redux 
+3. Rails ActionCable for real-time messaging
+3. jQuery for AJAX API requests
+4. AWS S3 buckets for user avatar and profile photos 
+5. BCrypt for User Authentication
+6. NPM zipcodes to calculate distance between users
 
 
 
@@ -46,6 +63,7 @@ At the matches page, users can see who they are currently matched with, who they
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
 
 
+#### Handling Conversations 
 Because only one conversation should exist in conversations table of the database for a pair of matched users, I wrote a scope method `:between` in the `Conversation` model to be used when attempting to create a conversation at the controller. If one already exists in the database, the existing one is returned; if an existing conversation is not found, the method creates a new conversation between the two users and returns that conversation.
 
 ```ruby
@@ -75,9 +93,10 @@ scope :between, -> (sender_id, recipient_id) do
 end
 ```
 
+#### Real-time Messaging 
 One of the more challenging areas of this project was configuring Action Cable for real-time messaging.
 
-In MessagesChannel, I defined a method `create` that takes in data and creates a message in the database with that data. Then, it broadcasts the `socket` object to the "messages_channel" referenced in the `subscribed` method.
+In `MessagesChannel`, I defined a method `create` that takes in data and creates a message in the database with that data. Then, it broadcasts the `socket` object to the "messages_channel" referenced in the `subscribed` method.
 
 ```ruby
 # app/channels/messages_channel.rb
@@ -105,7 +124,7 @@ class MessagesChannel < ApplicationCable::Channel
 end  
 ```
 
-In the MessageShow component below, `this.createSocket` is called once the component mounts. `createSocket` then sets `this.messages` to be the subscription that is created. We set the channel to be the `MessagesChannel` shown above, and state that when we receive data (a new message), we want to add that message to `this.state.messageLogs` and `setState` to update what is displayed to the user. 
+In the `MessageShow` component below, `this.createSocket` is called once the component mounts. `createSocket` then sets `this.messages` to be the subscription that is created. We set the channel to be the `MessagesChannel` shown above, and state that when we receive data (a new message), we want to add that message to `this.state.messageLogs` and `setState` to update what is displayed to the user. 
 
 ```javascript
 // frontend/components/messages/messages_show.jsx
@@ -146,19 +165,14 @@ class MessagesShow extends React.Component {
 ```
 I also defined a method `create` on `this.messages` which calls `handleSendEvent` with our new to-be-sent message. When the user hit the enter key or clicks the send button to submit their message, we call the `create` function passing in the `messageContent` we want to send to the `MessagesChannel`'s `create` method. 
 
+---
 
-## Technologies Used
-1. Javascript
-2. Ruby on Rails
-3. PostgreSQL 
-4. HTML 
-5. CSS/SCSS 
-
-## Libraries:
-1. React.js
-2. Redux 
-3. Rails ActionCable for real-time messaging
-3. jQuery for AJAX API requests
-4. AWS S3 buckets for user avatar and profile photos 
-5. BCrypt for User Authentication
-6. NPM zipcodes to calculate distance between users
+### Future Directions
+1. Mobile-friendly user interface
+1. Add filter-by distance on Search page
+1. Uploading multiple photos at once in Profile Form
+1. Display errors for Profile Form create/edit, and other relevant errors (only login/signup errors currently)
+   1. Add validation checking zipcode entered is an existing US zipcode or ask users if they would like to use their current location instead of manually entering zipcode
+1. Use Google Maps API for accurate distance calculation
+1. Notifications for new messages, matches, and likes
+1. Sign up by email and validate email before using site
