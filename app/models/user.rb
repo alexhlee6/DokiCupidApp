@@ -36,12 +36,12 @@ class User < ApplicationRecord
   
   
 
-  def matches #returns array of MATCHES where 
+  def matches #returns array of matches
     Match.where("(user_id = ? OR requested_user_id = ?) AND is_matched = ?", self.id, self.id, true)
   end 
 
 
-  def matched_users #returns array of USERS MATCHED WITH CURRENT USER
+  def matched_users #returns array of users matched with self (current_user)
     matches = self.matches
     matched_users = []
     matches.each do |match|

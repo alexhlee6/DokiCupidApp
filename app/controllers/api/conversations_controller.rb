@@ -27,7 +27,6 @@ class Api::ConversationsController < ApplicationController
     end
     @other_user = User.find(params[:conversation][:recipient_id])
     render :show
-    # redirect_to conversation_messages_path(@conversation)
   end
 
   private

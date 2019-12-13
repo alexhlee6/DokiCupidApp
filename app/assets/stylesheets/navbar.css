@@ -145,6 +145,10 @@
   margin-right: 5px;
 }
 
+.navbar-greeting-photo-container:hover {
+  opacity: 0.9;
+}
+
 .navbar-greeting-photo {
   width: 100%;
   cursor: pointer;
@@ -164,7 +168,7 @@
   position: absolute;
   z-index: 10;
   top: 67px;
-  right: 100px;
+  right: 130px;
   display: block;
   border-radius: 15px;
   border: 1px solid rgb(238, 120, 148);

@@ -4,7 +4,6 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import Home  from './home';
 import Splash from '../splash';
 import DemoLoginFormContainer from '../user_auth/demo_login_form_container.jsx';
 import ProfileShowContainer from '../profiles/profile_show_container';
@@ -22,26 +21,19 @@ class Main extends React.Component {
   }
 
   render() {
-  
     return (
       <div className="main-component">
-        
         <Switch>
           <AuthRoute path="/login" component={LoginFormContainer} />
           <AuthRoute path="/signup" component={SignupFormContainer} />
           <AuthRoute path="/demo-login" component={DemoLoginFormContainer} />
-
           <AuthRoute exact path="/" component={Splash} />
+          
           <ProtectedRoute exact path="/home" component={DoubletakeContainer} />
-
           <ProtectedRoute path="/profiles/:profileId" component={ProfileShowContainer} />
           <ProtectedRoute exact path="/explore" component={ProfileIndexContainer} />
-
-          {/* <ProtectedRoute exact path="/matches" render={() => <Redirect to={"/matches/my-matches" } />} /> */}
           <ProtectedRoute path="/matches/:selectedPage" component={MatchIndexContainer} />
-
           <ProtectedRoute exact path="/search" component={SearchContainer} />
-
           <ProtectedRoute path="/messages" component={MessagesIndexContainer} />
 
           {/* ANY INVALID PATH: */}

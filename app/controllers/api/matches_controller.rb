@@ -4,7 +4,7 @@ class Api::MatchesController < ApplicationController
     @matched_users = current_user.matched_users
     @who_liked_you = current_user.requesting_users
     @who_you_liked = current_user.requested_users
-    
+  
     @matches = (
       Match.where(user_id: current_user.id) + Match.where(requested_user_id: current_user.id)
     )

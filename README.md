@@ -37,6 +37,15 @@ When users visit other users' profiles, they can "like", or request to be matche
 
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/profile_page.png)
 
+
+
+## Matching and Messaging
+At /matches, users can see who they are currently matched with, who they "liked", and who "liked" them. When two users mutually "like" each other, the match is created, and one of the users can start a conversation with the other. Real-time chat between matched users is implemented using Action Cable in Rails. 
+
+![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
+
+
+
 ## Technologies Used
 1. Javascript
 2. Ruby on Rails
