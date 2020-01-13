@@ -16,6 +16,22 @@ This application utilizes Rails and Postgres on the back-end, and React/Redux to
 
 ---
 
+## Technologies Used
+1. Javascript
+2. Ruby on Rails
+3. PostgreSQL 
+4. HTML 
+5. CSS/SCSS 
+
+## Libraries:
+1. React.js
+2. Redux 
+3. Rails ActionCable for real-time messaging
+3. jQuery for AJAX API requests
+4. AWS S3 buckets for user avatar and profile photos 
+5. BCrypt for User Authentication
+6. NPM zipcodes to calculate distance between users
+
 
 ## Homepage (Doubletake)
 After logging in, users are greeted with the **Doubletake** page which displays profile previews for users that the current user has not yet matched with. Users can see their match percentage with each displayed user and have the option to visit that user's profile. 
@@ -189,23 +205,6 @@ class MessagesShow extends React.Component {
 I also defined a method `create` on `this.messages` which calls `handleSendEvent` with our new to-be-sent message. When the user hit the enter key or clicks the send button to submit their message, we call the `create` function passing in the `messageContent` we want to send to the `MessagesChannel`'s `create` method. 
 
 ---
-
-
-## Technologies Used
-1. Javascript
-2. Ruby on Rails
-3. PostgreSQL 
-4. HTML 
-5. CSS/SCSS 
-
-## Libraries:
-1. React.js
-2. Redux 
-3. Rails ActionCable for real-time messaging
-3. jQuery for AJAX API requests
-4. AWS S3 buckets for user avatar and profile photos 
-5. BCrypt for User Authentication
-6. NPM zipcodes to calculate distance between users
 
 ### Future Directions
 1. Mobile-friendly user interface
