@@ -10,7 +10,7 @@ DokiCupid features **user profiles, matchmaking, filtered search, and instant-me
 
 This application utilizes Rails and Postgres on the back-end, and React/Redux to manage the front-end. 
 
-*Note: DokiCupid was a two-week project submitted as part of AppAcademy's full-stack curriculum.*
+*Note: DokiCupid was a two-week project submitted as part of App Academy's full-stack curriculum.*
 
 ![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/splash.png)
 
