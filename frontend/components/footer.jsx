@@ -9,9 +9,9 @@ const Footer = () => {
       </span>
       <ul className="footer-right">
         <li><Link to="/">Home</Link></li>
-        {/* <li><Link to="/about">About</Link></li> */}
+        <li><a href="https://www.alexhlee.dev">Portfolio</a></li>
         <li><a href="https://github.com/alex629lee/DokiCupidApp">Github</a></li>
-        <li><a href="https://www.linkedin.com/in/alex-lee-b09a7310a/">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/alex629lee/">LinkedIn</a></li>
       </ul>
     </footer>
   )
