@@ -167,7 +167,9 @@ class ProfileForm extends React.Component {
             <div className="profile-photo-form">
               <h3 className="profile-photo-input-title">Add a New Photo!</h3> 
               <input type="file"
-                onChange={this.handleFile} />
+                onChange={this.handleFile} 
+                accept="image/jpg, image/jpeg, image/png"
+              />
               <div className="profile-photo-preview-container">
                 {preview}
               </div>

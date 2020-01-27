@@ -64,7 +64,9 @@ class Greeting extends React.Component {
         <div className="user-photo-form-arrow"></div>
         <form onSubmit={this.handlePhotoSubmit}>
           <input type="file"
-            onChange={this.handlePhotoInput} />
+            onChange={this.handlePhotoInput} 
+            accept="image/jpg, image/jpeg, image/png"
+          />
           <div className="user-icon-preview-container">{preview}</div>
           <button>Set Icon Photo</button>
         </form>
