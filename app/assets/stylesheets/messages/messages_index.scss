@@ -79,6 +79,10 @@
   overflow-y: auto;
 }
 
+.messages-show-message-list::-webkit-scrollbar {
+  display: none;
+}
+
 .messages-show-form {
   display: flex;
   justify-content: center;
