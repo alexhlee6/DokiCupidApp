@@ -50,6 +50,12 @@
   align-items: center;
 }
 
+.search-page-option-div-hidden {
+  width: 370px;
+  height: 0px;
+  margin: 0px 20px;
+}
+
 .search-page-select {
   font-size: 14px;
   cursor: pointer;

@@ -174,6 +174,9 @@ class Search extends React.Component {
             </select>
           </div>
 
+          <div className="search-page-option-div-hidden"></div>
+          <div className="search-page-option-div-hidden"></div>
+          <div className="search-page-option-div-hidden"></div>
         </div>
 
 

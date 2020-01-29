@@ -5,13 +5,20 @@ import { quickSortNums } from "../../util/match_util";
 const SearchResults = ({ conditions, currentUserId }) => {
   if (!conditions || !conditions.profiles) return null;
   
-
   const profilesObj = {};
   conditions.profiles.forEach(profile => {
     if (profile.user_id !== parseInt(currentUserId)) {
       profilesObj[profile.id] = profile;
     }
   });
+
+  let tagNames = [
+    "identify_as", "looking_for", "specific_tag", "match_percentage", "distance"
+  ];
+  for (let i = 0; i < 5; i++) {
+    if (conditions[tagNames[i]].length > 0) break;
+    if (i === 4) return null;
+  }
 
   //===========================================================================
 
@@ -78,7 +85,9 @@ const SearchResults = ({ conditions, currentUserId }) => {
           <div key={`compat-${profile.user_id}`} className="profile-index-user-compatibility">
             {conditions.matchPercentages[profile.id]}% Match
           </div>
-          <div key={`dist-${profile.zipcode}`} className="profile-index-user-compatibility">
+          <div key={`dist-${profile.zipcode}`} 
+            className="profile-index-user-compatibility" style={{"color": "gray"}}
+          >
             {conditions.distances[profile.id]} Miles Away
           </div>
         </li>
