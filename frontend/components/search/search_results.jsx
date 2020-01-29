@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { quickSortNums } from "../../util/match_util";
 
 const SearchResults = ({ conditions, currentUserId }) => {
-
   let displayedProfiles;
   let selectedTags = {};
 
@@ -16,9 +16,32 @@ const SearchResults = ({ conditions, currentUserId }) => {
       }
     }
 
-    let matchPercentageList;
-    if (conditions && conditions.match_percentage.length > 0) {
 
+    // ORDERING BY DISTANCE:
+    let profilesObj = {};
+    profiles.forEach(profile => profilesObj[profile.id] = profile);
+
+    if (conditions && conditions.distance.length > 0) {
+      let distVals = Object.values(conditions.distances);
+      let orderedDist = quickSortNums(distVals);
+      if (conditions.distance === "Far to Near") {
+        orderedDist = orderedDist.reverse();
+      }
+      let distOrderedProfiles = new Array(orderedDist.length);
+      for (let key in conditions.distances) {
+        let val = conditions.distances[key];
+        
+        let distIdx = orderedDist.indexOf(val);
+        if (distIdx !== -1) distOrderedProfiles[distIdx] = profilesObj[key];
+      }
+      console.log(distOrderedProfiles);
+      profiles = distOrderedProfiles;
+    }
+
+
+
+    // ORDERING BY MATCH PERCENTAGE:
+    if (conditions && conditions.match_percentage.length > 0) {
       let scores = Object.values(conditions.matchPercentages);
       if (conditions.match_percentage === "Decreasing") {
         scores = scores.sort().reverse();
@@ -52,7 +75,7 @@ const SearchResults = ({ conditions, currentUserId }) => {
         }
       }
 
-      let oldProfiles = [...conditions.profiles];
+      let oldProfiles = [...profiles];
       let newProfiles = [];
 
       while (scores.length > 0) {
@@ -66,10 +89,9 @@ const SearchResults = ({ conditions, currentUserId }) => {
           }
         }
       }
-
       profiles = newProfiles;
     }
-
+    console.log(selectedTags);
 
     let selectedTagNames;
 
@@ -79,9 +101,7 @@ const SearchResults = ({ conditions, currentUserId }) => {
         let profilePersonalityTags = profile.compatibility_answers.split("/");
 
         for (let j = 0; j < selectedTagNames.length; j++) {
-          if (profile.fname === "DemoUser" || profile.user_id === currentUserId) {
-            return;
-          }
+          if (profile.fname === "DemoUser" || profile.user_id === currentUserId) return;
           if (selectedTagNames[j].toString() === "specific_tag") {
             if (!profilePersonalityTags.includes(selectedTags["specific_tag"])) {
               return;

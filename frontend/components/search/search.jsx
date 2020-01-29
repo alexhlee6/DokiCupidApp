@@ -1,6 +1,7 @@
 import React from 'react';
-import SearchResults from './search_results';
-import { findCompatibility } from '../../util/match_util';
+// import SearchResults from './search_results';
+import SearchResults from "./SearchResults";
+import { findCompatibility, findDistance } from '../../util/match_util';
 
 class Search extends React.Component {
 
@@ -12,7 +13,8 @@ class Search extends React.Component {
       looking_for: "",
       match_percentage: "",
       specific_tag: "",
-      matchPercentages: {}
+      matchPercentages: {},
+      distance: ""
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -29,6 +31,7 @@ class Search extends React.Component {
     if (this.props !== prevProps) {
       if (this.props.profiles instanceof Array && this.props.currentUserProfile) {
         let compatibilityRatings = {};
+        let distances = {};
         this.props.profiles.forEach(profile => {
           if (this.props.currentUserProfileId !== profile.id && profile.fname !== "DemoUser") {
             compatibilityRatings[profile.id] = (
@@ -36,16 +39,31 @@ class Search extends React.Component {
                 this.props.currentUserProfile.compatibility_answers,
                 profile.compatibility_answers
               )
-            )
+            );
+            distances[profile.id] = (
+              findDistance(
+                this.props.currentUserProfile.zipcode,
+                profile.zipcode
+              )
+            );
           }
-        })
-        this.setState({ profiles: this.props.profiles, matchPercentages: compatibilityRatings })
+        });
+        
+        this.setState({ profiles: this.props.profiles, matchPercentages: compatibilityRatings, distances })
       } 
     }
   }
 
   handleChange(property) {
-    return (e) => this.setState({ [property]: e.currentTarget.value })
+    if (property !== "match_percentage" && property !== "distance") {
+      return (e) => this.setState({ [property]: e.currentTarget.value });
+    } else {
+      if (property === "match_percentage") {
+        return (e) => this.setState({ match_percentage: e.currentTarget.value, distance: ""});
+      } else {
+        return (e) => this.setState({ match_percentage: "", distance: e.currentTarget.value });
+      }
+    }
   }
 
   render() {
@@ -106,6 +124,17 @@ class Search extends React.Component {
               <option value="" defaultValue={this.state.match_percentage === "" ? "true" : "false"}> --</option>
               <option value="Decreasing">High to Low</option>
               <option value="Increasing">Low to High</option>
+            </select>
+          </div>
+
+          <div className="search-page-option-div">
+            <label className="search-page-select-label">Distance: </label>
+            <select className="search-page-select"
+              value={this.state.distance} onChange={this.handleChange("distance")}>
+
+              <option value="" defaultValue={this.state.distance === "" ? "true" : "false"}> --</option>
+              <option value="Near to Far">Near to Far</option>
+              <option value="Far to Near">Far to Near</option>
             </select>
           </div>
           

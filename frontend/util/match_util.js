@@ -55,3 +55,20 @@ const zipcodes = require("zipcodes");
 export const findDistance = (zipcode1, zipcode2) => {
   return zipcodes.distance(zipcode1, zipcode2);
 }
+
+
+export const quickSortNums = (nums) => {
+  if (nums.length < 2) return nums; 
+  let pivot = nums.shift();
+
+  let left = []
+  let right = [];
+  nums.forEach(num => {
+    if (num < pivot) {
+      left.push(num);
+    } else {
+      right.push(num);
+    }
+  });
+  return quickSortNums(left).concat([pivot]).concat(quickSortNums(right));
+}
