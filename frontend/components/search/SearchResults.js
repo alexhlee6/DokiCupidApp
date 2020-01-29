@@ -4,6 +4,15 @@ import { quickSortNums } from "../../util/match_util";
 
 const SearchResults = ({ conditions, currentUserId }) => {
   if (!conditions || !conditions.profiles) return null;
+  // console.log(conditions);
+  for (let i = 0; i < conditions.profiles.length; i++) {
+    if (conditions.profiles[i].user_id === currentUserId) break;
+    if (i === conditions.profiles.length - 1) return (
+      <h3 className="search-restricted">
+        You need to create a profile to use this feature! <i className="far fa-smile-wink"></i>
+      </h3>
+    )
+  }
   
   const profilesObj = {};
   conditions.profiles.forEach(profile => {

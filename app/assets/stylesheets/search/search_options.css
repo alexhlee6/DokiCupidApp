@@ -90,3 +90,7 @@
   margin-left: 5px;
   padding-bottom: 5px;
 }
+
+.search-restricted {
+  color: darkred;
+}

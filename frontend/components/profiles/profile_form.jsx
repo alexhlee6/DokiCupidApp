@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link, Switch, Route, Redirect } from 'react-router-dom';
-
+const zipcodes = require("zipcodes");
 
 class ProfileForm extends React.Component {
 
@@ -36,9 +36,6 @@ class ProfileForm extends React.Component {
       if (this.props.profile.compatibility_answers) {
         this.setState({compatibility_answers: this.props.profile.compatibility_answers.split("/")})
       } 
-      // else {
-
-      // }
     }
     if (this.props.formType === "Create" && this.state.isCreated) {
       this.props.history.push(`/profiles/${this.props.profile.id}`)
@@ -91,6 +88,10 @@ class ProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!zipcodes.lookup(parseInt(this.state.zipcode))) {
+      alert("Please enter a real US zipcode.");
+      return;
+    }
     const formData = new FormData();
     formData.append('profile[user_id]', this.state.user_id);
     formData.append('profile[fname]', this.state.fname);
