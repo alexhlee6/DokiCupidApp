@@ -1,4 +1,4 @@
-.session-link {
+/* .session-link {
   font-family: sans-serif;
   padding: 6px 12px;
   font-weight: bold;
@@ -108,7 +108,7 @@
 }
 
 
-/* DEMO SESSION FORM: */
+
 
 .modal {
   position: fixed;
@@ -175,4 +175,4 @@
 #demo-button.clicked {
   background-color: rgb(196, 196, 196);
 }
-
+ */

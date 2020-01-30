@@ -1,15 +1,86 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap');
 
 .header-navbar {
   height: 64px;
-  /* height: 9vh; */
+  width: 100vw;
+  display: flex;
+  background-color: rgb(250, 101, 129);
+  position: fixed;
+  justify-content: space-between;
+  font-family: "Fredoka One";
+  z-index: 4;
+  color: white;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  color: rgb(255, 88, 116);
+  font-weight: 800;
+  font-size: 40px;
+  text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+  letter-spacing: 2px;
+  margin: 0px 15px;
+}
+
+.session-link {
+  display: none;
+}
+
+.header-auth i {
+  margin: 15px;
+  font-size: 30px;
+}
+
+.header-dropdown {
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  transition: height 0.5s ease-in-out;
+  background-color:  rgb(254, 138, 159);
+  font-size: 23px;
+  z-index: 15;
+  font-family: "Open Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.header-dropdown > a {
+  padding: 17px 0px;
+  margin: 0px 25px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  /* color: rgb(235, 105, 129); */
+}
+
+#dropdown-signup {
+  border-top: 1px solid pink;
+  border-bottom: 1px solid pink;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+  .header-navbar {
+    border-bottom: 1px solid white;
+  }
+}
+
+
+/* .header-navbar {
+  height: 64px;
   width: 100%;
   min-width: 500px;
   background-color: rgb(250, 101, 129);
   border-bottom: 1px solid white;
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
   z-index: 4;
   font-family: "Fredoka One";
@@ -43,11 +114,6 @@
 
 
 
-/* -------------------------------------------------------------------------- */
-
-/* NAVLINKS */
-
-
 .navlinks {
   display: flex;
   color: white;
@@ -77,7 +143,6 @@
     display: inline-block;
     font-size: 15px;
     font-family: sans-serif;
-    /* position: relative; */
     bottom: 2px;
     margin-left: 8px;
   }
@@ -93,10 +158,6 @@
 }
 
 
-/* -------------------------------------------------------------------------- */
-
-/* NAVBAR RIGHT */
-
 .navbar-greeting {
   margin-top: 20px;
   display: flex;
@@ -110,7 +171,6 @@
   cursor: pointer;
   margin: 0px 10px;
   height: 18px;
-  /* display: none; */
   font-size: 16px;
   margin-left: 10px;
 }
@@ -229,4 +289,4 @@
   top: 20px;
   text-align: center;
   font-weight: bold;
-}
+} */

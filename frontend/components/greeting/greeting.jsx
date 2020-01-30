@@ -11,7 +11,8 @@ class Greeting extends React.Component {
     this.state = {
       displayingPhotoForm: false,
       photoUrl: null,
-      photoFile: null
+      photoFile: null,
+      dropdownOpen: false
     }
     this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
     this.handlePhotoInput = this.handlePhotoInput.bind(this);
@@ -74,6 +75,28 @@ class Greeting extends React.Component {
       </div>
     ) : (
       <div></div>
+    );
+
+    const dropdown = (
+      <div className="header-dropdown" id="header-dropdown">
+        <Link to="/demo-login">Demo Login</Link>
+        <Link to="/signup" id="dropdown-signup">Sign Up</Link>
+        <Link to="/login">Log In</Link>
+      </div>
+    );
+    const hamburger = (
+      <i 
+        className="fas fa-bars"
+        onClick={() => {
+          if (this.state.dropdownOpen) {
+            document.getElementById("header-dropdown").style.height = "0px";
+            this.setState({ dropdownOpen: false });
+          } else {
+            document.getElementById("header-dropdown").style.height = "200px";
+            this.setState({ dropdownOpen: true });
+          }
+        }}
+      ></i>
     )
 
 
@@ -91,41 +114,49 @@ class Greeting extends React.Component {
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
       </div>
     ) : (
-        <div>
+        // <div>
           <Switch>
             <Route exact path="/login"
               render={() => (
-                <div>
+                <div className="header-auth">
                   <Link className="session-link" to="/demo-login">Demo Login</Link>
                   <Link className="session-link" to="/signup">Sign Up</Link>
+                  {hamburger}
+                  {dropdown}
                 </div>
               )} />
 
             <Route exact path="/signup"
               render={() => (
-                <div>
+                <div className="header-auth">
                   <Link className="session-link" to="/demo-login">Demo Login</Link>
                   <Link className="session-link" to="/login">Log In</Link>
+                  {hamburger}
+                  {dropdown}
                 </div>
               )} />
 
             <Route exact path="/demo-login"
               render={() => (
-                <div>
+                <div className="header-auth">
                   <Link className="session-link" to="/signup">Sign Up</Link>
                   <Link className="session-link" to="/login">Log In</Link>
+                  {hamburger}
+                  {dropdown}
                 </div>
               )} />
 
             <Route exact path="/" render={() => (
-              <div>
+              <div className="header-auth">
                 <Link className="session-link" to="/demo-login">Demo Login</Link>
                 <Link className="session-link" to="/signup">Sign Up</Link>
                 <Link className="session-link" to="/login">Log In</Link>
+                {hamburger}
+                {dropdown}
               </div>
             )} />
           </Switch>
-        </div>
+        // </div>
       );
 
     return display;
