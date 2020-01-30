@@ -3,7 +3,7 @@
 
 .header-navbar {
   height: 64px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   background-color: rgb(250, 101, 129);
   position: fixed;
@@ -31,6 +31,7 @@
 .header-auth i {
   margin: 15px;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .header-dropdown {
@@ -40,7 +41,8 @@
   position: absolute;
   left: 0;
   transition: height 0.5s ease-in-out;
-  background-color:  rgb(254, 138, 159);
+  background-color: white;
+  /* background-color:  rgb(250, 150, 169); */
   font-size: 23px;
   z-index: 15;
   font-family: "Open Sans";
@@ -56,8 +58,13 @@
   padding: 17px 0px;
   margin: 0px 25px;
   text-align: center;
-  letter-spacing: 0.15em;
-  /* color: rgb(235, 105, 129); */
+  letter-spacing: 0.12em;
+  color: rgb(249, 146, 165);
+  line-height: 26px;
+}
+
+.header-dropdown > a:hover {
+  color: rgb(255, 114, 140);
 }
 
 #dropdown-signup {
@@ -67,10 +74,26 @@
 
 
 
+
+
 @media only screen and (min-width: 600px) {
   .header-navbar {
     border-bottom: 1px solid white;
   }
+}
+.navbar-greeting-photo-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid white;
+  bottom: 9px;
+  left: 2px;
+  display: flex;
+  align-items: right;
+  margin-right: 5px;
 }
 
 

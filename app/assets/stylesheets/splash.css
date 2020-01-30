@@ -2,17 +2,24 @@
 
 
 .splash-main {
-  min-width: 500px;
-  width: 100%;
-  min-height: 94vh;
+  min-width: 100%;
+  height: calc(100vh - 65px);
   padding: 0px;
   margin: 0px;
   overflow: hidden;
   position: relative;
+  background-image: url("../images/hirotwo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.slide {
+/* .slide {
   position: absolute;
   left: 0px;
   width: 100%;
@@ -26,58 +33,69 @@
   -moz-transition: opacity 2s;
   -o-transition: opacity 2s;
   transition: opacity 2s;
-}
+} */
 
-.slideshow-image {
+/* .slideshow-image {
   width: 100%;
   min-height: 100%;
   min-width: 800px;
-}
+} */
 
-.showing {
+/* .showing {
   opacity: 1;
   z-index: 2;
   background-color: white;
-}
+} */
 
 .splash-description-title {
   font-family: "Titillium Web";
   position: relative;
   color: white;
-  /* z-index: 10; */
   z-index: 2;
-  width: 580px;
-  left: 80px;
-  top: 110px;
+  /* width: 580px; */
+  /* left: 80px;
+  top: 110px; */
+  padding: 30px;
   line-height: 85px;
   text-shadow: -7px 6px 1px #781e34;
   -webkit-text-stroke: 4.5px rgb(227, 94, 118);
-  font-size: 3.8em;
+  font-size: 3.2em;
   letter-spacing: 0.2mm;
 }
 
 .splash-description-module {
-  width: 445px;
+  /* width: 445px;
   height: 150px;
   top: 122px;
-  left: 63px;
-  background-color: rgba(250, 250, 250, 0.534);
+  left: 63px; */
+  background-color: rgba(213, 98, 128, 0.534);
   -webkit-filter: blur(12px);
   filter: blur(15px);
   z-index: 9;
   position: relative;
   border-radius: 8px;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 420px;
 }
 
 .splash-description-body {
-  position: relative;
-  line-height: 26px;
-  bottom: 18px;
-  left: 80px;
+  /* position: relative; */
+  line-height: 30px;
+  background-color: rgb(255, 255, 255);
+  /* bottom: 18px; */
+  backdrop-filter: blur(10px);
+  /* left: 80px; */
+  font-family: "Open Sans";
   z-index: 10;
-  color: black;
-  font-size: 20px;
-  width: 420px;
+  color: rgb(240, 99, 142);
+  font-size: 25px;
+  padding: 10px;
+  max-width: 420px;
+  margin: 30px;
+  margin-bottom: 70px;
 }
 
 .splash-description-body > i {
@@ -86,4 +104,37 @@
   font-size: 12px;
   height: 22px;
   /* padding-bottom: 10px; */
+}
+
+.splash-links {
+  font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 30%;
+  /* align-items: center; */
+  justify-content: center;
+  /* color: white; */
+  /* background-color: white; */
+  font-family: "Open Sans";
+  /* border-radius: 10px; */
+  /* padding: 20px; */
+  padding: 50px 0px;
+}
+
+.splash-links > a {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.653);
+  /* background-color: white; */
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 15px 10px;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  /* color: rgb(233, 115, 135); */
+  /* border: 1px solid rgb(233, 115, 135); */
+  margin: 20px;
+  text-align: center;
+  text-shadow: -3px 3px 1px #e95b7e;
+  -webkit-text-stroke: 0.5px rgb(255, 203, 212);
 }
