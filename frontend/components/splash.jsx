@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import SignupFormContainer from "./user_auth/signup_form_container";
 
 class Splash extends React.Component {
 
@@ -63,15 +64,9 @@ class Splash extends React.Component {
         <p className="splash-description-title">
           LOVE TRANSCENDS DIMENSIONS
         </p>
-        <p className="splash-links">
-          <Link to="/demo-login">Demo Login</Link>
-          <Link to="/signup">Create an Account</Link>
-          <Link to="/login">Login</Link>
-        </p>
-        {/* <div className="splash-description-module"></div> */}
-        {/* <p className="splash-description-body">
-          On Dokicupid, love is love. Whether you hold three dimensions or fewer, there's someone out there waiting to connect with you. Meeting your perfect match has never been easier! Join us today to find the person of your dreams <i className="fas fa-heart"></i>
-        </p> */}
+        <div className="splash-auth-container">
+          <SignupFormContainer />
+        </div>
       </div>
     )
   }

@@ -1,4 +1,7 @@
-/* .session-link {
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+.session-link {
   font-family: sans-serif;
   padding: 6px 12px;
   font-weight: bold;
@@ -17,59 +20,87 @@
 }
 
 .session-form-main {
-  margin: auto;
-  width: 500px;
-  height: 400px;
-  margin-top: 40px;
-  border: 1px solid rgba(254, 209, 209, 0.968);
-  border-radius: 10px;
+  max-width: 370px;
+  margin: 40px auto;
+  margin-top: 20px;
+  padding: 35px 35px;
+  font-family: "Staatliches";
+  font-weight: 600;
+  font-family: "Roboto";
+  border-radius: 5px;
+  border: 1px solid rgba(247, 134, 155, 0.705);
   position: relative;
-  background-color: white;
+  /* background-color: rgb(249, 140, 158); */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.166); */
+  backdrop-filter: blur(6px);
 }
 
 .session-form-title {
-  font-size: 18px;
+  font-size: 36px;
   text-align: center;
-  padding-top: 10px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  margin: 10px;
+  /* color: white; */
+  font-weight: 900;
+  /* color: rgb(255, 133, 156); */
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 2px rgb(250, 114, 136);
+  text-shadow: -3px 2px 1px rgb(233, 123, 142);
+  letter-spacing: 0.2mm;
+  /* font-family: "Staatliches"; */
+  text-transform: uppercase;
+  /* margin-top: 0px; */
+  /* font-family: "Staatliches"; */
 }
 
 .session-form {
   margin: 0 auto;
-  margin-top: 55px;
-  height: 200px;
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.session-form section {
+  margin: 15px;
 }
 
 .session-form label {
   display: block;
-  margin-top: 20px;
-  font-size: 15px;
+  /* margin-top: 20px; */
+  font-size: 16px;
+  color: rgba(230, 107, 130, 0.858);
+  /* color: white; */
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .session-form input {
   display: block;
   margin: auto;
-  margin-top: 15px;
-  width: 250px;
-  height: 30px;
+  /* margin-top: 15px; */
+  width: 230px;
+  height: 20px;
   font-size: 15px;
   padding: 5px 10px;
 
-  border: 1px solid rgba(250, 200, 200, 0.968);
+  border: 1px solid rgba(255, 189, 201, 0.968);
   background-color: rgb(255, 243, 244);
 }
 
 .session-form button {
   margin-top: 20px;
+  margin-bottom: 15px;
   width: 255px;
-  height: 30px;
-  background-color: rgb(245, 123, 145);
+  height: 33px;
+  background-color: rgb(245, 127, 149);
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 500;
+  border: 1px solid white;
+  position: relative;
 }
 
 .session-form button:hover {
@@ -82,18 +113,24 @@
 }
 
 .session-errors {
-  position: relative;
-  bottom: 0px;
-  right: 0px;
+  position: absolute;
+  bottom: -20px;
+  left: 55px;
   width: 230px;
   padding: 10px 10px;
   padding-left: 15px;
   margin-top: 10px;
-  background-color: rgba(255, 72, 75, 0.865);
+  background-color: rgba(244, 92, 94, 0.934);
   font-size: 13px;
   border-radius: 5px;
   color: white;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 400px) {
+  .session-errors {
+    left: 8vw;
+  }
 }
 
 .arrow-up {
@@ -175,4 +212,4 @@
 #demo-button.clicked {
   background-color: rgb(196, 196, 196);
 }
- */
+

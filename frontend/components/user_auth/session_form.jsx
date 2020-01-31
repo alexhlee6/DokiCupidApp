@@ -41,19 +41,19 @@ class SessionForm extends React.Component {
 
     return (
       <div className="session-form-main">
-        
+        <div className="switch-forms">
+        </div>
         <form onSubmit={this.handleSubmit} className="session-form">
           <p className="session-form-title">{formType}</p>
-          <label htmlFor="username">Username</label>
-          
-          <input id="username" type="text" onChange={this.update('username')} value={this.state.username} />
-          
-          
-          <label htmlFor="password">Password</label>
-          
-          <input id="password" type="password" onChange={this.update('password')} value={this.state.password} />
-          
-          <br />
+          <section>
+            <label htmlFor="username">Username</label>
+            <input id="username" type="text" onChange={this.update('username')} value={this.state.username} />
+          </section>
+          <section>
+            <label htmlFor="password">Password</label>
+            <input id="password" type="password" onChange={this.update('password')} value={this.state.password} />
+          </section>
+          {/* <br /> */}
           <button onClick={this.handleSubmit}>{formType}</button>
           <div>{err}</div>
         </form>
