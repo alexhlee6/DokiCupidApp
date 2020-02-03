@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+.nav-session-links i {
+  display: none;
+  font-size: 32px;
+  color: white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.nav-session-links {
+  
+}
+
+.nav-session-dropdown {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  height: 0px;
+  background-color: white;
+  width: 100%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.5s ease-in-out;
+  overflow: hidden;
+  justify-content: space-evenly;
+  display: none;
+}
+
+.nav-session-dropdown a {
+  font-size: 25px;
+  font-family: "Roboto";
+  font-weight: 500;
+  padding: 0px 20px;
+  color: pink;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  text-align: center;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .session-link {
+    display: none;
+  }
+
+  .nav-session-links i {
+    display: block;
+  }
+
+  .nav-session-dropdown {
+    display: flex;
+  }
+
+  .nav-session-dropdown a:hover {
+    color: rgb(252, 114, 137);
+  }
+}

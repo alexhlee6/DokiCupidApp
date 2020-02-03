@@ -2,22 +2,29 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .header-navbar {
-  height: 64px;
+  height: 65px;
   /* height: 9vh; */
   width: 100%;
-  min-width: 500px;
+  /* min-width: 500px; */
   background-color: rgb(250, 101, 129);
   border-bottom: 1px solid white;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
+  /* padding: 0px 20px; */
   justify-content: space-between;
   z-index: 4;
   font-family: "Fredoka One";
+  position: relative;
 }
 
 .header-navbar-left {
   display: flex;
+  margin: 0px 15px;
+}
 
+.header-navbar-left > div {
+  display: flex;
+  align-items: center;
 }
 
 .header-logo {
@@ -26,9 +33,9 @@
   font-weight: 800;
   font-size: 40px;
   text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
-  margin-top: 8px;
+  /* margin-top: 8px;
   margin-left: 20px;
-  margin-right: 5px;
+  margin-right: 5px; */
   letter-spacing: 2px;
 }
 
@@ -51,8 +58,8 @@
 .navlinks {
   display: flex;
   color: white;
-  margin-top: 19px;
-  margin-right: 20px;
+  /* margin-top: 19px;
+  margin-right: 20px; */
 }
 
 .navlinks > li {

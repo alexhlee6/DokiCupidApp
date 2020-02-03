@@ -11,7 +11,8 @@ class Greeting extends React.Component {
     this.state = {
       displayingPhotoForm: false,
       photoUrl: null,
-      photoFile: null
+      photoFile: null,
+      dropdownOpen: false
     }
     this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
     this.handlePhotoInput = this.handlePhotoInput.bind(this);
@@ -54,6 +55,17 @@ class Greeting extends React.Component {
     this.setState({ displayingPhotoForm: false })
   }
 
+  handleDropdownMenu() {
+    if (this.state.dropdownOpen) {
+      document.getElementById("nav-session-dropdown").style.height = "0px";
+      this.setState({dropdownOpen: false});
+    } else {
+      let dropdown = document.getElementById("nav-session-dropdown");
+      dropdown.style.height = "250px";
+      this.setState({dropdownOpen: true});
+    }
+  }
+
   render() {
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
@@ -74,8 +86,21 @@ class Greeting extends React.Component {
       </div>
     ) : (
       <div></div>
-    )
+    );
 
+    const navSessionLinks = (
+        <div className="nav-session-dropdown" id="nav-session-dropdown">
+          <Link className="dropdown-session-link" to="/demo-login"
+            onClick={() => this.handleDropdownMenu()}
+          >Demo Login</Link>
+          <Link className="dropdown-session-link" to="/signup"
+            onClick={() => this.handleDropdownMenu()}
+          >Sign Up</Link>
+          <Link className="dropdown-session-link" to="/login"
+            onClick={() => this.handleDropdownMenu()}
+          >Log In</Link>
+        </div>
+    );
 
     const display = currentUser ? (
       <div className="navbar-greeting">
@@ -91,11 +116,13 @@ class Greeting extends React.Component {
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
       </div>
     ) : (
-        <div>
+        // <div>
           <Switch>
             <Route exact path="/login"
               render={() => (
-                <div>
+                <div className="nav-session-links">
+                  <i className="fas fa-bars" onClick={() => this.handleDropdownMenu()}></i>
+                  {navSessionLinks}
                   <Link className="session-link" to="/demo-login">Demo Login</Link>
                   <Link className="session-link" to="/signup">Sign Up</Link>
                 </div>
@@ -103,7 +130,9 @@ class Greeting extends React.Component {
 
             <Route exact path="/signup"
               render={() => (
-                <div>
+                <div className="nav-session-links">
+                  <i className="fas fa-bars" onClick={() => this.handleDropdownMenu()}></i>
+                  {navSessionLinks}
                   <Link className="session-link" to="/demo-login">Demo Login</Link>
                   <Link className="session-link" to="/login">Log In</Link>
                 </div>
@@ -111,21 +140,25 @@ class Greeting extends React.Component {
 
             <Route exact path="/demo-login"
               render={() => (
-                <div>
+                <div className="nav-session-links">
+                  <i className="fas fa-bars" onClick={() => this.handleDropdownMenu()}></i>
+                  {navSessionLinks}
                   <Link className="session-link" to="/signup">Sign Up</Link>
                   <Link className="session-link" to="/login">Log In</Link>
                 </div>
               )} />
 
             <Route exact path="/" render={() => (
-              <div>
+              <div className="nav-session-links">
+                <i className={this.state.dropdownOpen ? "fas fa-times" : "fas fa-bars"} onClick={() => this.handleDropdownMenu()}></i>
+                {navSessionLinks}
                 <Link className="session-link" to="/demo-login">Demo Login</Link>
                 <Link className="session-link" to="/signup">Sign Up</Link>
                 <Link className="session-link" to="/login">Log In</Link>
               </div>
             )} />
           </Switch>
-        </div>
+        // </div>
       );
 
     return display;
