@@ -91,7 +91,7 @@ class Greeting extends React.Component {
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
       </div>
     ) : (
-        <div>
+        // <div>
           <Switch>
             <Route exact path="/login"
               render={() => (
@@ -118,14 +118,15 @@ class Greeting extends React.Component {
               )} />
 
             <Route exact path="/" render={() => (
-              <div>
+              <div className="nav-session-links">
+                <i className="fas fa-bars"></i>
                 <Link className="session-link" to="/demo-login">Demo Login</Link>
                 <Link className="session-link" to="/signup">Sign Up</Link>
                 <Link className="session-link" to="/login">Log In</Link>
               </div>
             )} />
           </Switch>
-        </div>
+        // </div>
       );
 
     return display;

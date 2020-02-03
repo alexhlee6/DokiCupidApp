@@ -1,0 +1,22 @@
+
+.nav-session-links i {
+  display: none;
+  font-size: 32px;
+  color: white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+  .session-link {
+    display: none;
+  }
+
+  .nav-session-links i {
+    display: block;
+  }
+
+}
