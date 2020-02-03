@@ -26,7 +26,7 @@
   display: flex;
   flex-grow: 1;
   overflow-x: hidden;
-  /* background-color: rgb(255, 218, 220); */
+  background-color: rgb(255, 218, 220);
   overflow-y: auto;
 }
 
