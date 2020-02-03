@@ -14,11 +14,17 @@
   justify-content: space-between;
   z-index: 4;
   font-family: "Fredoka One";
+  position: relative;
 }
 
 .header-navbar-left {
   display: flex;
   margin: 0px 15px;
+}
+
+.header-navbar-left > div {
+  display: flex;
+  align-items: center;
 }
 
 .header-logo {
@@ -52,8 +58,8 @@
 .navlinks {
   display: flex;
   color: white;
-  margin-top: 19px;
-  margin-right: 20px;
+  /* margin-top: 19px;
+  margin-right: 20px; */
 }
 
 .navlinks > li {
