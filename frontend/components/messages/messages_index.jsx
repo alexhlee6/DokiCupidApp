@@ -17,6 +17,17 @@ class MessagesIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
+      if (window.location.hash[window.location.hash.length-1] !== "s") { //selected
+        if (window.innerWidth <= 665) {
+          document.getElementById("messages-index-selected-conversation").style.height = "100%";
+          document.getElementById("messages-index-sidebar").style.display = "none";
+        } 
+      } else { // not selected
+        if (window.innerWidth <= 665) {
+          document.getElementById("messages-index-selected-conversation").style.height = "unset";
+        }
+        document.getElementById("messages-index-sidebar").style.display = "flex";
+      }
       this.setState({
         all_conversations: this.props.all_conversations, 
         matched_users: this.props.matched_users,
@@ -154,7 +165,7 @@ class MessagesIndex extends React.Component {
 
         <div className="messages-index-main">
 
-          <div className="messages-index-sidebar">
+          <div id="messages-index-sidebar" className="messages-index-sidebar">
             <div className="messages-index-sidebar-section conversations">
               <h1 className="messages-index-sidebar-title">Conversations</h1>
               <ul className="messages-index-conversations-list">
@@ -171,7 +182,7 @@ class MessagesIndex extends React.Component {
           </div>
 
           
-          <div className="messages-index-selected-conversation">
+          <div id="messages-index-selected-conversation" className="messages-index-selected-conversation">
             <Route exact path="/messages/:conversationId" component={MessagesShowContainer} />
             {currentConvo}
           </div>
