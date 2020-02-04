@@ -37,7 +37,7 @@
   margin: 0 auto;
   margin-top: 55px;
   height: 200px;
-  width: 274px;
+  width: 273px;
 }
 
 .session-form label {
@@ -61,7 +61,7 @@
 
 .session-form button {
   margin-top: 20px;
-  width: 272px;
+  width: 273px;
   height: 35px;
   background-color: rgb(245, 123, 145);
   color: white;
@@ -112,9 +112,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(69, 69, 69, 0.235);
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -122,29 +122,32 @@
 }
 
 .demo-session-form-main {
-  width: 500px;
+  width: 450px;
   height: 400px;
-  margin: 7% auto;
-  top: 19vh;
+  position: absolute;
+  top: 22vh;
+  left: calc(50vw - 225px);
   border: 1px solid rgba(254, 209, 209, 0.968);
   border-radius: 10px;
-  position: absolute;
-  left: calc(50% - 250px);
   z-index: 2;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .demo-session-form {
-  margin: 0 auto;
-  margin-top: 55px;
-  height: 200px;
-  width: 250px;
+  /* margin: 0 auto; */
+  /* margin-top: 55px; */
+  /* height: 200px; */
+  /* width: 270px; */
 }
 
 .demo-session-form > label {
   display: block;
   margin-top: 20px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .demo-session-form > input {
@@ -161,13 +164,12 @@
 
 #demo-button {
   border: 1px solid gray;
-  border-radius: 5px;
-  background-color: lightgray;
+  /* border-radius: 5px; */
+  background-color: rgb(218, 218, 218);
   color: gray;
-  width: 200px;
-  height: 30px;
+  width: 271px;
+  height: 35px;
   font-size: 14px;
-  margin-left: 30px;
   cursor: default;
   margin-top: 20px;
 }
@@ -195,7 +197,15 @@
     width: 275px;
   }
 
+  .demo-session-form {
+    width: 275px;
+  }
+
   .session-form button {
+    width: 275px;
+  }
+
+  .demo-session-form button {
     width: 275px;
   }
 }
