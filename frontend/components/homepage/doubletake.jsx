@@ -171,20 +171,23 @@ class Doubletake extends React.Component {
               <div className="doubletake-current-profile-bottom-info-title">
                 <i className="fas fa-star"></i> { currentProfile.fname } is looking for:
               </div>  
-              <div className="doubletake-current-profile-bottom-info-title">{ currentProfile.looking_for }</div>
+              <div className="doubletake-profile-response">
+                { currentProfile.looking_for }
+              </div>
             </div>
 
             <div className="doubletake-current-profile-bottom-info-item">
               <div className="doubletake-current-profile-bottom-info-title">
                 <i className="fas fa-star"></i> {currentProfile.fname}'s Bio: 
               </div>
-              <div>
+              <div className="doubletake-profile-response">
                 { currentProfile.bio }
               </div>
             </div>
             <div className="doubletake-current-profile-common-traits-list">
               <div className="doubletake-current-profile-common-traits-description">
-                <i className="fas fa-star"></i> You and { currentProfile.fname } have these things in common:
+                <i className="fas fa-star"></i> Shared Traits: 
+                {/* <i className="fas fa-star"></i> You and { currentProfile.fname } have these things in common: */}
               </div>
               <ul>
                 { compatibilityTags }

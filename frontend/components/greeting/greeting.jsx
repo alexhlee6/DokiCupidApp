@@ -75,7 +75,7 @@ class Greeting extends React.Component {
       document.getElementById("nav-user-dropdown").style.height = "0px";
       this.setState({userDropdownOpen: false});
     } else {
-      document.getElementById("nav-user-dropdown").style.height = "350px";
+      document.getElementById("nav-user-dropdown").style.height = "380px";
       this.setState({userDropdownOpen: true});
     }
   }

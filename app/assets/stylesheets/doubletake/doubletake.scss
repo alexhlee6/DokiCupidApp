@@ -1,7 +1,7 @@
 .doubletake-main {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 150px);
   width: 100%;
   position: relative;
 
@@ -164,13 +164,13 @@
 .doubletake-current-profile-top-info {
   display: flex;
   font-size: 16px;
-  position: relative;
+  // position: relative;
   // color: rgb(159, 56, 83);
-  top: 20px;
+  // top: 20px;
   margin-left: 40px;
   width: 55%;
   height: 40px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   object-fit: contain;
   flex-wrap: nowrap;
 
@@ -180,7 +180,7 @@
 
 .doubletake-current-profile-top-info-link {
   height: 18px;
-  margin-top: 10px;
+  // margin-top: 10px;
   color: rgb(205, 70, 94);
   cursor: pointer;
   font-weight: bold;
@@ -262,6 +262,7 @@
   align-items: center;
   display: flex;
   flex-wrap: nowrap;
+  height: 36px;
 }
 
 .doubletake-current-profile-bottom-info-item {
@@ -312,9 +313,30 @@
 
 
 @media only screen and (max-width: 700px) {
+  .doubletake-current-profile-top-main {
+    flex-direction: column;
+  }
+
+  .doubletake-main {
+    
+  }
+
+  .doubletake-main-profile-view {
+    justify-content: unset;
+    top: -35px;
+  }
 
   .doubletake-current-profile-bottom-info {
-    width: 80%;
+    width: 90%;
+  }
+
+  .doubletake-current-profile-top-main {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .doubletake-current-profile-bottom-info-title .fa-star {
@@ -324,4 +346,75 @@
   .doubletake-current-profile-common-traits-list .fa-star {
     margin-left: 0px;
   }
+
+  .doubletake-current-profile-top-info {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+
+  .doubletake-current-profile-top-info-link {
+    margin-top: 10px;
+  }
+
+  .doubletake-current-profile-photo-list {
+    overflow-x: scroll;
+    width: 100%;
+    padding: 0;
+    justify-content: unset;
+  }
+
+  .doubletake-current-profile-photo-item {
+    overflow: unset;
+    border-radius: unset;
+    margin-right: 0;
+  }
+
+  .doubletake-current-profile-photo-list::-webkit-scrollbar {
+    display: hidden;
+    width: 0px;
+    height: 0px;
+    background: transparent; 
+  }
+
+  .doubletake-current-profile-bottom-info-item {
+    flex-wrap: wrap;
+  }
+
+  .doubletake-current-profile-bottom-info-item div {
+    width: 100%;
+  }
+
+  .doubletake-current-profile-common-traits-list {
+    flex-direction: column;
+  }
+
+  .doubletake-current-profile-common-traits-list > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: unset;
+    margin-left: 25px;
+  }
+
+  .doubletake-current-profile-common-traits-list > ul > li {
+    margin: 15px;
+    margin-left: 0px;
+    margin-top: 0px;
+    text-align: center;
+    width: 40%;
+  }
+
+  .doubletake-current-profile-top-info-compatibility {
+    text-align: center;
+  }
+
+  .doubletake-profile-response {
+    margin-left: 25px;
+  }
+
+  .page-header.doubletake-profiles-preview {
+    height: 130px;
+  }
+
+
 }

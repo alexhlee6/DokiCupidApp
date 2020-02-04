@@ -12,6 +12,7 @@
   z-index: 4;
   font-family: "Fredoka One";
   position: relative;
+  /* position: fixed; */
 }
 
 .header-navbar-left {
@@ -161,6 +162,10 @@
   cursor: pointer;
 }
 
+.navbar-greeting {
+  width: auto;
+}
+
 @media only screen and (min-width: 750px) {
   .navbar-greeting-username {
     display: block;
@@ -240,7 +245,7 @@
 
 
 .navbar-greeting .fa-bars, .fa-times {
-  font-size: 28px;
+  font-size: 32px;
   display: none;
   cursor: pointer;
   margin-left: 10px;
@@ -269,12 +274,16 @@
     transition: color 0.2s ease-in-out;
   }
 
-  #nav-user-dropdown li:hover .navlink-description {
+  #nav-user-dropdown li .navlink-description {
     transition: color 0.2s ease-in-out;
   }
 
+  #nav-user-dropdown li:hover .navlink-description {
+    color: rgb(252, 114, 137);
+  }
+
   #nav-user-dropdown li i {
-    margin-right: 20px;
+    margin-right: 15px;
     width: 28px;
   }
 
@@ -287,7 +296,7 @@
   }
 
   #nav-user-dropdown li:hover .navlink-description {
-    color: rgb(252, 114, 137);
+    /* color: rgb(252, 114, 137); */
   }
 
   #nav-user-dropdown .navlink-description {
@@ -301,6 +310,7 @@
 
   .navbar-greeting .fa-bars, .fa-times {
     display: block;
+    margin-left: 10px;
   }
 
   #current-user-photo-mobile {
