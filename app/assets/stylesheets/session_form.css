@@ -37,7 +37,7 @@
   margin: 0 auto;
   margin-top: 55px;
   height: 200px;
-  width: 273px;
+  width: 272px;
 }
 
 .session-form label {
@@ -138,10 +138,7 @@
 }
 
 .demo-session-form {
-  /* margin: 0 auto; */
-  /* margin-top: 55px; */
-  /* height: 200px; */
-  /* width: 270px; */
+  width: 272px;
 }
 
 .demo-session-form > label {

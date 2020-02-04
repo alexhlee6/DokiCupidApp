@@ -102,10 +102,13 @@
 /* NAVBAR RIGHT */
 
 .navbar-greeting {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
   margin-right: 18px;
   color: white;
+  align-items: center;
+  width: 78px;
+  justify-content: space-between;
 }
 
 .navbar-greeting-username {
@@ -142,7 +145,7 @@
   overflow: hidden;
   position: relative;
   border: 1px solid white;
-  bottom: 9px;
+  /* bottom: 9px; */
   left: 2px;
   display: flex;
   align-items: right;
@@ -233,4 +236,76 @@
   top: 20px;
   text-align: center;
   font-weight: bold;
+}
+
+
+.navbar-greeting .fa-bars, .fa-times {
+  font-size: 28px;
+  display: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+#current-user-photo-mobile {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 665px) {
+
+  .header-logo {
+    font-size: 35px;
+  }
+
+  .header-navbar-left > div {
+    display: none;
+  }
+
+  #nav-user-dropdown li {
+    display: flex;
+    justify-content: center;
+    transition: color 0.2s ease-in-out;
+  }
+
+  #nav-user-dropdown li:hover .navlink-description {
+    transition: color 0.2s ease-in-out;
+  }
+
+  #nav-user-dropdown li i {
+    margin-right: 20px;
+    width: 28px;
+  }
+
+  .navbar-greeting-username {
+    display: none;
+  }
+
+  .navbar-greeting-photo-container {
+    display: none;
+  }
+
+  #nav-user-dropdown li:hover .navlink-description {
+    color: rgb(252, 114, 137);
+  }
+
+  #nav-user-dropdown .navlink-description {
+    color: pink;
+    display: inline-block;
+  }
+
+  .navbar-logout-link > i {
+    display: none;
+  }
+
+  .navbar-greeting .fa-bars, .fa-times {
+    display: block;
+  }
+
+  #current-user-photo-mobile {
+    display: block;
+    height: 30px;
+    width: 30px;
+  }
 }

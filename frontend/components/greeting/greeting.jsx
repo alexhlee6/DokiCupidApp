@@ -12,13 +12,17 @@ class Greeting extends React.Component {
       displayingPhotoForm: false,
       photoUrl: null,
       photoFile: null,
-      dropdownOpen: false
+      dropdownOpen: false,
+      userDropdownOpen: false
     }
     this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
     this.handlePhotoInput = this.handlePhotoInput.bind(this);
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.currentUser && !prevProps.currentUser) {
+      this.setState({dropdownOpen: false, userDropdownOpen: false});
+    }
     if (this.props.currentUser && prevProps.currentUser) {
       if (prevProps.currentUser.photoUrl !== this.props.currentUser.photoUrl) {
         this.setState({ displayingPhotoForm: false });
@@ -66,6 +70,16 @@ class Greeting extends React.Component {
     }
   }
 
+  handleUserDropdown() { //when logged in
+    if (this.state.userDropdownOpen) {
+      document.getElementById("nav-user-dropdown").style.height = "0px";
+      this.setState({userDropdownOpen: false});
+    } else {
+      document.getElementById("nav-user-dropdown").style.height = "350px";
+      this.setState({userDropdownOpen: true});
+    }
+  }
+
   render() {
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
@@ -90,16 +104,63 @@ class Greeting extends React.Component {
 
     const navSessionLinks = (
         <div className="nav-session-dropdown" id="nav-session-dropdown">
-          <Link className="dropdown-session-link" to="/demo-login"
-            onClick={() => this.handleDropdownMenu()}
-          >Demo Login</Link>
-          <Link className="dropdown-session-link" to="/signup"
-            onClick={() => this.handleDropdownMenu()}
-          >Sign Up</Link>
-          <Link className="dropdown-session-link" to="/login"
-            onClick={() => this.handleDropdownMenu()}
-          >Log In</Link>
+          <li>
+            <Link className="dropdown-session-link" to="/demo-login"
+              onClick={() => this.handleDropdownMenu()}
+            >Demo Login</Link>
+          </li>
+          <li>
+            <Link className="dropdown-session-link" to="/signup"
+              onClick={() => this.handleDropdownMenu()}
+            >Sign Up</Link>
+          </li>
+          <li>
+            <Link className="dropdown-session-link" to="/login"
+              onClick={() => this.handleDropdownMenu()}
+            >Log In</Link>
+          </li>
         </div>
+    );
+
+    const navUserLinks = (
+      <ul className="nav-session-dropdown" id="nav-user-dropdown">
+        <li>
+          <Link to="/home" onClick={() => this.handleUserDropdown()}>
+            <i className="fas fa-home"></i>
+            <span className="navlink-description">Doubletake</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/explore" onClick={() => this.handleUserDropdown()}>
+            <i className="fas fa-compass"></i>
+            <span className="navlink-description">Explore</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/search" onClick={() => this.handleUserDropdown()}>
+            <i className="fas fa-search"></i>
+            <span className="navlink-description">Search</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/matches/my-matches" onClick={() => this.handleUserDropdown()}>
+            <i className="fas fa-heart"></i>
+            <span className="navlink-description">Matches</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/messages" onClick={() => this.handleUserDropdown()}>
+            <i className="fas fa-comment"></i>
+            <span className="navlink-description">Messages</span>
+          </Link>
+        </li>
+        <li>
+          <a onClick={logout}>
+          <i className="fas fa-power-off"></i>
+          <span className="navlink-description">Logout</span>
+          </a>
+        </li>
+      </ul>
     );
 
     const display = currentUser ? (
@@ -114,6 +175,12 @@ class Greeting extends React.Component {
         <Route exact path={`/profiles/new`} component={CreateProfileFormContainer} />
         
         <a className="navbar-logout-link" onClick={logout}><i className="fas fa-power-off"></i></a>
+
+        {navUserLinks}
+        <Link className="navbar-greeting-photo-container" id="current-user-photo-mobile" to={`/profiles/${this.props.currentUserProfileId}`}>
+          <img className="navbar-greeting-photo" src={currentUser.photoUrl} />
+        </Link>
+        <i className={this.state.userDropdownOpen ? "fas fa-times" : "fas fa-bars"} onClick={() => this.handleUserDropdown()}/>
       </div>
     ) : (
         // <div>

@@ -28,16 +28,22 @@
   display: none;
 }
 
+.nav-session-dropdown li {
+  display: flex;
+  justify-content: center;
+}
+
 .nav-session-dropdown a {
   font-size: 23px;
   font-family: "Roboto";
   font-weight: 500;
   padding: 0px 20px;
-  color: pink;
+  /* color: pink; */
   text-transform: uppercase;
   letter-spacing: 0.19em;
-  text-align: center;
-  transition: color 0.2s ease-in-out;
+  /* text-align: center; */
+  cursor: pointer;
+  /* transition: color 0.2s ease-in-out; */
 }
 
 
@@ -55,7 +61,16 @@
     display: flex;
   }
 
-  .nav-session-dropdown a:hover {
+  /* .nav-session-dropdown a:hover {
+    color: rgb(252, 114, 137);
+  } */
+
+  .nav-session-dropdown li {
+    color: pink;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .nav-session-dropdown li:hover {
     color: rgb(252, 114, 137);
   }
 

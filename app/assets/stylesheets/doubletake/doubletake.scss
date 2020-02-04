@@ -6,7 +6,7 @@
   position: relative;
 
   .page-header {
-    min-width: 865px;
+    // min-width: 865px;
     width: 100%;
   }
 }
@@ -14,8 +14,8 @@
 .doubletake-users-preview-list {
   width: 80%;
   overflow-x: scroll;
-  max-width: 70%;
-  min-width: 600px;
+  max-width: 80%;
+  // min-width: 600px;
   max-height: 500px;
   z-index: 10;
 	margin: 0px auto;
@@ -47,6 +47,13 @@
   z-index:0;
   position:relative;
 }
+}
+
+.doubletake-users-preview-list::-webkit-scrollbar {
+  display: hidden;
+  width: 0px;
+  height: 0px;
+  background: transparent; 
 }
 
 
@@ -97,22 +104,20 @@
   background-color:rgb(250, 101, 129);
   height: 250px;
   align-items: flex-start;
-  min-width: 865px;
+  // min-width: 865px;
 }
 
 .doubletake-main-profile-view {
-  min-width: 640px;
-  position: absolute;
+  position: relative;
   min-height: 650px;
-  width: 70%;
-  left: 14.9%;
+  width: 80%;
   margin: 0 auto;
   border-radius: 5px;
   background-color: white;
   border: 1px solid lightgray;
   border-top: none;
   z-index: 3;
-  top: 183px;
+  top: -150px;
   margin-bottom: 15px;
   overflow-x: scroll;
   display: flex;
@@ -289,3 +294,34 @@
   text-align: center;
 }
 
+@media only screen and (min-width: 1050px) {
+
+
+  .doubletake-main-profile-view {
+    width: 842px;
+  }
+
+  .doubletake-users-preview-list {
+    width: 842px;
+  }
+
+}
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+
+  .doubletake-current-profile-bottom-info {
+    width: 80%;
+  }
+
+  .doubletake-current-profile-bottom-info-title .fa-star {
+    margin-left: 0px;
+  }
+
+  .doubletake-current-profile-common-traits-list .fa-star {
+    margin-left: 0px;
+  }
+}
