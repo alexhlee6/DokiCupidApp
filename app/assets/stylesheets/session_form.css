@@ -16,9 +16,9 @@
 
 .session-form-main {
   margin: auto;
-  width: 500px;
+  width: 450px;
   height: 400px;
-  margin-top: 40px;
+  margin-top: 50px;
   border: 1px solid rgba(254, 209, 209, 0.968);
   border-radius: 10px;
   position: relative;
@@ -37,7 +37,7 @@
   margin: 0 auto;
   margin-top: 55px;
   height: 200px;
-  width: 250px;
+  width: 274px;
 }
 
 .session-form label {
@@ -61,11 +61,11 @@
 
 .session-form button {
   margin-top: 20px;
-  width: 255px;
-  height: 30px;
+  width: 272px;
+  height: 35px;
   background-color: rgb(245, 123, 145);
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -116,19 +116,21 @@
   height: 100%;
   background-color: rgba(0,0,0,0.4);
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .demo-session-form-main {
   width: 500px;
   height: 400px;
   margin: 7% auto;
-  left: 50%;
-  top: 13%;
-  margin-left: -250px;
+  top: 19vh;
   border: 1px solid rgba(254, 209, 209, 0.968);
   border-radius: 10px;
-  position: fixed;
-  z-index: 10;
+  position: absolute;
+  left: calc(50% - 250px);
+  z-index: 2;
   background-color: white;
 }
 
@@ -174,3 +176,26 @@
   background-color: rgb(196, 196, 196);
 }
 
+.demo-login-main .lds-heart {
+  top: 16vh;
+}
+
+@media only screen and (max-width: 450px) {
+
+  .demo-session-form-main {
+    width: 340px;
+    left: calc(50% - 175px);
+  }
+
+  .session-form-main {
+    width: 340px;
+  }
+
+  .session-form {
+    width: 275px;
+  }
+
+  .session-form button {
+    width: 275px;
+  }
+}

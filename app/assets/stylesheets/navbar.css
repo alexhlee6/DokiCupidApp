@@ -3,14 +3,11 @@
 
 .header-navbar {
   height: 65px;
-  /* height: 9vh; */
   width: 100%;
-  /* min-width: 500px; */
   background-color: rgb(250, 101, 129);
   border-bottom: 1px solid white;
   display: flex;
   align-items: center;
-  /* padding: 0px 20px; */
   justify-content: space-between;
   z-index: 4;
   font-family: "Fredoka One";

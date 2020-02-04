@@ -9,12 +9,13 @@
   height: 64px;
   transform: rotate(45deg);
   transform-origin: 32px 32px;
-  left: 49%;
-  top: 12%;
+  /* left: 49%;
+  top: 12%; */
+  /* top: 10vh; */
 }
 .lds-heart div {
-  top: 23px;
-  left: 19px;
+  /* top: 23px;
+  left: 19px; */
   position: absolute;
   width: 26px;
   height: 26px;

@@ -79,7 +79,7 @@ class DemoSessionForm extends React.Component {
     const { formType } = this.props;
 
     return (
-      <div>
+      <div className="demo-login-main">
       <div className="modal">
           <div className="lds-heart"><div></div></div>
       </div>
