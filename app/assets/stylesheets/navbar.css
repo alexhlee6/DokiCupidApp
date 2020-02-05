@@ -170,6 +170,8 @@
   .navbar-greeting-username {
     display: block;
   }
+
+  
 }
 
 
@@ -317,5 +319,15 @@
     display: block;
     height: 30px;
     width: 30px;
+  }
+}
+
+@media only screen and (min-width: 666px) {
+  .navbar-greeting .fa-times, .fa-bars {
+    display: none;
+  }
+
+  .nav-session-dropdown {
+    display: none;
   }
 }

@@ -224,3 +224,87 @@
   display: flex;
   justify-content: center;
 }
+
+
+@media only screen and (max-width: 720px) {
+
+  .profile-show-main {
+    min-width: unset;
+    width: 95%;
+  }
+
+
+  .profile-show-photos-list {
+
+    .profile-show-photos-item {
+      min-width: unset;
+      height: 400px;
+      width: 400px;
+    }
+
+    .profile-show-photos-item-showing {
+      min-width: unset;
+      height: unset;
+    }
+
+    img {
+      height: 400px
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+  .profile-show-photos-list {
+
+    .profile-show-photos-item {
+      height: 300px;
+      width: 300px;
+    }
+
+    img {
+      height: 300px
+    }
+
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .profile-show-photos-list {
+
+    .profile-show-photos-item {
+      height: 250px;
+      width: 250px;
+    }
+
+    img {
+      height: 250px
+    }
+
+  }
+
+  .profile-show-info-item {
+    flex-wrap: wrap;
+  }
+
+  .profile-show-info-description {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .profile-show-info-response {
+    // text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .profile-show-info-item > div {
+    display: unset;
+  }
+
+  .profile-show-info-compatibility-tag {
+    font-size: 12px;
+    padding: 2px 3px;
+  }
+}
