@@ -12,7 +12,11 @@ This application utilizes Rails and Postgres on the back-end, and React/Redux to
 
 *Note: DokiCupid was a two-week project submitted as part of App Academy's full-stack curriculum.*
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/splash.png)
+![splash page](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/splash.png)
+
+*Update (02/05/20): DokiCupid is now mobile-friendly!*
+
+![mobile view](./app/assets/images/collage.png)
 
 ---
 
@@ -36,7 +40,7 @@ This application utilizes Rails and Postgres on the back-end, and React/Redux to
 ## Homepage (Doubletake)
 After logging in, users are greeted with the **Doubletake** page which displays profile previews for users that the current user has not yet matched with. Users can see their match percentage with each displayed user and have the option to visit that user's profile. 
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/homepage_2.png)
+![home page](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/homepage_2.png)
 
 
 
@@ -46,7 +50,7 @@ The **Explore** page gives previews of all user profiles for users who are not y
 
 The **Search** page allows a user to filter prospective matches by tags including specific personality traits, gender identification, and what the other user is "looking for" on this app. Multiple tags may be specified at one time, and the results will display users that meet all of these requirements. Users can also choose to sort these results by compatibility percentage in increasing or decreasing order.
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/explore_search_2.png)
+![explore page](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/explore_search_2.png)
 
 A majority of my React components relied on knowing who the current user was already matched with, who they had previously "liked", and which users had "liked" them, in order to decide which information would be displayed. If the state did not already hold this information, a `GET` request was made to `/api/matches`.
 
@@ -92,14 +96,14 @@ When visiting one's own profile page, a user can choose to view, edit, or delete
 
 When users visit other users' profiles, they can "like", or request to be matched with, the user they are viewing. If the requested user chooses to "like" them back, a match is created which allows the two users to send messages to one another. 
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/profile_page_2.png)
+![profile page](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/profile_page_2.png)
 
 
 
 ## Matches and Messaging
 At the **Matches** page, users can see who they are currently matched with, who they "liked", and who "liked" them. When two users mutually "like" each other, the match is created, and one of the users can start a conversation with the other on the **Messages** page. Real-time chat between matched users is implemented using Action Cable in Rails. 
 
-![alt text](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
+![matches and messages](https://dokicupid-seeds.s3-us-west-1.amazonaws.com/matching_messaging_2.png)
 
 
 #### Handling Conversations 
@@ -207,11 +211,7 @@ I also defined a method `create` on `this.messages` which calls `handleSendEvent
 ---
 
 ### Future Directions
-1. Mobile-friendly user interface
-1. Add filter-by distance on Search page
-1. Uploading multiple photos at once in Profile Form
 1. Display errors for Profile Form create/edit, and other relevant errors (only login/signup errors currently)
-   1. Add validation checking zipcode entered is an existing US zipcode or ask users if they would like to use their current location instead of manually entering zipcode
 1. Use Google Maps API for accurate distance calculation
 1. Add more personality quiz questions for more specific compatibility ratings
 1. Notifications for new messages, matches, and likes
