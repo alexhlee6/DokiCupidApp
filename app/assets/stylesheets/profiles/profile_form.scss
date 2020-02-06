@@ -315,3 +315,60 @@ select {
 }
 
 
+@media only screen and (max-width: 600px) {
+
+  .profile-form-content {
+    min-width: unset;
+    margin: 10% auto;
+    overflow: hidden;
+  }
+
+  .profile-info-form {
+    // overflow: hidden;
+  }
+
+  .profile-form-preview-photos-list {
+    min-width: unset;
+  }
+
+  .profile-form-info-section > div > textarea {
+    width: unset;
+  }
+
+  .profile-form-gender-inputs {
+    flex-direction: column;
+  }
+
+
+
+}
+
+
+
+@media only screen and (max-width: 500px) { 
+  .profile-form-info-section > div {
+    flex-direction: column;
+    
+  }
+
+  .profile-form-gender-inputs {
+    margin-right: 10px;
+  }
+
+  .profile-form-compatibility-questions-main {
+    width: 90%;
+    text-align: center;
+  }
+
+  .profile-form-compatibility-question {
+    width: unset;
+    height: unset;
+    padding: 10px 5px;
+  }
+
+  .profile-form-compatibility-question > div {
+    width: 120px;
+    height: unset;
+
+  }
+}
