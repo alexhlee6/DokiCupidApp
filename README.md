@@ -18,6 +18,7 @@ This application utilizes Rails and Postgres on the back-end, and React/Redux to
 
 ![mobile view](./app/assets/images/collage.png)
 
+
 ---
 
 ## Technologies Used
