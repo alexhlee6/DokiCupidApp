@@ -11,9 +11,23 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <script>
+      window.addEventListener('load', function() {
+        document.getElementById("loadOverlay").style.display="none";
+      });
+    </script>
   </head>
 
   <body>
+    <div id="loadOverlay" style="background-color:#fff; position:absolute; top:0px; left:0px; width:100vw; height:120vh; z-index:2000; display:none;"></div>
+    <script>
+      document.getElementById("loadOverlay").style.display="block";
+    </script>
+
+    <noscript style="width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;">
+      You need JavaScript enabled to run this application :( 
+    </noscript>
+
     <%= yield %>
   </body>
 </html>
