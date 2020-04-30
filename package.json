@@ -7,7 +7,7 @@
     "@babel/preset-react": "^7.7.0",
     "actioncable": "^5.2.3",
     "babel-loader": "^8.0.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",
