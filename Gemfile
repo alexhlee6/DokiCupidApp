@@ -14,9 +14,13 @@ gem 'rack-cors'
 # gem "activestorage", git: "https://github.com/rails/activestorage.git"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+# gem 'rails', '~> 5.2.3'
+gem 'rails'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+# gem 'pg', '~> 0.18'
+# gem 'pg'
+gem 'pg', '~> 1.1'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -39,6 +43,9 @@ gem 'redis', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'minitest', '~> 5.16.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
