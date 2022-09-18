@@ -132,7 +132,8 @@
 }
 
 .navbar-greeting-username:hover {
-  color: rgb(245, 157, 172);
+  opacity: 0.7;
+  transition:all 0.2s ease-in-out;
 }
 
 .navbar-logout-link > i {
@@ -143,7 +144,8 @@
 }
 
 .navbar-logout-link > i:hover {
-  color: rgb(245, 157, 172);
+  opacity: 0.7;
+  transition:all 0.2s ease-in-out;
 }
 
 .navbar-greeting-photo-container {
@@ -157,7 +159,9 @@
   /* bottom: 9px; */
   left: 2px;
   display: flex;
-  align-items: right;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
   margin-right: 5px;
 }
 
@@ -166,7 +170,7 @@
 }
 
 .navbar-greeting-photo {
-  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
 
