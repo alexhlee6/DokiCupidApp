@@ -23,7 +23,7 @@
   border-radius: 10px;
   position: relative;
   background-color: white;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding-bottom: 80px;
 }
 
