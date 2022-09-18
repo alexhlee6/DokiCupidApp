@@ -80,16 +80,18 @@
   border-radius: 50%;
   height: 67px;
   width: 67px;
+  display: flex;
+  justify-content: center;
   margin: 0 5px;
   overflow: hidden;
   text-align: center;
-  display: inline-block;
+  // display: inline-block;
 }
 
 .doubletake-users-preview-photo {
   z-index: 0;
-  height: 67px;
-  width: 67px;
+  height: 100%;
+  object-fit: cover;
   cursor: pointer;
   display: block;
   transition: transform .4s
@@ -114,7 +116,6 @@
   margin: 0 auto;
   border-radius: 5px;
   background-color: white;
-  border: 1px solid lightgray;
   border-top: none;
   z-index: 3;
   top: -150px;
@@ -123,17 +124,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 
 
 .doubletake-current-profile-photo-list {
   display: flex;
-  width: max-content;
-  max-width: 95%;
+  width: 100%;
   justify-content: center;
-  margin: 0px auto;
-  padding: 0 10px;
+  margin: 20px auto;
+  padding: 0px;
   border-radius: 15px;
 }
 
@@ -141,7 +142,7 @@
   height: 250px;
   width: 250px;
   display: flex;
-  margin: 15px;
+  margin: 5px;
   border: 1px solid rgb(205, 205, 205);
   border-radius: 10px;
   justify-content: space-evenly;
@@ -157,34 +158,28 @@
 .doubletake-current-profile-top-main {
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 100%;
   align-items: center;
 }
 
 .doubletake-current-profile-top-info {
   display: flex;
   font-size: 16px;
-  // position: relative;
-  // color: rgb(159, 56, 83);
-  // top: 20px;
-  margin-left: 40px;
-  width: 55%;
+  margin-left: 0px;
+  width: 100%;
   height: 40px;
-  // margin-bottom: 20px;
   object-fit: contain;
   flex-wrap: nowrap;
-
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
 .doubletake-current-profile-top-info-link {
   height: 18px;
-  // margin-top: 10px;
   color: rgb(205, 70, 94);
   cursor: pointer;
   font-weight: bold;
-
+  min-width: max-content;
   display: flex;
   align-items: center;
 }
@@ -204,6 +199,7 @@
   justify-content: space-between;
   height: 100%;
   min-height: 600px;
+  padding: 50px;
 }
 
 .doubletake-current-profile-top-info-name {
@@ -212,23 +208,36 @@
   font-family: "Bebas Neue";
 }
 
-.doubletake-current-profile-bottom-info-title {
-  margin-right: 35px;
+.doubletake-current-profile-bottom-info-title, .doubletake-current-profile-common-traits-description {
+  margin-right: 0px;
   i {
     height: 16px;
   }
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary-color);
 }
-
+.doubletake-profile-response {
+  margin-left: 25px;
+  margin-right: 20px;
+  line-height: 1.4;
+  font-size: 16px;
+}
 .doubletake-current-profile-bottom-info {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   height: 100%;
   flex-grow: 1;
   margin: 0 auto;
   justify-content: space-evenly;
   align-items: flex-start;
 }
+
+.doubletake-current-profile-bottom-info i {
+  margin-left: 0px !important;
+}
+
 
 .doubletake-current-profile-common-traits-list {
   display: flex;
@@ -276,12 +285,11 @@
   width: 600px;
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  // justify-content: space-between;
+  flex-direction: column;
   margin-bottom: 10px;
-  align-items: center;
+  align-items: flex-start;
   div {
-    height: 36px;
+    // height: 36px;
     display: flex;
     align-items: center;
   }

@@ -66,12 +66,14 @@
   border-radius: 10px;
   border: 1.5px solid lightgray;
   margin: 10px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-index-user-photo {
-  /* width: 200px; */
-  height: 200px;
-  min-width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 .profile-index-user-fname {

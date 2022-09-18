@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #e85974;
+  --main-font-family: 'Roboto';
+}
+
 .page-container {
   position: relative;
   display: flex;

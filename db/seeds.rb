@@ -32,16 +32,25 @@ profile2 = Profile.new(user_id: "", fname: "Akko", zipcode: 92122, bio: "Believi
 
 
 
-user3 = User.create(username: "uenoyama", password: "uenoyama")
-  file3A = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/uenoyama1.jpg")
-  user3.photo.attach(io: file3A, filename: "uenoyama1.jpg")
-profile3 = Profile.new(user_id: "", fname: "Uenoyama", zipcode: 90005, bio: "I like rock music and playing the guitar.", identify_as: "Male", looking_for: "Relationship", compatibility_answers: "NYNYNYYN")
+user3 = User.create(username: "eichi_tenshouin", password: "eichi_tenshouin")
+  file3A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/1.webp")
+  user3.photo.attach(io: file3A, filename: "1.webp")
+  profile3 = Profile.new(
+    user_id: "", fname: "Eichi", zipcode: 90005, 
+    bio: "Eichi is the Idol representative and business executive for STARMAKER PRODUCTION. He is a calm and thoughtful leader who loves idols deeper than anyone else. Eichi sings with a gentle and delicate voice, with elegant performances brimming with warmth.", 
+    identify_as: "Male", looking_for: "Relationship", 
+    compatibility_answers: "NYNYNYYN"
+  )
   profile3.user_id = user3.id
   profile3.save
-  file3B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/uenoyama.jpg")
-  profile3.photos.attach(io: file3B, filename: "uenoyama.jpg")
-  file3C = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/uenoyama1.jpg")
-  profile3.photos.attach(io: file3C, filename: "uenoyama1.jpg")
+  file3B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/2.webp")
+  user3.photo.attach(io: file3B, filename: "2.webp")
+  file3C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/3.webp")
+  profile3.photos.attach(io: file3C, filename: "3.webp")
+  file3D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/4.webp")
+  profile3.photos.attach(io: file3D, filename: "4.webp")
+  file3E = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/5.webp")
+  profile3.photos.attach(io: file3E, filename: "5.webp")
 
 
 
