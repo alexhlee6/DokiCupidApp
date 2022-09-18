@@ -89,3 +89,21 @@ user5 = User.create(username: "niki_shiina", password: "niki_shiina")
   profile5.photos.attach(io: file5B, filename: "5B.webp")
   file5C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/3.webp")
   profile5.photos.attach(io: file5C, filename: "5C.webp")
+
+
+
+user6 = User.create(username: "arashi_narukami", password: "arashi_narukami")
+  file6A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/1.webp")
+  user6.photo.attach(io: file6A, filename: "6A.webp")
+  profile6 = Profile.new(
+    user_id: "", fname: "Arashi", zipcode: 91360, 
+    bio: "A self-proclaimed “big sister”. She is skilled at taking care of people and loves cute things. She has a friendly and sociable personality, but can occasionally have extreme mood swings. She has ample self-confidence when it comes to a refined performance and a light, gentle singing voice.", 
+    identify_as: "Female", looking_for: "Relationship", 
+    compatibility_answers: "YYNYNYNN"
+  )
+  profile6.user_id = user6.id
+  profile6.save
+  file6B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/2.webp")
+  profile6.photos.attach(io: file6B, filename: "6B.webp")
+  file6C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/3.webp")
+  profile6.photos.attach(io: file6C, filename: "6C.webp")
