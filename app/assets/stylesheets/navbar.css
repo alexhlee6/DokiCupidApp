@@ -73,7 +73,8 @@
 }
 
 .navlinks > li > a:hover {
-  color:  rgb(255, 185, 197);
+  opacity: 0.7;
+  transition: all 0.2s ease-in-out;
 }
 
 .navlink-description {
