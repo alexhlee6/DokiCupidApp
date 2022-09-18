@@ -62,10 +62,6 @@
     display: flex;
   }
 
-  /* .nav-session-dropdown a:hover {
-    color: rgb(252, 114, 137);
-  } */
-
   .nav-session-dropdown li {
     color: pink;
     transition: color 0.2s ease-in-out;
