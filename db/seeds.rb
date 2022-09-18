@@ -15,7 +15,7 @@ profile1 = Profile.new(user_id: "", fname: "DemoUser", zipcode: 94102, bio: "Thi
   profile1.user_id = user1.id
   profile1.save
   file1B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/default_boy.jpg")
-  profile1.photos.attach(io: file1B, filename: "default_boy.jpg")
+  profile1.photos.attach(io: file1B, filename: "default_boy2.jpg")
 
 
 
@@ -30,6 +30,8 @@ user2 = User.create(username: "izumi_sena", password: "izumi_sena")
   )
   profile2.user_id = user2.id
   profile2.save
+  file2D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/1.webp")
+  profile2.photos.attach(io: file2D, filename: "2D.webp")
   file2B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/2.webp")
   profile2.photos.attach(io: file2B, filename: "2B.webp")
   file2C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/3.webp")
@@ -48,8 +50,10 @@ user3 = User.create(username: "eichi_tenshouin", password: "eichi_tenshouin")
   )
   profile3.user_id = user3.id
   profile3.save
+  file3D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/1.webp")
+  profile3.photos.attach(io: file3D, filename: "3D.webp")
   file3B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/2.webp")
-  user3.photo.attach(io: file3B, filename: "3B.webp")
+  profile3.photos.attach(io: file3B, filename: "3B.webp")
   file3C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/3.webp")
   profile3.photos.attach(io: file3C, filename: "3C.webp")
 
@@ -67,10 +71,12 @@ user4 = User.create(username: "rei_sakuma", password: "rei_sakuma")
   )
   profile4.user_id = user4.id
   profile4.save
+  file4D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/1.webp")
+  profile4.photos.attach(io: file4D, filename: "4D.webp")
   file4B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/2.webp")
-  profile4.photos.attach(io: file4B, filename: "2.webp")
+  profile4.photos.attach(io: file4B, filename: "4B.webp")
   file4C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/3.webp")
-  profile4.photos.attach(io: file4C, filename: "3.webp")
+  profile4.photos.attach(io: file4C, filename: "4C.webp")
 
 
 
@@ -85,6 +91,8 @@ user5 = User.create(username: "niki_shiina", password: "niki_shiina")
   )
   profile5.user_id = user5.id
   profile5.save
+  file5D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/1.webp")
+  profile5.photos.attach(io: file5D, filename: "5D.webp")
   file5B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/2.webp")
   profile5.photos.attach(io: file5B, filename: "5B.webp")
   file5C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/3.webp")
@@ -103,6 +111,8 @@ user6 = User.create(username: "arashi_narukami", password: "arashi_narukami")
   )
   profile6.user_id = user6.id
   profile6.save
+  file6D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/1.webp")
+  profile6.photos.attach(io: file6D, filename: "6D.webp")
   file6B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/2.webp")
   profile6.photos.attach(io: file6B, filename: "6B.webp")
   file6C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/arashi/3.webp")
