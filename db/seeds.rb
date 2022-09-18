@@ -11,7 +11,11 @@ require 'open-uri'
 user1 = User.create(username: "demo_user", password: "demo_user")
   file1A = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/default_boy.jpg")
   user1.photo.attach(io: file1A, filename: "default_boy.jpg")
-profile1 = Profile.new(user_id: "", fname: "DemoUser", zipcode: 94102, bio: "This is the profile for a demo user!", identify_as: "Gender Neutral", looking_for: "True Love", compatibility_answers: "NNYNNYYY")
+  profile1 = Profile.new(
+    user_id: "", fname: "DemoUser", zipcode: 94102, bio: "This is the profile for a demo user!", 
+    identify_as: "Non-binary", looking_for: "True Love", 
+    compatibility_answers: "Extroverted/Dog Person/Methodical/Organized/Adventurous/Cooperative/Sensitive/Laid-back"
+  )
   profile1.user_id = user1.id
   profile1.save
   file1B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/default_boy.jpg")
@@ -26,7 +30,7 @@ user2 = User.create(username: "izumi_sena", password: "izumi_sena")
     user_id: "", fname: "Izumi", zipcode: 92122, 
     bio: "On top of his idol activities, Izumi engages in modelling in Europe. Stoic and high-strung, he also enjoys fussing over people who give him the chance to do so. He has a soulful singing voice and his performances are relaxed and beautiful.", 
     identify_as: "Male", looking_for: "Friends", 
-    compatibility_answers: "YNNYYNYY"
+    compatibility_answers: "Introverted/Cat Person/Creative/Carefree/Reserved/Independent/Head-strong/Laid-back"
   )
   profile2.user_id = user2.id
   profile2.save
@@ -46,7 +50,7 @@ user3 = User.create(username: "eichi_tenshouin", password: "eichi_tenshouin")
     user_id: "", fname: "Eichi", zipcode: 90005, 
     bio: "Eichi is the Idol representative and business executive for STARMAKER PRODUCTION. He is a calm and thoughtful leader who loves idols deeper than anyone else. Eichi sings with a gentle and delicate voice, with elegant performances brimming with warmth.", 
     identify_as: "Male", looking_for: "Relationship", 
-    compatibility_answers: "NYNYNYYN"
+    compatibility_answers: "Introverted/Dog Person/Methodical/Organized/Adventurous/Cooperative/Head-strong/Task-oriented"
   )
   profile3.user_id = user3.id
   profile3.save
@@ -67,7 +71,7 @@ user4 = User.create(username: "rei_sakuma", password: "rei_sakuma")
     bio: "A self-proclaimed vampire who possesses a wealth of knowledge, but is vulnerable in the morning. He has a strong connection with the comrades he considers family despite being so philosophically profound.
     Dotes on his younger brother Ritsu Sakuma. With a mellow voice that entices the audience, his performance is tender yet powerful.", 
     identify_as: "Male", looking_for: "Nothing Serious", 
-    compatibility_answers: "YNYYNYYN"
+    compatibility_answers: "Introverted/Dog Person/Creative/Carefree/Adventurous/Independent/Sensitive/Laid-back"
   )
   profile4.user_id = user4.id
   profile4.save
@@ -87,7 +91,7 @@ user5 = User.create(username: "niki_shiina", password: "niki_shiina")
     user_id: "", fname: "Niki", zipcode: 91350, 
     bio: "An idol who also works as a chef. He used to perform as part of a duo with Rinne Amagi. Though he's someone very easily swayed by the words of others, he has an overall chipper personality. He becomes wild and brusque once his stomach is empty. Normally, though, he has a friendly atmosphere about him and feels easy to talk to. With a mischievous voice, his performances are light and carefree.", 
     identify_as: "Male", looking_for: "Nothing Serious", 
-    compatibility_answers: "YYNYNYNN"
+    compatibility_answers: "Extroverted/Dog Person/Creative/Carefree/Adventurous/Cooperative/Sensitive/Laid-back"
   )
   profile5.user_id = user5.id
   profile5.save
@@ -107,7 +111,7 @@ user6 = User.create(username: "arashi_narukami", password: "arashi_narukami")
     user_id: "", fname: "Arashi", zipcode: 91360, 
     bio: "A self-proclaimed “big sister”. She is skilled at taking care of people and loves cute things. She has a friendly and sociable personality, but can occasionally have extreme mood swings. She has ample self-confidence when it comes to a refined performance and a light, gentle singing voice.", 
     identify_as: "Female", looking_for: "Relationship", 
-    compatibility_answers: "YYNYNYNN"
+    compatibility_answers: "Extroverted/Cat Person/Methodical/Organized/Adventurous/Cooperative/Sensitive/Laid-back"
   )
   profile6.user_id = user6.id
   profile6.save
