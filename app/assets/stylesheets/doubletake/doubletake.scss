@@ -339,6 +339,12 @@
     flex-direction: column;
   }
 
+  .doubletake-current-profile-show {
+    padding: 10px 25px;
+    padding-bottom: 50px;
+    width: calc(100% - 50px);
+  }
+
   .doubletake-main {
     
   }
@@ -346,10 +352,11 @@
   .doubletake-main-profile-view {
     justify-content: unset;
     top: -35px;
+    width: 85%;
   }
 
   .doubletake-current-profile-bottom-info {
-    width: 90%;
+    width: 100%;
   }
 
   .doubletake-current-profile-top-main {
@@ -403,7 +410,8 @@
   }
 
   .doubletake-current-profile-bottom-info-item div {
-    width: 100%;
+    width: auto;
+    margin-right: 0px;
   }
 
   .doubletake-current-profile-common-traits-list {
@@ -419,11 +427,10 @@
   }
 
   .doubletake-current-profile-common-traits-list > ul > li {
-    margin: 15px;
+    margin: 5px;
     margin-left: 0px;
     margin-top: 0px;
     text-align: center;
-    width: 40%;
   }
 
   .doubletake-current-profile-top-info-compatibility {
