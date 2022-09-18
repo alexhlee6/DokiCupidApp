@@ -19,22 +19,27 @@ profile1 = Profile.new(user_id: "", fname: "DemoUser", zipcode: 94102, bio: "Thi
 
 
 
-user2 = User.create(username: "alexlee", password: "alexlee")
-  file2A = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/akko.jpg")
-  user2.photo.attach(io: file2A, filename: "akko.jpg")
-profile2 = Profile.new(user_id: "", fname: "Akko", zipcode: 92122, bio: "Believing in myself is my magic!", identify_as: "Female", looking_for: "Friends", compatibility_answers: "YNNYYNYY")
+user2 = User.create(username: "izumi_sena", password: "izumi_sena")
+  file2A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/1.webp")
+  user2.photo.attach(io: file2A, filename: "2A.webp")
+  profile2 = Profile.new(
+    user_id: "", fname: "Izumi", zipcode: 92122, 
+    bio: "On top of his idol activities, Izumi engages in modelling in Europe. Stoic and high-strung, he also enjoys fussing over people who give him the chance to do so. He has a soulful singing voice and his performances are relaxed and beautiful.", 
+    identify_as: "Male", looking_for: "Friends", 
+    compatibility_answers: "YNNYYNYY"
+  )
   profile2.user_id = user2.id
   profile2.save
-  file2B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/akko.jpg")
-  profile2.photos.attach(io: file2B, filename: "akko.jpg")
-  file2C = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/akko2.png")
-  profile2.photos.attach(io: file2C, filename: "akko2.png")
+  file2B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/2.webp")
+  profile2.photos.attach(io: file2B, filename: "2B.webp")
+  file2C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/izumi/3.webp")
+  profile2.photos.attach(io: file2C, filename: "2C.webp")
 
 
 
 user3 = User.create(username: "eichi_tenshouin", password: "eichi_tenshouin")
   file3A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/1.webp")
-  user3.photo.attach(io: file3A, filename: "1.webp")
+  user3.photo.attach(io: file3A, filename: "3A.webp")
   profile3 = Profile.new(
     user_id: "", fname: "Eichi", zipcode: 90005, 
     bio: "Eichi is the Idol representative and business executive for STARMAKER PRODUCTION. He is a calm and thoughtful leader who loves idols deeper than anyone else. Eichi sings with a gentle and delicate voice, with elegant performances brimming with warmth.", 
@@ -44,40 +49,43 @@ user3 = User.create(username: "eichi_tenshouin", password: "eichi_tenshouin")
   profile3.user_id = user3.id
   profile3.save
   file3B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/2.webp")
-  user3.photo.attach(io: file3B, filename: "2.webp")
+  user3.photo.attach(io: file3B, filename: "3B.webp")
   file3C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/3.webp")
-  profile3.photos.attach(io: file3C, filename: "3.webp")
-  file3D = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/4.webp")
-  profile3.photos.attach(io: file3D, filename: "4.webp")
-  file3E = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/eichi/5.webp")
-  profile3.photos.attach(io: file3E, filename: "5.webp")
+  profile3.photos.attach(io: file3C, filename: "3C.webp")
 
 
 
-user4 = User.create(username: "fujiwara_chika", password: "fujiwara_chika")
-  file4A = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/chika_icon.jpg")
-  user4.photo.attach(io: file4A, filename: "chika_icon.jpg")
-profile4 = Profile.new(user_id: "", fname: "Chika", zipcode: 91104, bio: "Please increase the budget of the tabletop game club! :)", identify_as: "Female", looking_for: "Nothing Serious", compatibility_answers: "YNYYNYYN")
+user4 = User.create(username: "rei_sakuma", password: "rei_sakuma")
+  file4A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/1.webp")
+  user4.photo.attach(io: file4A, filename: "4A.webp")
+  profile4 = Profile.new(
+    user_id: "", fname: "Rei", zipcode: 91104, 
+    bio: "A self-proclaimed vampire who possesses a wealth of knowledge, but is vulnerable in the morning. He has a strong connection with the comrades he considers family despite being so philosophically profound.
+    Dotes on his younger brother Ritsu Sakuma. With a mellow voice that entices the audience, his performance is tender yet powerful.", 
+    identify_as: "Male", looking_for: "Nothing Serious", 
+    compatibility_answers: "YNYYNYYN"
+  )
   profile4.user_id = user4.id
   profile4.save
-  file4B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/chika1.jpg")
-  profile4.photos.attach(io: file4B, filename: "chika1.jpg")
-  file4C = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/chika_icon.jpg")
-  profile4.photos.attach(io: file4C, filename: "chika_icon.jpg")
-  file4D = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/chika2.jpg")
-  profile4.photos.attach(io: file4D, filename: "chika2.jpg")
+  file4B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/2.webp")
+  profile4.photos.attach(io: file4B, filename: "2.webp")
+  file4C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/rei/3.webp")
+  profile4.photos.attach(io: file4C, filename: "3.webp")
 
 
 
-user5 = User.create(username: "ishigami_senku", password: "ishigami_senku")
-  file5A = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/senku3.jpg")
-  user5.photo.attach(io: file5A, filename: "senku3.jpg")
-profile5 = Profile.new(user_id: "", fname: "Senku", zipcode: 91350, bio: "I'm going to use the power of science to rescue every single person", identify_as: "Male", looking_for: "Nothing Serious", compatibility_answers: "YYNYNYNN")
+user5 = User.create(username: "niki_shiina", password: "niki_shiina")
+  file5A = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/1.webp")
+  user5.photo.attach(io: file5A, filename: "5A.webp")
+  profile5 = Profile.new(
+    user_id: "", fname: "Niki", zipcode: 91350, 
+    bio: "An idol who also works as a chef. He used to perform as part of a duo with Rinne Amagi. Though he's someone very easily swayed by the words of others, he has an overall chipper personality. He becomes wild and brusque once his stomach is empty. Normally, though, he has a friendly atmosphere about him and feels easy to talk to. With a mischievous voice, his performances are light and carefree.", 
+    identify_as: "Male", looking_for: "Nothing Serious", 
+    compatibility_answers: "YYNYNYNN"
+  )
   profile5.user_id = user5.id
   profile5.save
-  file5B = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/senku.jpeg")
-  profile5.photos.attach(io: file5B, filename: "senku.jpeg")
-  file5C = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/senku3.jpg")
-  profile5.photos.attach(io: file5C, filename: "senku3.jpg")
-  file5D = URI.open("https://dokicupid-seeds.s3-us-west-1.amazonaws.com/senku2.jpg")
-  profile5.photos.attach(io: file5D, filename: "senku2.jpg")
+  file5B = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/2.webp")
+  profile5.photos.attach(io: file5B, filename: "5B.webp")
+  file5C = URI.open("https://dokicupid-seeds.s3.us-west-1.amazonaws.com/es/niki/3.webp")
+  profile5.photos.attach(io: file5C, filename: "5C.webp")
