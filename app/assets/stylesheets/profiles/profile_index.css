@@ -41,22 +41,22 @@
 }
 
 .profile-index-item {
-  /* width: 230px;
-  height: 315px; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   padding: 15px;
   background-color: white;
-  border: 1px solid rgb(235, 129, 147);
   border-radius: 10px;
   margin: 10px;
-  
+  box-shadow: var(--box-shadow);
+  border: 1px solid #eeeeee;
 }
 
 .profile-index-item:hover {
-  border: 3px solid rgb(235, 129, 147);
+  box-shadow: none;
+  border: 1px solid #e8597457;
+  background: #FAFAFA;
 }
 
 .profile-index-user-photo-container {
@@ -82,7 +82,10 @@
 
 .profile-index-user-compatibility {
   margin-top: 5px;
-  color: rgb(169, 73, 91);
+  color: var(--primary-color);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .profile-index-user-compatibility-missing {
