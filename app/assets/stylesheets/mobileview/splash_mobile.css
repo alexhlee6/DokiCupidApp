@@ -26,6 +26,7 @@
   overflow: hidden;
   justify-content: space-evenly;
   display: none;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
 }
 
 .nav-session-dropdown li {

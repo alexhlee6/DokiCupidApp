@@ -55,7 +55,16 @@ class ProfileIndex extends React.Component {
   render() {
 
     if (this.state.loading) {
-      return <div className="lds-heart page"><div></div></div>
+      return (
+        <div className="profile-index-main">
+          <div className="page-header">
+            <h1 className="page-title">Explore</h1>
+          </div>
+          <ul className="profile-index-list">
+          </ul>
+        </div>
+      )
+      // return <div className="lds-heart page"><div></div></div>
     }
 
     let profileItems = this.randomizeOrder(this.state.profiles);

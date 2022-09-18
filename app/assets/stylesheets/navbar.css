@@ -67,24 +67,32 @@
 .navlinks > li > a {
   font-size: 22px;
   margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navlinks > li > a:hover {
-  color:  rgb(255, 185, 197);
+  opacity: 0.7;
+  transition: all 0.2s ease-in-out;
 }
 
 .navlink-description {
   display: none;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1100px) {
   .navlink-description {
     display: inline-block;
     font-size: 15px;
     font-family: sans-serif;
-    /* position: relative; */
-    bottom: 2px;
+    margin: 0px;
+    margin-top: 1px;
     margin-left: 8px;
+    font-weight: bold;
+  }
+  .navlinks i {
+    font-size: 20px;
   }
 
   .navlinks > li > a {
@@ -92,7 +100,7 @@
   }
 
   .navlinks > li {
-    margin-right: 5px;
+    margin-right: 15px;
   }
 
 }
@@ -124,7 +132,8 @@
 }
 
 .navbar-greeting-username:hover {
-  color: rgb(245, 157, 172);
+  opacity: 0.7;
+  transition:all 0.2s ease-in-out;
 }
 
 .navbar-logout-link > i {
@@ -135,7 +144,8 @@
 }
 
 .navbar-logout-link > i:hover {
-  color: rgb(245, 157, 172);
+  opacity: 0.7;
+  transition:all 0.2s ease-in-out;
 }
 
 .navbar-greeting-photo-container {
@@ -149,7 +159,9 @@
   /* bottom: 9px; */
   left: 2px;
   display: flex;
-  align-items: right;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
   margin-right: 5px;
 }
 
@@ -158,7 +170,7 @@
 }
 
 .navbar-greeting-photo {
-  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
 

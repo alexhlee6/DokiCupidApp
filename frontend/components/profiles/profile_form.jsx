@@ -215,9 +215,9 @@ class ProfileForm extends React.Component {
                 <input 
                   id="identify_as" type="radio" 
                   onChange={this.handleGenderChange}
-                  name="gender" value="Other" 
-                  checked={this.state.selectedGender === "Other" ? true : false}
-                /> <p>Other</p>
+                  name="gender" value="Non-binary" 
+                  checked={this.state.selectedGender === "Non-binary" ? true : false}
+                /> <p>Non-binary</p>
               </div>
             </div>
             </div>

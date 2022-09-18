@@ -42,7 +42,24 @@ class Doubletake extends React.Component {
   render() {
 
     if (this.state.loading) {
-      return <div className="lds-heart page"><div></div></div>
+      return (<div className="doubletake-main">
+        <div className="page-header">
+          <div className="page-title">
+              Doubletake
+          </div>
+        </div>
+        <div className="page-header doubletake-profiles-preview">
+          <ul className="doubletake-users-preview-list">
+            <li className="doubletake-scroll-shadow"></li>
+            <li className="doubletake-scroll-shadow"></li>
+          </ul>
+        </div>
+
+        <div className="doubletake-main-profile-view">
+        </div> 
+      </div>)
+      // return <div className="lds-heart page"><div></div></div>
+      return null;
     }
 
     let usersPreview;
