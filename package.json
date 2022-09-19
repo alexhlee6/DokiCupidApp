@@ -32,7 +32,7 @@
     "start": "node --optimize_for_size --max_old_space_size=2560 webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
-    "webpack": "webpack --mode=development --watch"
+    "webpack": "webpack --mode=production --watch"
   },
   "repository": {
     "type": "git",
