@@ -28,13 +28,15 @@
     "test": "test"
   },
   "engines": {
-    "node": "v18.9.0",
+    "node": "v16.13.1",
     "npm": "8.19.1"
   },
   "scripts": {
+    "start": "node --optimize_for_size --max_old_space_size=2560 webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack",
-    "webpack": "webpack --mode=development --watch"
+    "postinstall": "node --optimize_for_size --max_old_space_size=2560 webpack",
+    "webpack": "webpack --mode=development --watch",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
