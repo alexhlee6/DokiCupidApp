@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
+  mode: 'production',
   entry: './frontend/dokicupid.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
