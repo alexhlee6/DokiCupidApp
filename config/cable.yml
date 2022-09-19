@@ -6,8 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= Rails.configuration.redis_params.fetch(:url) %>
+  url: <%= ENV["REDIS_URL"] %>
   channel_prefix: DokiCupid_production
   ssl_params:
-    verify_mode: <%= Rails.configuration.redis_params.dig(:ssl_params, :verify_mode) %>
-  
+    verify_mode: <%= OpenSSL::SSL::VERIFY_NONE %>
