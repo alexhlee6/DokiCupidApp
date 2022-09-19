@@ -23,5 +23,10 @@ module DokiCupid
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    redis_params = { url: ENV["REDIS_URL"] || 'redis://localhost:3000' }
+    redis_params[:ssl_params] = { verify_mode: OpenSSL::SSL::VERIFY_NONE } 
+
+    config.redis_params = redis_params
   end
 end
